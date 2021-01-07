@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour {
 
     public float maxSpeed;
 
+    public float rotationSpeed;
+
     private float thrustFromWaterJet = 0f;
 
     private Rigidbody boatRB;
@@ -34,6 +36,7 @@ public class PlayerController : MonoBehaviour {
 
     void FixedUpdate()
     {
+        Rotate();
         UpdateWaterJet();
     }
 
@@ -41,17 +44,19 @@ public class PlayerController : MonoBehaviour {
         //Steer left
         if (Input.GetKey(KeyCode.D))
         {
-            boatRotation_Y = boatTransform.localEulerAngles.y + 2f;
-            Vector3 newRotation = new Vector3(0f, boatRotation_Y, 0f);
-            boatTransform.localEulerAngles = newRotation;
+            boatRotation_Y = boatTransform.localEulerAngles.y + rotationSpeed;
         }
         //Steer right
         else if (Input.GetKey(KeyCode.A))
         {
-            boatRotation_Y = boatTransform.localEulerAngles.y - 2f;
-            Vector3 newRotation = new Vector3(0f, boatRotation_Y, 0f);
-            boatTransform.localEulerAngles = newRotation;
+            boatRotation_Y = boatTransform.localEulerAngles.y - rotationSpeed;
         }
+    }
+
+    void Rotate()
+    {
+        Vector3 newRotation = new Vector3(0f, boatRotation_Y, 0f);
+        boatTransform.localEulerAngles = newRotation;
     }
 
     void UpdateWaterJet()
