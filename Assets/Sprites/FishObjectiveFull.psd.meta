@@ -20,6 +20,33 @@ TextureImporter:
   - first:
       213: 3866248849191651596
     second: FishObjectiveFull_5
+  - first:
+      213: -8797944238499022660
+    second: FishObjectiveFull_0
+  - first:
+      213: -3025505057584963854
+    second: FishObjectiveFull_1
+  - first:
+      213: -6875380866368722035
+    second: FishObjectiveFull_2
+  - first:
+      213: -2454522640642989259
+    second: FishObjectiveFull_3
+  - first:
+      213: -131498221720634558
+    second: FishObjectiveFull_4
+  - first:
+      213: -1331675756727701650
+    second: FishObjectiveFull_5
+  - first:
+      213: -3175514075556743306
+    second: FishObjectiveFull_6
+  - first:
+      213: -2496335400168866027
+    second: FishObjectiveFull_7
+  - first:
+      213: 7513907567424328048
+    second: FishObjectiveFull_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -133,6 +160,69 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
+        y: 16
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb8329e145c67e580800000000000000
+      internalID: -8797944238499022660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishObjectiveFull_1
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 16
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fe10801e2f3306d0800000000000000
+      internalID: -3025505057584963854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishObjectiveFull_2
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8b2394878db590a0800000000000000
+      internalID: -6875380866368722035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FishObjectiveFull_3
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 8
         width: 7
         height: 7
@@ -143,14 +233,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd9a181799adf3950800000000000000
-      internalID: 6431099145477532123
+      spriteID: 5332257b9a8cfedd0800000000000000
+      internalID: -2454522640642989259
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FishObjectiveFull_1
+      name: FishObjectiveFull_4
       rect:
         serializedVersion: 2
         x: 8
@@ -164,14 +254,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3b7b402290847dc0800000000000000
-      internalID: -3642144833540490437
+      spriteID: 24bfeb56013dc2ef0800000000000000
+      internalID: -131498221720634558
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FishObjectiveFull_2
+      name: FishObjectiveFull_5
       rect:
         serializedVersion: 2
         x: 16
@@ -185,14 +275,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64ebe2152cabf0e20800000000000000
-      internalID: 3319076794143784518
+      spriteID: e6fee3c64ffe48de0800000000000000
+      internalID: -1331675756727701650
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FishObjectiveFull_3
+      name: FishObjectiveFull_6
       rect:
         serializedVersion: 2
         x: 0
@@ -206,14 +296,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0c1d6e1417576c40800000000000000
-      internalID: 5505464813405150219
+      spriteID: 677ff2bd5ce4ee3d0800000000000000
+      internalID: -3175514075556743306
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FishObjectiveFull_4
+      name: FishObjectiveFull_7
       rect:
         serializedVersion: 2
         x: 8
@@ -227,14 +317,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2be4677834e9a79a0800000000000000
-      internalID: -6234496721268355406
+      spriteID: 51fb3b00e2c3b5dd0800000000000000
+      internalID: -2496335400168866027
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FishObjectiveFull_5
+      name: FishObjectiveFull_8
       rect:
         serializedVersion: 2
         x: 16
@@ -248,8 +338,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c09c45518dca7a530800000000000000
-      internalID: 3866248849191651596
+      spriteID: 07152774f13c64860800000000000000
+      internalID: 7513907567424328048
       vertices: []
       indices: 
       edges: []
