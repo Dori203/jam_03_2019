@@ -7,29 +7,24 @@ using UnityEngine.PlayerLoop;
 public class PlayerController : MonoBehaviour { 
     //Drags
     public Transform boatTransform;
+    private Rigidbody boatRB;
 
     //How fast should the engine accelerate?
     public float powerFactor;
-
     public float maxSpeed;
-
     public float rotationSpeed;
-
     private float thrustFromWaterJet = 0f;
-
-    private Rigidbody boatRB;
-
     private float boatRotation_Y = 0f;
-
-    private bool directionFlip;
-
+    private float rotationDirection = -1f;
+    private bool rotating = false;
     void Start() 
 	{
         boatRB = GetComponent<Rigidbody>();
-    }
+        rotationDirection = -1f;
+        rotating = false;
+}
 
-
-    void Update() 
+void Update() 
 	{
         UserInput();
     }
@@ -42,21 +37,25 @@ public class PlayerController : MonoBehaviour {
 
     void UserInput() {
         //Steer left
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            boatRotation_Y = boatTransform.localEulerAngles.y + rotationSpeed;
+            rotating = true;
+            rotationDirection *= -1f;
         }
-        //Steer right
-        else if (Input.GetKey(KeyCode.A))
+        if (Input.GetKeyUp(KeyCode.Space))
         {
-            boatRotation_Y = boatTransform.localEulerAngles.y - rotationSpeed;
+            rotating = false;
         }
     }
 
     void Rotate()
     {
-        Vector3 newRotation = new Vector3(0f, boatRotation_Y, 0f);
-        boatTransform.localEulerAngles = newRotation;
+        if (rotating)
+        {
+            boatRotation_Y = boatTransform.localEulerAngles.y + rotationSpeed * rotationDirection;
+            Vector3 newRotation = new Vector3(0f, boatRotation_Y, 0f);
+            boatTransform.localEulerAngles = newRotation;
+        }
     }
 
     void UpdateWaterJet()
