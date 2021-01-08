@@ -2806,7 +2806,7 @@ GameObject:
   - component: {fileID: 304351660}
   - component: {fileID: 304351659}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2829,7 +2829,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 91, y: 68}
+  m_SizeDelta: {x: 84, y: 68}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &304351659
 MonoBehaviour:
@@ -3274,7 +3274,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 369458005}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 516.9, z: 0}
+  m_LocalPosition: {x: 0, y: 500, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1427916488}
@@ -3293,8 +3293,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RenderShadows: 1
-  m_RequiresDepthTextureOption: 2
-  m_RequiresOpaqueTextureOption: 2
+  m_RequiresDepthTextureOption: 0
+  m_RequiresOpaqueTextureOption: 0
   m_CameraType: 0
   m_Cameras: []
   m_RendererIndex: -1
@@ -5433,13 +5433,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rocks:
-  - {fileID: 3678170472814612209, guid: 7b7a7c07b15d03741879b295a0cd6f9a, type: 3}
-  - {fileID: 3123118792407460161, guid: dab559f4688758b41a817c1b58b9075c, type: 3}
-  - {fileID: 5117336499475531346, guid: 0035a0e3a2683a748b841652e4513de5, type: 3}
-  - {fileID: 1065306230234527191, guid: 5c95f91c267edc241a2c0aca839a48a6, type: 3}
-  - {fileID: 2290162969951747056, guid: 2a364e634b3c44d428325563ede1e1e4, type: 3}
-  - {fileID: 6578677003109671435, guid: 6e4e38e62cf1228458e18a1efda4eb2b, type: 3}
-  - {fileID: 613554453822275130, guid: ec42e631dec2bac478178a58599561c9, type: 3}
+  - {fileID: 8216418684737746695, guid: 383604907c71c6d43b5eb2aa2ee39b9f, type: 3}
+  - {fileID: 8216418684737746695, guid: 8c12e75f2f2101e44b5e9f58aa09a445, type: 3}
+  - {fileID: 8216418684737746695, guid: 8205b92e9c8562a419fa6c0a3413a278, type: 3}
+  - {fileID: 8216418684737746695, guid: 286e12c49b3725242b0d6d7be22f1002, type: 3}
+  - {fileID: 8216418684737746695, guid: 113f52e3bd0bf2943a526bc8223d1d48, type: 3}
+  - {fileID: 8216418684737746695, guid: b06932ecd51c5d84f8ea0eb568cac4aa, type: 3}
+  - {fileID: 8216418684737746695, guid: c8a2f7c16fe130d45a30fca68119dbed, type: 3}
   numberOfRocks: 120
   squareLength: 480
   rockMinScale: 2
@@ -23316,7 +23316,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1589413904}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.85, y: 0.05, z: -0.249}
+  m_LocalPosition: {x: -0.85, y: 0.05, z: -0.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1811333797}
