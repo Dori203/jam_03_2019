@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4419121337381960379}
   - component: {fileID: 331679569939586352}
   - component: {fileID: 7432152717120864204}
+  - component: {fileID: 8229326783711232450}
   m_Layer: 0
   m_Name: Rock
   m_TagString: Untagged
@@ -94,3 +95,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iconSprite: {fileID: 21300000, guid: 3b5bf7f0553afea43bc72afaf13fc3d7, type: 3}
   iconScale: 10
+--- !u!64 &8229326783711232450
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3678170472814612209}
+  m_Material: {fileID: 13400000, guid: 5789017a7f9f36f49bd42a7eacd03200, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -301168799212292661, guid: 47109c731d965f3489434410b9676c10, type: 3}
