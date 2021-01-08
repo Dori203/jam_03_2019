@@ -1062,7 +1062,7 @@ RectTransform:
   - {fileID: 1345447462}
   - {fileID: 782084543}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1862,7 +1862,6 @@ GameObject:
   m_Component:
   - component: {fileID: 198599073}
   - component: {fileID: 198599075}
-  - component: {fileID: 198599074}
   - component: {fileID: 198599076}
   - component: {fileID: 198599077}
   m_Layer: 0
@@ -1886,14 +1885,6 @@ Transform:
   m_Father: {fileID: 1427916488}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 45, y: 22.5, z: 0}
---- !u!81 &198599074
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 198599072}
-  m_Enabled: 0
 --- !u!20 &198599075
 Camera:
   m_ObjectHideFlags: 0
@@ -3257,7 +3248,6 @@ GameObject:
   m_Component:
   - component: {fileID: 369458006}
   - component: {fileID: 369458009}
-  - component: {fileID: 369458008}
   - component: {fileID: 369458007}
   m_Layer: 0
   m_Name: Map Camera
@@ -3311,14 +3301,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!81 &369458008
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 369458005}
-  m_Enabled: 1
 --- !u!20 &369458009
 Camera:
   m_ObjectHideFlags: 0
@@ -5414,7 +5396,7 @@ GameObject:
   - component: {fileID: 599878145}
   - component: {fileID: 599878144}
   m_Layer: 0
-  m_Name: Rocks
+  m_Name: Rock Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5445,6 +5427,7 @@ MonoBehaviour:
   rockMinScale: 2
   rockMaxScale: 7
   heightVariation: 2
+  restrictAreaSize: 40
 --- !u!4 &599878145
 Transform:
   m_ObjectHideFlags: 0
@@ -5464,7 +5447,7 @@ Transform:
   - {fileID: 2134926276}
   - {fileID: 1320395416}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &600174850
 GameObject:
@@ -36849,7 +36832,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2144639161}
   - component: {fileID: 2144639163}
-  - component: {fileID: 2144639162}
   - component: {fileID: 2144639164}
   - component: {fileID: 2144639165}
   m_Layer: 0
@@ -36873,14 +36855,6 @@ Transform:
   m_Father: {fileID: 1427916488}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!81 &2144639162
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2144639160}
-  m_Enabled: 0
 --- !u!20 &2144639163
 Camera:
   m_ObjectHideFlags: 0
