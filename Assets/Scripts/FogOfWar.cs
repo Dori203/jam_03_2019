@@ -27,6 +27,7 @@ public class FogOfWar : MonoBehaviour
     void Start()
     {
         Initialize();
+
         m_mesh = ground.GetComponent<MeshFilter>().mesh;
         m_vertices = m_mesh.vertices;
         m_colors = new Color[m_vertices.Length];
