@@ -15,6 +15,8 @@ public class KillingCamera : ListeningMonoBehaviour {
     [SerializeField] private bool followRotation;
 
     private bool mosquitoesEngagedMode;
+
+    public GameObject Mosquito;
         
     private void LateUpdate()
     {
@@ -24,7 +26,8 @@ public class KillingCamera : ListeningMonoBehaviour {
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, player.rotation * rotationOffset, 45.0f * Time.deltaTime);
         } else if (mosquitoesEngagedMode) {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 1f, 0), 45.0f * Time.deltaTime);
+            Vector3 relativePos = Mosquito.transform.position - transform.position;
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(relativePos, Vector3.up), 45.0f * Time.deltaTime);
         }
     }
 
