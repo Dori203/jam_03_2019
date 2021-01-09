@@ -26,6 +26,8 @@ public class FogOfWar : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Initialize();
+
         m_mesh = ground.GetComponent<MeshFilter>().mesh;
         m_vertices = m_mesh.vertices;
         m_colors = new Color[m_vertices.Length];
@@ -33,7 +35,6 @@ public class FogOfWar : MonoBehaviour
         {
             m_colors[i] = initialColor;
         }
-        Initialize();
     }
 
     // Update is called once per frame
