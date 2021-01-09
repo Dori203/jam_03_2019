@@ -2013,6 +2013,7 @@ GameObject:
   - component: {fileID: 198599075}
   - component: {fileID: 198599076}
   - component: {fileID: 198599077}
+  - component: {fileID: 198599074}
   m_Layer: 0
   m_Name: Exploration Camera
   m_TagString: Untagged
@@ -2034,6 +2035,28 @@ Transform:
   m_Father: {fileID: 1427916488}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 45, y: 22.5, z: 0}
+--- !u!114 &198599074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198599072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0150bbf50d759f2409b3e07c18f1f51a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 866370234}
+  fogLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  radius: 5
+  initialColor: {r: 0.54901963, g: 0.24705884, b: 0.3372549, a: 1}
+  fogMaterial: {fileID: 2100000, guid: 286025006304e8c4685329b1a66ac20c, type: 2}
+  UVLength: 250
+  center: {x: 0, y: 0, z: 0}
+  edgeLength: 500
 --- !u!20 &198599075
 Camera:
   m_ObjectHideFlags: 0
