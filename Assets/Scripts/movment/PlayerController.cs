@@ -46,16 +46,6 @@ void Update()
         {
             rotating = false;
         }
-        // todo delete
-        if (Input.GetKeyUp(KeyCode.T))
-        {
-            GameManager.Instance.MosquitoesTriggered(true);
-        }
-        if (Input.GetKeyUp(KeyCode.Y))
-        {
-            GameManager.Instance.MosquitoesTriggered(false);
-        }
-        // todo delete
     }
 
     void Rotate()
