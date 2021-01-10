@@ -13,6 +13,8 @@ public class KillingCamera : ListeningMonoBehaviour {
     [SerializeField] private Vector3 positionOffset;
     [SerializeField] private Quaternion rotationOffset;
     [SerializeField] private bool followRotation;
+    [SerializeField] private GameObject aim;
+
 
     private bool mosquitoesEngagedMode;
 
@@ -26,6 +28,7 @@ public class KillingCamera : ListeningMonoBehaviour {
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, player.rotation * rotationOffset, 45.0f * Time.deltaTime);
         } else if (mosquitoesEngagedMode) {
+            aim.SetActive(true);
             Vector3 relativePos = Mosquito.transform.position - transform.position;
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(relativePos, Vector3.up), 45.0f * Time.deltaTime);
         }

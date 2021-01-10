@@ -32,6 +32,8 @@ public class MosquitoController : MonoBehaviour
             Debug.Log("touched");
             this.transform.SetParent(other.transform);
             rb.isKinematic = true;
+            //activate camera zoom in on mosquito
+            GameManager.Instance.MosquitoesTriggered(true);
         }
 
     }
