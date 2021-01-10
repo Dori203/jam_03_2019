@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class FishingGame : MonoBehaviour
 {
+    [SerializeField] private List<GameObject> fishTypes;
+    [SerializeField] private GameObject fishBox;
     private int fishCount;
+
+    [SerializeField] private ParticleSystem fishParticle;
 
     [SerializeField] private float minIdleTime;
     [SerializeField] private float maxIdleTime;
@@ -92,6 +96,7 @@ public class FishingGame : MonoBehaviour
                     Debug.Log("catch");
                     fishCount += 1;
                     rod = rodState.Idle;
+                    SpawnFish();
                     break;
                 }
                 break;
@@ -106,5 +111,16 @@ public class FishingGame : MonoBehaviour
     private void SetPokes()
     {
         pokeCount = Random.Range(minPokes, maxPokes);
+    }
+
+    private void SpawnFish()
+    {
+        fishParticle.Play();
+        Vector3 offset = new Vector3(0f, 0.5f, 0f);
+        int typeIndex = Random.Range(0, fishTypes.Count-1);
+        {
+            GameObject currentFish = Instantiate(fishTypes[typeIndex], fishBox.transform.position + offset, Quaternion.Euler(90,Random.Range(0,360),0), transform);
+            currentFish.transform.SetParent(fishBox.transform);
+        }
     }
 }
