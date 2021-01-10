@@ -29,7 +29,11 @@ public class MosquitoController : MonoBehaviour
         if (other.tag == "MosquitoLimit")
         {
             inRaft = true;
+            Debug.Log("touched");
+            this.transform.SetParent(other.transform);
+            rb.isKinematic = true;
         }
+
     }
 
 }
