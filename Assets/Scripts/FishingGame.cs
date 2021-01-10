@@ -8,7 +8,8 @@ public class FishingGame : MonoBehaviour
     [SerializeField] private GameObject fishBox;
     private int fishCount;
 
-    [SerializeField] private ParticleSystem fishParticle;
+    [SerializeField] private ParticleSystem catchParticle;
+    [SerializeField] private ParticleSystem pokeParticles;
 
     [SerializeField] private float minIdleTime;
     [SerializeField] private float maxIdleTime;
@@ -63,6 +64,7 @@ public class FishingGame : MonoBehaviour
                     pokeCount -= 1;
                     StartCountdown(minPokeTime, maxPokeTime);
                     rodAnimator.Play("poke");
+                    pokeParticles.Play();
                     Debug.Log("poke");
                 }
                 if ((pokeCount) == 0)
@@ -95,6 +97,7 @@ public class FishingGame : MonoBehaviour
                     rodAnimator.Play("catch");
                     Debug.Log("catch");
                     fishCount += 1;
+                    StartCountdown(minIdleTime, maxIdleTime);
                     rod = rodState.Idle;
                     SpawnFish();
                     break;
@@ -115,7 +118,7 @@ public class FishingGame : MonoBehaviour
 
     private void SpawnFish()
     {
-        fishParticle.Play();
+        catchParticle.Play();
         Vector3 offset = new Vector3(0f, 0.5f, 0f);
         int typeIndex = Random.Range(0, fishTypes.Count-1);
         {
