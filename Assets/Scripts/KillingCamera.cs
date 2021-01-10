@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Helpers;
 using UnityEngine;
-using UnityEngine.XR.WSA.Input;
+//using UnityEngine.XR.WSA.Input;
 
 public class KillingCamera : ListeningMonoBehaviour {
     protected override List<BaseListener> Listeners => new List<BaseListener>() {

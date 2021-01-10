@@ -18,6 +18,11 @@ public class MarkScript : MonoBehaviour
         icon.layer = LayerMask.NameToLayer("Map");
         iconRenderer = icon.AddComponent<SpriteRenderer>();
         iconRenderer.sprite = iconSprite;
-        icon.transform.SetParent(this.transform);
+        //icon.transform.SetParent(this.transform);
+    }
+
+    private void Update()
+    {
+        icon.transform.position = transform.position;
     }
 }
