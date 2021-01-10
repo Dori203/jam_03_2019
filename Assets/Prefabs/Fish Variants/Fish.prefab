@@ -216,6 +216,8 @@ MonoBehaviour:
   timerMax: 1
   forceFactor: 0.03
   torqueFactor: 0.1
+  typeIndex: 0
+  fishObjective: {fileID: 0}
   sortOrder: 0
 --- !u!1 &6441129777697132171
 GameObject:

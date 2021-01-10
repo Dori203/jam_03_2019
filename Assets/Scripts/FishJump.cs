@@ -9,7 +9,8 @@ public class FishJump : MonoBehaviour
     [SerializeField] private float timerMax;
     [SerializeField] private float forceFactor;
     [SerializeField] private float torqueFactor;
-
+    [SerializeField] private int typeIndex;
+    [SerializeField] FishObjective fishObjective;
     [SerializeField] private int sortOrder;
     private SpriteMask spriteMask;
     private SpriteRenderer spriteRenderer;
@@ -19,6 +20,8 @@ public class FishJump : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        fishObjective = GameObject.Find("Fish Objective").GetComponent<FishObjective>();
+        fishObjective.EarnToken(typeIndex);
         timer = Random.Range(timerMin, timerMax);
         rb = GetComponent<Rigidbody>();
         spriteMask = GetComponent<SpriteMask>();
@@ -40,5 +43,7 @@ public class FishJump : MonoBehaviour
             timer = timer = Random.Range(timerMin, timerMax);
         }
     }
+
+
 }
 
