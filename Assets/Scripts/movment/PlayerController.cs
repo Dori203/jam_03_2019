@@ -37,15 +37,16 @@ void Update()
 
     void UserInput() {
         //Steer left
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             rotating = true;
             rotationDirection *= -1f;
         }
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.Alpha2))
         {
             rotating = false;
         }
+        /*
         // todo delete
         if (Input.GetKeyUp(KeyCode.T))
         {
@@ -56,6 +57,7 @@ void Update()
             //GameManager.Instance.MosquitoesTriggered(false);
         }
         // todo delete
+        */
     }
 
     void Rotate()
