@@ -7,72 +7,105 @@ using UnityEngine.XR.WSA.Input;
 public class AimController : ListeningMonoBehaviour
 {
     protected override List<BaseListener> Listeners => new List<BaseListener>() {
+        new BaseListener<bool> {Event = GameManager.Channels.MosquitoesInCamera.GetPath(), Callback = mosquitoesInCameraMode},
         new BaseListener<bool> {Event = GameManager.Channels.MosquitoesEngaged.GetPath(), Callback = mosquitoesEngaged}
+        
     };
 
+    private IEnumerator coroutine;
 
-    [SerializeField] private GameObject killingCamera;
+    [SerializeField] private Camera killingCamera;
     [SerializeField] private float aimSpeed;
     [SerializeField] private bool doriTest;
 
 
     public GameObject mosquito;
-    [SerializeField] private LayerMask AimLayer;
+    public GameObject mosquito_2;
 
-    private Vector3 targetPosition = new Vector3(-0.4f, -0.4f, 1);
+    [SerializeField] private LayerMask mosquitosLayer;
+
+    private Vector3 targetPosition;
     private bool mosquitoesEngagedMode;
+    private bool mosquitoesInCamera;
+
     private bool first = true;
+    private bool targetSet = false;
 
-    // Start is called before the first frame update
-    void Start()
+    void Update()
     {
-        
-    }
-
-    private void LateUpdate()
-    {
-        if (mosquitoesEngagedMode)
-        {
-            if(targetPosition == null)
-            {
-                findNextTarget();
-            }
-            //Move Aim towards mosquito.
-            float step = aimSpeed * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
-        }
-
-        if (doriTest)
+        if (mosquitoesInCamera)
         {
             if (first)
             {
-                targetPosition = transform.InverseTransformPoint(mosquito.transform.position);
-                Debug.Log("target");
-                //Move Aim towards given target.
-                Debug.Log(targetPosition);
+                StartCoroutine(findNextTarget());
                 first = false;
             }
-
-            transform.localPosition = Vector3.MoveTowards(transform.localPosition, targetPosition, 0.01f);
+            if (targetSet) { 
+            {
+                transform.localPosition = Vector3.MoveTowards(transform.localPosition, targetPosition, aimSpeed);
+                }
+            }
 
         }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            RaycastHit hit;
+            Vector3 dir = transform.position - killingCamera.transform.position;
+
+            int layerMask = 1 << 15;
+            //try to hit mosquitos only.
+            if (Physics.Raycast(killingCamera.transform.position, dir, out hit, 1000f,  layerMask))
+            {
+                Debug.Log("hit!");
+                Debug.Log(hit.transform.name);
+                hit.transform.gameObject.SetActive(false);
+             
+            }
+        }
+
     }
 
-    private void findNextTarget()
+    IEnumerator findNextTarget()
     {
-        //TODO: choose randomly a target from all targets on screen.
-        Ray r = new Ray(killingCamera.transform.position, mosquito.transform.position);
+        //wait for 0.5 a second.
+        yield return new WaitForSeconds(0.5f);
+
         RaycastHit hit;
-        if (Physics.Raycast(r, out hit, 10000, AimLayer))
-        {
-            targetPosition = hit.point;
-            Debug.Log(hit.point);
-        }
-        //TODO else - find a random target on screen.
+        RaycastHit hit2;
+
+        //Make Ray hit only aim layer.
+        int layerMask = 1 << 18;
+            Vector3 dir2 = mosquito.transform.position - killingCamera.transform.position;
+        if (Physics.Raycast(killingCamera.transform.position, dir2, out hit, 10000, layerMask))
+            {
+            targetPosition = killingCamera.transform.InverseTransformPoint(hit.point) - hit.transform.localPosition;
+            targetPosition.z = transform.localPosition.z;
+            targetSet = true;
+
+            }
     }
 
     private void mosquitoesEngaged(bool MosquitoesTriggered)
     {
         mosquitoesEngagedMode = MosquitoesTriggered;
+    }
+
+    private void mosquitoesInCameraMode(bool MosquitoesInCameraTriggered)
+    {
+        mosquitoesInCamera = MosquitoesInCameraTriggered;
+    }
+
+    private IEnumerable waitFor2Sec()
+    {
+        yield return StartCoroutine(WaitAndPrint(1.0f));
+    }
+
+    private IEnumerator WaitAndPrint(float waitTime)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(waitTime);
+            print("WaitAndPrint " + Time.time);
+        }
     }
 }
