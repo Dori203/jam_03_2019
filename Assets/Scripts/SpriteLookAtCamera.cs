@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class SpriteLookAtCamera : MonoBehaviour
 {
-    [SerializeField] private Camera cameraToLookAt;
+    private Camera cameraToLookAt;
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(tag == "mosquitoSprite")
+        {
+            cameraToLookAt = GameObject.Find("killingCamera").GetComponent<Camera>();
+        }
     }
 
     // Update is called once per frame
