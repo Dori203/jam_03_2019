@@ -30,8 +30,8 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
         Messenger<bool>.Broadcast(Channels.MosquitoesEngaged.GetPath(), MosquitoesTriggeredMode, MessengerMode.DONT_REQUIRE_LISTENER);
     }
 
-    public void MosquitoeHit()
+    public void MosquitoeHit(int MosquitoeNumber)
     {
-        Messenger.Broadcast(Channels.MosquitoeHit.GetPath(), MessengerMode.DONT_REQUIRE_LISTENER);
+        Messenger<int>.Broadcast(Channels.MosquitoeHit.GetPath(), MosquitoeNumber, MessengerMode.DONT_REQUIRE_LISTENER);
     }
 }

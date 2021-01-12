@@ -10,7 +10,7 @@ public class AimController : ListeningMonoBehaviour
         new BaseListener<bool>
             {Event = GameManager.Channels.MosquitoesInCamera.GetPath(), Callback = mosquitoesInCameraMode},
         new BaseListener<bool> {Event = GameManager.Channels.MosquitoesEngaged.GetPath(), Callback = mosquitoesEngaged},
-        new Listener {Event = GameManager.Channels.MosquitoeHit.GetPath(), Callback = MosquitoeHit}
+        new BaseListener<int> {Event = GameManager.Channels.MosquitoeHit.GetPath(), Callback = MosquitoeHit}
     };
 
     private IEnumerator coroutine;
@@ -59,7 +59,7 @@ public class AimController : ListeningMonoBehaviour
             {
                 Debug.Log("hit!");
                 Debug.Log(hit.transform.name);
-                GameManager.Instance.MosquitoeHit();
+                GameManager.Instance.MosquitoeHit(0); //todo change to MosquitoeNumber
                 hit.transform.gameObject.SetActive(false);
              
             }
@@ -96,5 +96,5 @@ public class AimController : ListeningMonoBehaviour
         mosquitoesInCamera = MosquitoesInCameraTriggered;
     }
 
-    private void MosquitoeHit() { }
+    private void MosquitoeHit(int MosquitoeNumber) { }
 }
