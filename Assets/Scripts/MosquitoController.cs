@@ -7,6 +7,7 @@ public class MosquitoController : MonoBehaviour
     [SerializeField] private float pullForce = 5.42f;
     private Rigidbody rb;
     private bool inRaft = false;
+    public MosquitoeNumber;
 
     // Start is called before the first frame update
     void Start()
