@@ -5137,7 +5137,7 @@ Transform:
   - {fileID: 265659317}
   - {fileID: 1892106586}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &49894502
 Rigidbody:
@@ -6204,12 +6204,12 @@ MonoBehaviour:
   fogLayer:
     serializedVersion: 2
     m_Bits: 512
-  radius: 15
+  radius: 10
   initialColor: {r: 0.54901963, g: 0.24705884, b: 0.3372549, a: 1}
   fogMaterial: {fileID: 2100000, guid: 286025006304e8c4685329b1a66ac20c, type: 2}
   UVLength: 250
   center: {x: 0, y: 0, z: 0}
-  edgeLength: 500
+  edgeLength: 250
 --- !u!114 &198599076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7040,7 +7040,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &291298784
 MonoBehaviour:
@@ -8672,7 +8672,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &599878144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13837,36 +13837,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 702804698}
   m_CullTransparentMesh: 0
---- !u!1 &719592932
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 719592933}
-  m_Layer: 0
-  m_Name: Mosquitos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &719592933
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 719592932}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.44, y: 0, z: 7.32}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &765793397
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14251,7 +14221,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &814228481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19252,7 +19222,7 @@ Transform:
   - {fileID: 5006512735335192857}
   - {fileID: 215694974}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &866370235
 CapsuleCollider:
@@ -44401,7 +44371,7 @@ MeshCollider:
   m_GameObject: {fileID: 1977737507}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -44465,7 +44435,7 @@ Transform:
   m_LocalScale: {x: 48, y: 0.5, z: 48}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2005202524
 GameObject:
