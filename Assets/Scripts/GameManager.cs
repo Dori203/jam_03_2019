@@ -17,7 +17,8 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
     public enum Channels
     {
         MosquitoesEngaged,
-        MosquitoesInCamera
+        MosquitoesInCamera,
+        MosquitoeHit
     }
 
     public void MosquitoesInCamera(bool isMosquitoesInCamera)
@@ -29,4 +30,8 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
         Messenger<bool>.Broadcast(Channels.MosquitoesEngaged.GetPath(), MosquitoesTriggeredMode, MessengerMode.DONT_REQUIRE_LISTENER);
     }
 
+    public void MosquitoeHit()
+    {
+        Messenger.Broadcast(Channels.MosquitoeHit.GetPath(), MessengerMode.DONT_REQUIRE_LISTENER);
+    }
 }

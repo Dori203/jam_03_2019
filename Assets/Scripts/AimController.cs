@@ -7,9 +7,10 @@ using UnityEngine.XR.WSA.Input;
 public class AimController : ListeningMonoBehaviour
 {
     protected override List<BaseListener> Listeners => new List<BaseListener>() {
-        new BaseListener<bool> {Event = GameManager.Channels.MosquitoesInCamera.GetPath(), Callback = mosquitoesInCameraMode},
-        new BaseListener<bool> {Event = GameManager.Channels.MosquitoesEngaged.GetPath(), Callback = mosquitoesEngaged}
-        
+        new BaseListener<bool>
+            {Event = GameManager.Channels.MosquitoesInCamera.GetPath(), Callback = mosquitoesInCameraMode},
+        new BaseListener<bool> {Event = GameManager.Channels.MosquitoesEngaged.GetPath(), Callback = mosquitoesEngaged},
+        new Listener {Event = GameManager.Channels.MosquitoeHit.GetPath(), Callback = MosquitoeHit}
     };
 
     private IEnumerator coroutine;
@@ -58,6 +59,7 @@ public class AimController : ListeningMonoBehaviour
             {
                 Debug.Log("hit!");
                 Debug.Log(hit.transform.name);
+                GameManager.Instance.MosquitoeHit();
                 hit.transform.gameObject.SetActive(false);
              
             }
@@ -71,7 +73,6 @@ public class AimController : ListeningMonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         RaycastHit hit;
-        RaycastHit hit2;
 
         //Make Ray hit only aim layer.
         int layerMask = 1 << 18;
@@ -95,17 +96,5 @@ public class AimController : ListeningMonoBehaviour
         mosquitoesInCamera = MosquitoesInCameraTriggered;
     }
 
-    private IEnumerable waitFor2Sec()
-    {
-        yield return StartCoroutine(WaitAndPrint(1.0f));
-    }
-
-    private IEnumerator WaitAndPrint(float waitTime)
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(waitTime);
-            print("WaitAndPrint " + Time.time);
-        }
-    }
+    private void MosquitoeHit() { }
 }
