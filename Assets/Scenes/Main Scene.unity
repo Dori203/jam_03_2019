@@ -7746,6 +7746,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1675955150}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &417215298 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6435161138185956401, guid: bc83abdb3af497f4eb4d8513b96e82a8,
+    type: 3}
+  m_PrefabInstance: {fileID: 6435161137523190264}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &420884491
 GameObject:
   m_ObjectHideFlags: 0
@@ -21518,6 +21524,84 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1145707992}
   m_CullTransparentMesh: 0
+--- !u!1 &1172142341
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1172142343}
+  - component: {fileID: 1172142342}
+  m_Layer: 0
+  m_Name: ExterminationGameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1172142342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172142341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd5cbbe1d76e4e84bb37690157353c7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: mosquitosEngaged
+      Entry: 7
+      Data: 0|System.Collections.ArrayList, mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: mosquitosInCamera
+      Entry: 7
+      Data: 1|System.Collections.ArrayList, mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  killingScorePanel: {fileID: 2144130890}
+  scorePanelMark: {fileID: 417215298}
+--- !u!4 &1172142343
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172142341}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.864158, y: 100.194916, z: 6.0047197}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1176799522
 GameObject:
   m_ObjectHideFlags: 0
@@ -55987,7 +56071,7 @@ GameObject:
   - component: {fileID: 2144639164}
   - component: {fileID: 2144639162}
   m_Layer: 0
-  m_Name: Killing Camera
+  m_Name: killingCamera
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

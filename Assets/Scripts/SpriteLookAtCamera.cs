@@ -10,7 +10,7 @@ public class SpriteLookAtCamera : MonoBehaviour
     {
         if(tag == "mosquitoSprite")
         {
-            cameraToLookAt = GameObject.Find("killingCamera").GetComponent<Camera>();
+            cameraToLookAt = GameObject.Find("Killing Camera").GetComponent<Camera>();
         }
     }
 
