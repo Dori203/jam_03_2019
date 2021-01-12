@@ -99,7 +99,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: String Fishing
+    path: String POV
   m_PositionCurves: []
   m_ScaleCurves: []
   m_FloatCurves: []
@@ -119,7 +119,7 @@ AnimationClip:
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 977311202
+      path: 3426139085
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -283,7 +283,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: String Fishing
+    path: String POV
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -311,7 +311,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: String Fishing
+    path: String POV
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -348,7 +348,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: String Fishing
+    path: String POV
     classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves:
@@ -388,8 +388,8 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: String Fishing
+    attribute: m_LocalEulerAngles.z
+    path: String POV
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -399,7 +399,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: String Fishing
+    path: String POV
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -408,8 +408,8 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: String Fishing
+    attribute: m_LocalEulerAngles.x
+    path: String POV
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0
