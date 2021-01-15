@@ -23,8 +23,7 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
     [SerializeField] private int fishingScore;
     [SerializeField] private int fishingVictoryThreshold;
 
-    [SerializeField] private GameObject winningUI;
-    [SerializeField] private Text winningText;
+
 
 
 
@@ -32,50 +31,45 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
     {
         MosquitoesEngaged,
         MosquitoesInCamera,
-        MosquitoeHit
+        MosquitoeHit,
+        Winning
     }
 
 
-        //TODO - remove update and add the victory checking to the score increase.
-    private void Update()
+    public void incExterminationScore()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            explorationScore++;
-        }
-        //check victory
-        Victory victory = checkVictory();
-        if (victory.Value != Victory.None.Value)
-        {
-            //stop the game, activate victory scenario.
-            //TEMP stop the game, show UI victory overlay, assign victory type to text.
-            Debug.Log(victory.Value);
-            Time.timeScale = 0;
-            winningText.text = victory.Value;
-            winningUI.SetActive(true);
-        }
+        exterminationScore++;
+        checkVictory();
     }
 
-    private Victory checkVictory()
+    private void checkVictory()
     {
+        bool isGameOver = false;
+        Victory victoryType = Victory.None;
         //check each victory condition, return
         if(exterminationScore >= exterminationVictoryThreshold)
         {
             Debug.Log("extermination victory");
-            return Victory.Extermination;
+            isGameOver = true;
+            victoryType = Victory.Extermination;
         }
         else if(explorationScore >= explorationVictoryThreshold)
         {
             Debug.Log("exploration victory");
-            return Victory.Exploration;
+            isGameOver = true;
+            victoryType = Victory.Exploration;
         }
         else if(fishingScore >= fishingVictoryThreshold)
         {
-            Debug.Log("fishing victory");
-            return Victory.Fishing;
-            
+            isGameOver = true;
+            victoryType = Victory.Fishing;
         }
-        return Victory.None;
+
+        if (isGameOver)
+        {
+            VictoryMessage(victoryType);
+            Time.timeScale = 0;
+        }
     }
 
     public void MosquitoesInCamera(bool isMosquitoesInCamera)
@@ -90,5 +84,10 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
     public void MosquitoeHit(int MosquitoeNumber)
     {
         Messenger<int>.Broadcast(Channels.MosquitoeHit.GetPath(), MosquitoeNumber, MessengerMode.DONT_REQUIRE_LISTENER);
+    }
+
+    private void VictoryMessage(Victory victoryType)
+    {
+        Messenger<Victory>.Broadcast(Channels.Winning.GetPath(), victoryType, MessengerMode.DONT_REQUIRE_LISTENER);
     }
 }
