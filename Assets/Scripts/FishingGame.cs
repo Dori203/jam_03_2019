@@ -26,11 +26,13 @@ public class FishingGame : MonoBehaviour
     [SerializeField] private AnimationClip pokeAnimation;
     [SerializeField] private AnimationClip catchAnimation;
     [SerializeField] private Animator rodAnimator;
+    [SerializeField] private Animator xAnimator;
 
     [SerializeField] private AudioSource audio;
     [SerializeField] private AudioClip poke_sound;
     [SerializeField] private AudioClip catch_sound;
     [SerializeField] private AudioClip escape_sound;
+
 
 
     enum rodState
@@ -60,19 +62,22 @@ public class FishingGame : MonoBehaviour
                 {
                     StartCountdown(minPokeTime, maxPokeTime);
                     SetPokes();
+                    Poke();
                     rod = rodState.Waiting;
+                }
+                if (Input.GetKeyDown(KeyCode.Alpha1))
+                {
+                    StartCountdown(minPokeTime, maxPokeTime);
+                    rodAnimator.Play("pull");
+                    rod = rodState.Idle;
                 }
                 break;
 
             case rodState.Waiting:
                 if (timer <= 0)
                 {
-                    pokeCount -= 1;
+                    Poke();
                     StartCountdown(minPokeTime, maxPokeTime);
-                    rodAnimator.Play("poke");
-                    pokeParticles.Play();
-                    audio.PlayOneShot(poke_sound);
-                    Debug.Log("poke");
                 }
                 if ((pokeCount) == 0)
                 {
@@ -84,9 +89,11 @@ public class FishingGame : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Alpha1))
                     {
                     rodAnimator.Play("escape");
+                    rodAnimator.Play("pull");
                     Debug.Log("escape");
                     audio.PlayOneShot(escape_sound);
                     rod = rodState.Idle;
+                    xAnimator.Play("appear");
                     break;
                 }
                 break;
@@ -95,7 +102,9 @@ public class FishingGame : MonoBehaviour
                 if (timer <= 0)
                 {
                     rodAnimator.Play("escape");
+                    rodAnimator.Play("pull");
                     Debug.Log("escape");
+                    xAnimator.Play("appear");
                     audio.PlayOneShot(escape_sound);
                     StartCountdown(minIdleTime, maxIdleTime);
                     rod = rodState.Idle;
@@ -103,7 +112,8 @@ public class FishingGame : MonoBehaviour
                 }
                 if (Input.GetKeyDown(KeyCode.Alpha1))
                 {
-                    rodAnimator.Play("catch");
+                    //rodAnimator.Play("catch");
+                    rodAnimator.Play("pull");
                     Debug.Log("catch");
                     audio.PlayOneShot(catch_sound);
                     fishCount += 1;
@@ -135,5 +145,14 @@ public class FishingGame : MonoBehaviour
             GameObject currentFish = Instantiate(fishTypes[typeIndex], fishBox.transform.position + offset, Quaternion.Euler(90,Random.Range(0,360),0), transform);
             currentFish.transform.SetParent(fishBox.transform);
         }
+    }
+
+    private void Poke()
+    {
+        pokeCount -= 1;
+        rodAnimator.Play("poke");
+        pokeParticles.Play();
+        audio.PlayOneShot(poke_sound);
+        Debug.Log("poke");
     }
 }
