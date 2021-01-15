@@ -27,6 +27,12 @@ public class FishingGame : MonoBehaviour
     [SerializeField] private AnimationClip catchAnimation;
     [SerializeField] private Animator rodAnimator;
 
+    [SerializeField] private AudioSource audio;
+    [SerializeField] private AudioClip poke_sound;
+    [SerializeField] private AudioClip catch_sound;
+    [SerializeField] private AudioClip escape_sound;
+
+
     enum rodState
     {
         Idle,
@@ -65,6 +71,7 @@ public class FishingGame : MonoBehaviour
                     StartCountdown(minPokeTime, maxPokeTime);
                     rodAnimator.Play("poke");
                     pokeParticles.Play();
+                    audio.PlayOneShot(poke_sound);
                     Debug.Log("poke");
                 }
                 if ((pokeCount) == 0)
@@ -78,6 +85,7 @@ public class FishingGame : MonoBehaviour
                     {
                     rodAnimator.Play("escape");
                     Debug.Log("escape");
+                    audio.PlayOneShot(escape_sound);
                     rod = rodState.Idle;
                     break;
                 }
@@ -88,6 +96,7 @@ public class FishingGame : MonoBehaviour
                 {
                     rodAnimator.Play("escape");
                     Debug.Log("escape");
+                    audio.PlayOneShot(escape_sound);
                     StartCountdown(minIdleTime, maxIdleTime);
                     rod = rodState.Idle;
                     break;
@@ -96,6 +105,7 @@ public class FishingGame : MonoBehaviour
                 {
                     rodAnimator.Play("catch");
                     Debug.Log("catch");
+                    audio.PlayOneShot(catch_sound);
                     fishCount += 1;
                     StartCountdown(minIdleTime, maxIdleTime);
                     rod = rodState.Idle;
