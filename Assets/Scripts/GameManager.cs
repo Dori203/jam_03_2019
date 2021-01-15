@@ -14,11 +14,68 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
     
     public void OnSceneChanged(Scene previousScene, Scene nextScene) { }
 
+    [SerializeField] private int exterminationScore;
+    [SerializeField] private int exterminationVictoryThreshold;
+
+    [SerializeField] private int explorationScore;
+    [SerializeField] private int explorationVictoryThreshold;
+
+    [SerializeField] private int fishingScore;
+    [SerializeField] private int fishingVictoryThreshold;
+
+    [SerializeField] private GameObject winningUI;
+    [SerializeField] private Text winningText;
+
+
+
     public enum Channels
     {
         MosquitoesEngaged,
         MosquitoesInCamera,
         MosquitoeHit
+    }
+
+
+        //TODO - remove update and add the victory checking to the score increase.
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            explorationScore++;
+        }
+        //check victory
+        Victory victory = checkVictory();
+        if (victory.Value != Victory.None.Value)
+        {
+            //stop the game, activate victory scenario.
+            //TEMP stop the game, show UI victory overlay, assign victory type to text.
+            Debug.Log(victory.Value);
+            Time.timeScale = 0;
+            winningText.text = victory.Value;
+            winningUI.SetActive(true);
+        }
+    }
+
+    private Victory checkVictory()
+    {
+        //check each victory condition, return
+        if(exterminationScore >= exterminationVictoryThreshold)
+        {
+            Debug.Log("extermination victory");
+            return Victory.Extermination;
+        }
+        else if(explorationScore >= explorationVictoryThreshold)
+        {
+            Debug.Log("exploration victory");
+            return Victory.Exploration;
+        }
+        else if(fishingScore >= fishingVictoryThreshold)
+        {
+            Debug.Log("fishing victory");
+            return Victory.Fishing;
+            
+        }
+        return Victory.None;
     }
 
     public void MosquitoesInCamera(bool isMosquitoesInCamera)
