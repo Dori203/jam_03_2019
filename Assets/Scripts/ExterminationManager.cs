@@ -35,10 +35,10 @@ public class ExterminationManager : MonoBehaviour{
     public void MosquitoesEngaged(int MosquitoeNumber)
     {
         GameObject mosquito = MosquitoSpawner.SharedInstance.GetPooledObjectByIndex(MosquitoeNumber);
-        Debug.Log("MosquitoesEngaged : " + MosquitoeNumber);
+        // Debug.Log("MosquitoesEngaged : " + MosquitoeNumber);
 
         mosquitosEngagedList.Add(MosquitoeNumber);
-        print("add : " + MosquitoeNumber + "\nmosquitosEngagedList : "  + mosquitosEngagedList.Count);
+        // print("add : " + MosquitoeNumber + "\nmosquitosEngagedList : "  + mosquitosEngagedList.Count);
 
         GameManager.Instance.MosquitoesTriggered(MosquitoeNumber);
     }
