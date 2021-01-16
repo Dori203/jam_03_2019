@@ -60,12 +60,18 @@ public class MosquitoSpawner : MonoBehaviour
         return pooledObjects[i];
     }
 
+    public Vector3 getMosquitoPositionByIndex(int i)
+    {
+        return pooledObjects[i].transform.position;
+    }
+
+
     // GameObject bullet = ObjectPool.SharedInstance.GetPooledObject(); 
     //     if (bullet != null) {
     //     bullet.transform.position = turret.transform.position;
     //     bullet.transform.rotation = turret.transform.rotation;
     //     bullet.SetActive(true);
     // }
-    
+
     // Destroy(gameObject); -> gameobject.SetActive(false);
 }
