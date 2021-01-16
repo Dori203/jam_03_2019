@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iconSprite: {fileID: 21300000, guid: 3b5bf7f0553afea43bc72afaf13fc3d7, type: 3}
-  iconScale: 10
+  iconScale: 5
 --- !u!64 &8229326783711232450
 MeshCollider:
   m_ObjectHideFlags: 0
