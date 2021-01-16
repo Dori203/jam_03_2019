@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MosquitoObjectPool : MonoBehaviour
+public class MosquitoSpawner : MonoBehaviour
 {
-    public static MosquitoObjectPool SharedInstance;
+    public static MosquitoSpawner SharedInstance;
     public List<GameObject> pooledObjects;
     public GameObject objectToPool;
     public int amountToPool; 
