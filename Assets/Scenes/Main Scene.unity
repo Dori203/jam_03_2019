@@ -6462,9 +6462,9 @@ MonoBehaviour:
   radius: 16
   initialColor: {r: 0.54901963, g: 0.24705884, b: 0.3372549, a: 1}
   fogMaterial: {fileID: 2100000, guid: 286025006304e8c4685329b1a66ac20c, type: 2}
-  UVLength: 250
+  UVLength: 480
   center: {x: 0, y: 0, z: 0}
-  edgeLength: 250
+  edgeLength: 480
 --- !u!114 &198599076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7727,7 +7727,7 @@ MonoBehaviour:
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
-    m_Bits: 65537
+    m_Bits: 66049
   m_VolumeTrigger: {fileID: 0}
   m_RenderPostProcessing: 0
   m_Antialiasing: 0
@@ -7769,7 +7769,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4096
+    m_Bits: 4608
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: a928cc9702a30c140bfd50efceab9428, type: 2}
   m_TargetDisplay: 0
@@ -14597,19 +14597,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 814228480}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e97132597c4d3a4a8063e1ec96bec46, type: 3}
+  m_Script: {fileID: 11500000, guid: c1f38a62a531b094d8801268cabc9c5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rocks:
-  - {fileID: 3385673504337642916, guid: 8a3c7d32d5730464292e334a80a75c37, type: 3}
-  numberOfRocks: 250
+  pooledObjects: []
+  objectToPool: {fileID: 3385673504337642916, guid: 8a3c7d32d5730464292e334a80a75c37,
+    type: 3}
+  amountToPool: 500
   squareLength: 480
-  rockMinScale: 0.05
-  rockMaxScale: 0.05
   heightVariation: 0
   restrictAreaSize: 10
   yOffset: 1
-  randomRotation: 0
 --- !u!4 &814228482
 Transform:
   m_ObjectHideFlags: 0
@@ -14624,81 +14622,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &815891182
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3385673504337642914, guid: 8a3c7d32d5730464292e334a80a75c37,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385673504337642914, guid: 8a3c7d32d5730464292e334a80a75c37,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385673504337642914, guid: 8a3c7d32d5730464292e334a80a75c37,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 2.89
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385673504337642914, guid: 8a3c7d32d5730464292e334a80a75c37,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.0045777
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385673504337642914, guid: 8a3c7d32d5730464292e334a80a75c37,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.0027805008
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385673504337642914, guid: 8a3c7d32d5730464292e334a80a75c37,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.0026600934
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385673504337642914, guid: 8a3c7d32d5730464292e334a80a75c37,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9999821
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385673504337642914, guid: 8a3c7d32d5730464292e334a80a75c37,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385673504337642914, guid: 8a3c7d32d5730464292e334a80a75c37,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0.52500004
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385673504337642914, guid: 8a3c7d32d5730464292e334a80a75c37,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -0.317
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385673504337642914, guid: 8a3c7d32d5730464292e334a80a75c37,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0.303
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385673504337642916, guid: 8a3c7d32d5730464292e334a80a75c37,
-        type: 3}
-      propertyPath: m_Name
-      value: Mosquito (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8a3c7d32d5730464292e334a80a75c37, type: 3}
---- !u!1 &815891183 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3385673504337642916, guid: 8a3c7d32d5730464292e334a80a75c37,
-    type: 3}
-  m_PrefabInstance: {fileID: 815891182}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &839830941
 GameObject:
   m_ObjectHideFlags: 0
@@ -21730,47 +21653,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1172142341}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd5cbbe1d76e4e84bb37690157353c7c, type: 3}
+  m_Script: {fileID: 11500000, guid: ca7c5c3d3b3a7bd4991b6db6033edc8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: mosquitosEngaged
-      Entry: 7
-      Data: 0|System.Collections.ArrayList, mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: mosquitosInCamera
-      Entry: 7
-      Data: 1|System.Collections.ArrayList, mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-  killingScorePanel: {fileID: 2144130890}
+  killingScorePanel: {fileID: 1274308788}
   scorePanelMark: {fileID: 6435161138185956401, guid: bc83abdb3af497f4eb4d8513b96e82a8,
     type: 3}
-  swat: {fileID: 8300000, guid: ab2f0fe832060c042b64d0d548daba6d, type: 3}
-  audiosource: {fileID: 1274308792}
 --- !u!4 &1172142343
 Transform:
   m_ObjectHideFlags: 0
@@ -21996,8 +21884,8 @@ MonoBehaviour:
   killingCamera: {fileID: 2144639163}
   aimSpeed: 0.01
   doriTest: 0
-  mosquito: {fileID: 1507243650}
-  mosquito_2: {fileID: 815891183}
+  mosquito: {fileID: 0}
+  mosquito_2: {fileID: 0}
   mosquitosLayer:
     serializedVersion: 2
     m_Bits: 32768
@@ -42723,81 +42611,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!1001 &1507243649
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3385673504337642914, guid: 8a3c7d32d5730464292e334a80a75c37,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385673504337642914, guid: 8a3c7d32d5730464292e334a80a75c37,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385673504337642914, guid: 8a3c7d32d5730464292e334a80a75c37,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 5.14
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385673504337642914, guid: 8a3c7d32d5730464292e334a80a75c37,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.0045777
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385673504337642914, guid: 8a3c7d32d5730464292e334a80a75c37,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.0027805008
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385673504337642914, guid: 8a3c7d32d5730464292e334a80a75c37,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.0026600934
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385673504337642914, guid: 8a3c7d32d5730464292e334a80a75c37,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9999821
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385673504337642914, guid: 8a3c7d32d5730464292e334a80a75c37,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385673504337642914, guid: 8a3c7d32d5730464292e334a80a75c37,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0.52500004
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385673504337642914, guid: 8a3c7d32d5730464292e334a80a75c37,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -0.317
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385673504337642914, guid: 8a3c7d32d5730464292e334a80a75c37,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0.303
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385673504337642916, guid: 8a3c7d32d5730464292e334a80a75c37,
-        type: 3}
-      propertyPath: m_Name
-      value: Mosquito
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8a3c7d32d5730464292e334a80a75c37, type: 3}
---- !u!1 &1507243650 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3385673504337642916, guid: 8a3c7d32d5730464292e334a80a75c37,
-    type: 3}
-  m_PrefabInstance: {fileID: 1507243649}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1510241193
 GameObject:
   m_ObjectHideFlags: 0
@@ -56137,7 +55950,6 @@ MonoBehaviour:
   rotationOffset: {x: 0, y: 0, z: 0, w: 0}
   followRotation: 1
   aim: {fileID: 1185679677}
-  Mosquito: {fileID: 1507243650}
 --- !u!20 &2144639163
 Camera:
   m_ObjectHideFlags: 0
