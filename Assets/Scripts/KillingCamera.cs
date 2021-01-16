@@ -58,7 +58,11 @@ public class KillingCamera : ListeningMonoBehaviour {
     }
 
     private void mosquitoesEngaged(int MosquitoesTriggered) {
-        mosquitoesEngagedMode = true; 
+        if (MosquitoesTriggered == -1) mosquitoesEngagedMode = false;
+        if (!mosquitoesEngagedMode) {
+            mosquitoesEngagedMode = true; 
+            engagedPosition = MosquitoSpawner.SharedInstance.getMosquitoPositionByIndex(MosquitoesTriggered);
+        }
     }
 
     private int findNextMosquito()
