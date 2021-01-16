@@ -11,6 +11,7 @@ public class ExterminationManager : MonoBehaviour{
     // [SerializeField] private ArrayList mosquitosInCamera = new ArrayList();
     [SerializeField] private GameObject killingScorePanel;
     [SerializeField] private GameObject scorePanelMark;
+    [SerializeField] private Animator aimAnimator;
 
     void Awake()
     {
@@ -63,6 +64,8 @@ public class ExterminationManager : MonoBehaviour{
         }
         print("remove : " + MosquitoeNumber + "\nmosquitosEngagedList : "  + mosquitosEngagedList.Count);
 
+
+        aimAnimator.Play("swat");
         // GameObject mosquito = MosquitoObjectPool.SharedInstance.GetPooledObjectByIndex(MosquitoeNumber);
         // Vector3 position = new Vector3((Random.value - 0.5f) * squareLength, (Random.value - 0.5f) * heightVariation + yOffset, (Random.value - 0.5f) * squareLength);
         // while ((position.x <= restrictAreaSize && position.x >= -restrictAreaSize) && (position.z <= restrictAreaSize && position.z >= -restrictAreaSize))

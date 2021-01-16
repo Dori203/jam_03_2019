@@ -89,6 +89,11 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
     {
         Messenger<int>.Broadcast(Channels.MosquitoeHit.GetPath(), MosquitoeNumber, MessengerMode.DONT_REQUIRE_LISTENER);
     }
+    
+    public void MosquitoeNext(int MosquitoeNumber)
+    {
+        Messenger<int>.Broadcast(Channels.MosquitoeNext.GetPath(), MosquitoeNumber, MessengerMode.DONT_REQUIRE_LISTENER);
+    }
 
     private void VictoryMessage(Victory victoryType)
     {
