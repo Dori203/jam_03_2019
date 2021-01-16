@@ -26562,7 +26562,7 @@ MonoBehaviour:
   killingScorePanel: {fileID: 1274308788}
   scorePanelMark: {fileID: 6435161138185956401, guid: bc83abdb3af497f4eb4d8513b96e82a8,
     type: 3}
-  aimAnimator: {fileID: 0}
+  aimAnimator: {fileID: 1185679682}
 --- !u!4 &1172142343
 Transform:
   m_ObjectHideFlags: 0
