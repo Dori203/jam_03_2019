@@ -14,17 +14,14 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
     
     public void OnSceneChanged(Scene previousScene, Scene nextScene) { }
 
-    [SerializeField] private int exterminationScore;
-    [SerializeField] private int exterminationVictoryThreshold;
+    [SerializeField] private int exterminationScore = 0;
+    [SerializeField] private int exterminationVictoryThreshold = 20; //TODO RANDOM NUMBER
 
-    [SerializeField] private int explorationScore;
-    [SerializeField] private int explorationVictoryThreshold;
+    [SerializeField] private int explorationScore = 0;
+    [SerializeField] private int explorationVictoryThreshold = 100; //TODO RANDOM NUMBER
 
-    [SerializeField] private int fishingScore;
-    [SerializeField] private int fishingVictoryThreshold;
-
-
-
+    [SerializeField] private int fishingScore = 0;
+    [SerializeField] private int fishingVictoryThreshold = 20; //TODO RANDOM NUMBER
 
 
     public enum Channels
@@ -32,14 +29,21 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
         MosquitoesEngaged,
         MosquitoesInCamera,
         MosquitoeHit,
-        MosquitoeNext,
-        Winning
+        Winning,
+        InterestPointHit,
+        MosquitoeNext
     }
 
 
     public void incExterminationScore()
     {
         exterminationScore++;
+        checkVictory();
+    }
+
+    public void incExplorationScore()
+    {
+        explorationScore++;
         checkVictory();
     }
 
@@ -95,5 +99,10 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
     private void VictoryMessage(Victory victoryType)
     {
         Messenger<Victory>.Broadcast(Channels.Winning.GetPath(), victoryType, MessengerMode.DONT_REQUIRE_LISTENER);
+    }
+
+    public void InterestPointHit(int interetPointType)
+    {
+        Messenger<int>.Broadcast(Channels.InterestPointHit.GetPath(), interetPointType, MessengerMode.DONT_REQUIRE_LISTENER);
     }
 }

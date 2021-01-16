@@ -20,8 +20,10 @@ public class AimController : ListeningMonoBehaviour {
     [SerializeField] private float aimSpeed;
     [SerializeField] private bool doriTest;
     [SerializeField] private GameObject engagedMosquito;
-
+    [SerializeField] private Animator aimAnimator;
     [SerializeField] private LayerMask mosquitosLayer;
+    [SerializeField] private AudioSource audio;
+    [SerializeField] private AudioClip swatSound;
 
     private Vector3 targetPosition;
     private bool mosquitoesEngagedMode;
@@ -63,6 +65,8 @@ public class AimController : ListeningMonoBehaviour {
             if (Physics.Raycast(killingCamera.transform.position, dir, out hit, 1000f, layerMask)) {
                 Debug.Log("hit!");
                 Debug.Log(hit.transform.name);
+                aimAnimator.Play("swat");
+                audio.PlayOneShot(swatSound);
                 // GameManager.Instance.MosquitoeHit(0); //todo change to MosquitoeNumber
                 hit.transform.gameObject.SetActive(false);
             }
