@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class KillingCamera : ListeningMonoBehaviour {
     protected override List<BaseListener> Listeners => new List<BaseListener>() {
-        new BaseListener<bool> {Event = GameManager.Channels.MosquitoesEngaged.GetPath(), Callback = mosquitoesEngaged}
+        new BaseListener<int> {Event = GameManager.Channels.MosquitoesEngaged.GetPath(), Callback = mosquitoesEngaged}
     };
 
     public float MosquitoInRangeSensitivity = 0.1f;
@@ -20,7 +20,7 @@ public class KillingCamera : ListeningMonoBehaviour {
 
     private bool mosquitoesEngagedMode;
 
-    public GameObject Mosquito;
+    // public GameObject Mosquito;
         
     private void LateUpdate()
     {
@@ -31,18 +31,18 @@ public class KillingCamera : ListeningMonoBehaviour {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, player.rotation * rotationOffset, 45.0f * Time.deltaTime);
         } else if (mosquitoesEngagedMode) {
             aim.SetActive(true);
-            Vector3 relativePos = Mosquito.transform.position - transform.position;
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(relativePos, Vector3.up), 45.0f * Time.deltaTime);
-            float angle = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(relativePos, Vector3.up));
-            if (angle < MosquitoInRangeSensitivity)
-            {
-                GameManager.Instance.MosquitoesInCamera(true);
-            }
+            // Vector3 relativePos = Mosquito.transform.position - transform.position;
+            // transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(relativePos, Vector3.up), 45.0f * Time.deltaTime);
+            // float angle = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(relativePos, Vector3.up));
+            // if (angle < MosquitoInRangeSensitivity)
+            // {
+            //     GameManager.Instance.MosquitoesInCamera(true);
+            // }
         }
     }
 
-    private void mosquitoesEngaged(bool MosquitoesTriggered) {
-        mosquitoesEngagedMode = MosquitoesTriggered;
+    private void mosquitoesEngaged(int MosquitoesTriggered) {
+        // mosquitoesEngagedMode = MosquitoesTriggered; // todo fix logic before
     }
     
 }

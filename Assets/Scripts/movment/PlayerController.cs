@@ -50,12 +50,12 @@ void Update()
         // todo delete
         if (Input.GetKeyUp(KeyCode.T))
         {
-            GameManager.Instance.MosquitoesTriggered(true);
+            GameManager.Instance.MosquitoesTriggered(1);
             Debug.Log("Triggered!");
         }
         if (Input.GetKeyUp(KeyCode.Y))
         {
-            GameManager.Instance.MosquitoesTriggered(false);
+            GameManager.Instance.MosquitoesTriggered(1);
         }
         // todo delete
         
