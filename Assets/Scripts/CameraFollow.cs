@@ -14,7 +14,7 @@ public class CameraFollow : MonoBehaviour
         transform.position = newPosition;
         if (followRotation)
         {
-            transform.rotation = player.rotation * rotationOffset;
+            transform.rotation = player.rotation;
         }
     }
 }
