@@ -21,13 +21,6 @@ public class MosquitoController : MonoBehaviour
     //When the Mosquito collides with the MosquitoAttractor, it will start moving towards the raft.
     private void OnTriggerStay(Collider other)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        // if (!inRaft && other.tag == "MosquitoAttractor")
-=======
->>>>>>> 25a449374b42386df868805736884f0e9c6986a2
-=======
->>>>>>> 25a449374b42386df868805736884f0e9c6986a2
         if (other.tag == "MosquitoAttractor")
         {
             Vector3 forceDirection = other.transform.position - transform.position;
@@ -41,14 +34,8 @@ public class MosquitoController : MonoBehaviour
         if (other.tag == "MosquitoLimit")
         {
             inRaft = true;
-<<<<<<< HEAD
-<<<<<<< HEAD
-            // this.transform.SetParent(other.transform);
-            // rb.isKinematic = true;
-=======
->>>>>>> 25a449374b42386df868805736884f0e9c6986a2
-=======
->>>>>>> 25a449374b42386df868805736884f0e9c6986a2
+            this.transform.SetParent(other.transform);
+            rb.isKinematic = true;
             
             // calculate force vector
             var force = transform.position - other.transform.position;
