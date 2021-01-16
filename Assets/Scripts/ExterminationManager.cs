@@ -26,6 +26,7 @@ public class ExterminationManager : MonoBehaviour{
         Debug.Log("MosquitoesEngaged : " + MosquitoeNumber);
 
         mosquitosEngagedList.Add(MosquitoeNumber);
+        print("add : " + MosquitoeNumber + "\nmosquitosEngagedList : "  + mosquitosEngagedList.Count);
 
         GameManager.Instance.MosquitoesTriggered(MosquitoeNumber);
     }
@@ -35,8 +36,11 @@ public class ExterminationManager : MonoBehaviour{
         //add another score to the extermination scores.
         Instantiate(scorePanelMark, killingScorePanel.transform);
 
-        GameManager.Instance.MosquitoeHit(MosquitoeNumber);
+        mosquitosEngagedList.Remove(MosquitoeNumber);
+        print("remove : " + MosquitoeNumber + "\nmosquitosEngagedList : "  + mosquitosEngagedList.Count);
         
+        GameManager.Instance.MosquitoeHit(MosquitoeNumber);
+
         // GameObject mosquito = MosquitoObjectPool.SharedInstance.GetPooledObjectByIndex(MosquitoeNumber);
         // Vector3 position = new Vector3((Random.value - 0.5f) * squareLength, (Random.value - 0.5f) * heightVariation + yOffset, (Random.value - 0.5f) * squareLength);
         // while ((position.x <= restrictAreaSize && position.x >= -restrictAreaSize) && (position.z <= restrictAreaSize && position.z >= -restrictAreaSize))
