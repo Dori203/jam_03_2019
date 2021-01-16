@@ -88,6 +88,7 @@ public class FogOfWar : MonoBehaviour
         ground.gameObject.name = "fog";
         ground.gameObject.AddComponent<MeshCollider>();
         ground.transform.Rotate(new Vector3(180f, 0, 0));
+        ground.transform.localScale = (new Vector3(1/3f, 1/3f, 1/3f));
     }
 
     void UpdateColor()
