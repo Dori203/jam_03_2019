@@ -14,9 +14,9 @@ public class KillingCamera : ListeningMonoBehaviour {
 
     [SerializeField] private Transform player;
     [SerializeField] private Vector3 positionOffset;
-    [SerializeField] private GameObject engagedPosition;
+    [SerializeField] private GameObject engagedMosquito;
     [SerializeField] private Quaternion rotationOffset;
-    [SerializeField] private bool followRotation;
+    [SerializeField] private bool followRotation = true;
     [SerializeField] private GameObject aim;
 
 
@@ -26,7 +26,7 @@ public class KillingCamera : ListeningMonoBehaviour {
 
     private void Awake()
     {
-        engagedPosition = aim; // todo test
+        engagedMosquito = aim; // todo test
     }
 
     private void LateUpdate()
@@ -34,21 +34,19 @@ public class KillingCamera : ListeningMonoBehaviour {
         Vector3 newPosition = player.position + positionOffset;
         transform.position = newPosition;
 
-        //cruising.
+        //cruising
         if (followRotation && !mosquitoesEngagedMode)
         {
+            Debug.Log("CRUSING");
             transform.rotation = Quaternion.RotateTowards(transform.rotation, player.rotation * rotationOffset, 45.0f * Time.deltaTime);
         //engaged in battle.
         } else if (mosquitoesEngagedMode) {
-            aim.SetActive(true);
-
             //get closest mosquito
-            Vector3 relativePos = engagedPosition.transform.position - transform.position;
+            Vector3 relativePos = engagedMosquito.transform.position - transform.position;
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(relativePos, Vector3.up), 45.0f * Time.deltaTime);
 
             //stop rotating once camera is close to pointing at mosquito.
             float angle = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(relativePos, Vector3.up));
-            
             GameManager.Instance.MosquitoesInCamera(angle < MosquitoInRangeSensitivity);
         }
     }
@@ -57,10 +55,12 @@ public class KillingCamera : ListeningMonoBehaviour {
         if (MosquitoeNumber == -1) {
             mosquitoesEngagedMode = false;
             aim.SetActive(false);
+            return;
         }
         if (!mosquitoesEngagedMode) {
             mosquitoesEngagedMode = true; 
-            engagedPosition = MosquitoSpawner.SharedInstance.GetPooledObjectByIndex(MosquitoeNumber);
+            aim.SetActive(true);
+            engagedMosquito = MosquitoSpawner.SharedInstance.GetPooledObjectByIndex(MosquitoeNumber);
         }
     }
 
@@ -81,6 +81,7 @@ public class KillingCamera : ListeningMonoBehaviour {
                 minIndex = i;
             }
         }
+        Debug.Log("minIndex : " + minIndex);
         return minIndex;
     }
 
@@ -98,6 +99,6 @@ public class KillingCamera : ListeningMonoBehaviour {
 
     private void MosquitoeHit(int MosquitoeNumber) {
         int mosquitoIndex = findNextMosquito();
-        engagedPosition = MosquitoSpawner.SharedInstance.GetPooledObjectByIndex(MosquitoeNumber);
+        engagedMosquito = MosquitoSpawner.SharedInstance.GetPooledObjectByIndex(mosquitoIndex);
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5188,7 +5188,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &49894500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19502,7 +19502,7 @@ MonoBehaviour:
   pooledObjects: []
   objectToPool: {fileID: 3385673504337642916, guid: 8a3c7d32d5730464292e334a80a75c37,
     type: 3}
-  amountToPool: 320
+  amountToPool: 50
   squareLength: 180
   heightVariation: 0
   restrictAreaSize: 10
@@ -26791,7 +26791,6 @@ MonoBehaviour:
     SerializationNodes: []
   killingCamera: {fileID: 2144639163}
   aimSpeed: 0.01
-  doriTest: 0
   engagedMosquito: {fileID: 0}
   aimAnimator: {fileID: 1185679682}
   mosquitosLayer:
@@ -65799,8 +65798,8 @@ MonoBehaviour:
   MosquitoInRangeSensitivity: 2
   player: {fileID: 866370234}
   positionOffset: {x: 0, y: 2, z: 0}
-  engagedPosition: {fileID: 0}
-  rotationOffset: {x: 0, y: 0, z: 0, w: 0}
+  engagedMosquito: {fileID: 0}
+  rotationOffset: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
   followRotation: 1
   aim: {fileID: 1185679677}
 --- !u!20 &2144639163

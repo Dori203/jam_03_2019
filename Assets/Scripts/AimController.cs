@@ -18,7 +18,6 @@ public class AimController : ListeningMonoBehaviour {
 
     [SerializeField] private Camera killingCamera;
     [SerializeField] private float aimSpeed;
-    [SerializeField] private bool doriTest;
     [SerializeField] private GameObject engagedMosquito;
     [SerializeField] private Animator aimAnimator;
     [SerializeField] private LayerMask mosquitosLayer;
@@ -29,30 +28,13 @@ public class AimController : ListeningMonoBehaviour {
     private bool mosquitoesEngagedMode;
     private bool mosquitoesInCamera;
 
-    // private bool first = true; // todo delete
-    // private bool targetSet = false; // todo delete
-
     void Awake() {
         aimSpeed = 0.1f;
     }
 
     void Update() {
-        // if (mosquitoesInCamera) { // todo delete
-        //     StartCoroutine(aimToTarget());
-        //
-        //     if (targetSet) {
-        //         {
-        //             // transform.localPosition = Vector3.MoveTowards(transform.localPosition, targetPosition, aimSpeed);
-        //             if (engagedMosquito != null) {
-        //                 transform.localPosition = Vector3.MoveTowards(transform.localPosition,
-        //                     engagedMosquito.transform.position, aimSpeed);
-        //             }
-        //         }
-        //     }
-        // } // todo delete
-        
+
         if (engagedMosquito != null && mosquitoesInCamera) {
-            Debug.Log("targetPosition : " + targetPosition);
             transform.localPosition = Vector3.MoveTowards(transform.localPosition, targetPosition, aimSpeed);
         }
 
@@ -64,31 +46,34 @@ public class AimController : ListeningMonoBehaviour {
             //try to hit mosquitos only.
             if (Physics.Raycast(killingCamera.transform.position, dir, out hit, 1000f, layerMask)) {
                 Debug.Log("hit!");
-                Debug.Log(hit.transform.name);
+
+                GameObject mosquito = hit.transform.gameObject;
+                MosquitoController mosquitoController = mosquito.GetComponent<MosquitoController>();
+                int MosquitoeNumber = mosquitoController.MosquitoeNumber;
+                
                 aimAnimator.Play("swat");
                 audio.PlayOneShot(swatSound);
-                // GameManager.Instance.MosquitoeHit(0); //todo change to MosquitoeNumber
+                
+                ExterminationManager.SharedInstance.MosquitoeHit(MosquitoeNumber);
+                
                 hit.transform.gameObject.SetActive(false);
             }
         }
     }
 
     IEnumerator aimToTarget() {
-        Debug.Log("aimToTarget#0");
         //wait for 0.5 a second.
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
     
         RaycastHit hit;
     
         //Make Ray hit only aim layer.
         int layerMask = 1 << 18;
         Vector3 dir2 = engagedMosquito.transform.position - killingCamera.transform.position;
-        Debug.Log("aimToTarget#1");
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
         if (Physics.Raycast(killingCamera.transform.position, dir2, out hit, 10000, layerMask)) {
             targetPosition = killingCamera.transform.InverseTransformPoint(hit.point) - hit.transform.localPosition;
             targetPosition.z = transform.localPosition.z;
-            Debug.Log("aimToTarget#2\ntargetPosition : " + targetPosition);
             mosquitoesInCamera = true;
         }
     }
@@ -96,6 +81,7 @@ public class AimController : ListeningMonoBehaviour {
     private void mosquitoesEngaged(int MosquitoeNumber) {
         if (MosquitoeNumber == -1) {
             mosquitoesEngagedMode = false;
+            return;
         }
         if (!mosquitoesEngagedMode) { // first mosquito
             mosquitoesEngagedMode = true;
@@ -108,11 +94,13 @@ public class AimController : ListeningMonoBehaviour {
     }
 
     private void mosquitoesInCameraMode(bool MosquitoesInCamera) {
-        Debug.Log("MosquitoesInCamera : " + MosquitoesInCamera);
         if (!mosquitoesEngagedMode) return;
-        if (MosquitoesInCamera) StartCoroutine(aimToTarget());
-        else mosquitoesInCamera = false; // todo delete
-        // mosquitoesInCamera = MosquitoesInCamera;
+        if (MosquitoesInCamera) {
+            StartCoroutine(aimToTarget());
+            return;
+        } else {
+            mosquitoesInCamera = false; // todo delete
+        }
     }
 
     private void MosquitoeHit(int MosquitoeNumber) {
