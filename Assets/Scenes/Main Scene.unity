@@ -5182,6 +5182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iconSprite: {fileID: 21300000, guid: b6cb562d823efea40b6be1b645e5d4d7, type: 3}
   iconScale: 15
+  tagName: 
 --- !u!1 &51464464
 GameObject:
   m_ObjectHideFlags: 0
@@ -6127,7 +6128,7 @@ Transform:
   m_GameObject: {fileID: 133710554}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.5, z: 0}
-  m_LocalScale: {x: 24, y: 0.5, z: 24}
+  m_LocalScale: {x: 18, y: 0.5, z: 18}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -6166,7 +6167,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 152, y: 95.5}
+  m_AnchoredPosition: {x: 155, y: 95.5}
   m_SizeDelta: {x: 73, y: 11}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &139260026
@@ -6435,14 +6436,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 198599072}
-  m_LocalRotation: {x: 0.37533024, y: 0.18023993, z: -0.07465782, w: 0.90612745}
-  m_LocalPosition: {x: -5.196, y: 14.819, z: -12.68}
+  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 14, z: -12.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1458222188}
   m_Father: {fileID: 1427916488}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 45, y: 22.5, z: 0}
+  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
 --- !u!114 &198599074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6459,13 +6460,13 @@ MonoBehaviour:
   fogLayer:
     serializedVersion: 2
     m_Bits: 512
-  radius: 8
+  radius: 24
   initialColor: {r: 0.54901963, g: 0.24705884, b: 0.3372549, a: 1}
   newColor: {r: 0.54901963, g: 0.24705884, b: 0.3372549, a: 0}
   fogMaterial: {fileID: 2100000, guid: 286025006304e8c4685329b1a66ac20c, type: 2}
-  UVLength: 240
+  UVLength: 540
   center: {x: 0, y: 0.5, z: 0}
-  edgeLength: 240
+  edgeLength: 540
 --- !u!114 &198599076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6479,7 +6480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 866370234}
-  positionOffset: {x: -5.196, y: 14.819, z: -12.68}
+  positionOffset: {x: 0, y: 14, z: -12.68}
   rotationOffset: {x: 0, y: 0, z: 0, w: 0}
   followRotation: 0
 --- !u!95 &198599078
@@ -7766,7 +7767,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 120
+  orthographic size: 90
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -8754,7 +8755,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 26, y: 96.5}
+  m_AnchoredPosition: {x: 29, y: 96.5}
   m_SizeDelta: {x: 65, y: 11}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &550809271
@@ -9040,8 +9041,8 @@ MonoBehaviour:
   - {fileID: 8216418684737746695, guid: 113f52e3bd0bf2943a526bc8223d1d48, type: 3}
   - {fileID: 8216418684737746695, guid: b06932ecd51c5d84f8ea0eb568cac4aa, type: 3}
   - {fileID: 8216418684737746695, guid: c8a2f7c16fe130d45a30fca68119dbed, type: 3}
-  numberOfRocks: 80
-  squareLength: 240
+  numberOfRocks: 60
+  squareLength: 180
   rockMinScale: 2
   rockMaxScale: 7
   heightVariation: 2
@@ -19373,8 +19374,8 @@ MonoBehaviour:
   pooledObjects: []
   objectToPool: {fileID: 3385673504337642916, guid: 8a3c7d32d5730464292e334a80a75c37,
     type: 3}
-  amountToPool: 500
-  squareLength: 240
+  amountToPool: 320
+  squareLength: 180
   heightVariation: 0
   restrictAreaSize: 10
   yOffset: 1
@@ -24345,7 +24346,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 866370229}
-  m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.25125268, z: -0, w: 0.96792156}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1.0000002, z: 1.0000002}
   m_Children:
@@ -24359,7 +24360,7 @@ Transform:
   - {fileID: 2127307017}
   m_Father: {fileID: 0}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -29.103, z: 0}
 --- !u!136 &866370235
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -24400,8 +24401,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb65530a01ab62a47a6dd2609ba9af77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iconSprite: {fileID: 21300000, guid: 6ec1a38fb7f5b4f4b9a2e45617c8ef5b, type: 3}
-  iconScale: 5
+  iconSprite: {fileID: 21300000, guid: 35a1fc39e502761429b95cc5db654ccc, type: 3}
+  iconScale: 0.5
+  tagName: Raft Icon
 --- !u!114 &866771803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26428,6 +26430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca7c5c3d3b3a7bd4991b6db6033edc8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mosquitosEngagedList: 
   killingScorePanel: {fileID: 1274308788}
   scorePanelMark: {fileID: 6435161138185956401, guid: bc83abdb3af497f4eb4d8513b96e82a8,
     type: 3}
@@ -48493,7 +48496,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 27, y: 95.5}
+  m_AnchoredPosition: {x: 30, y: 95.5}
   m_SizeDelta: {x: 75, y: 11}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1696521909
@@ -65357,7 +65360,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -2, y: -2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2144130892
 MonoBehaviour:
@@ -65478,6 +65481,7 @@ MonoBehaviour:
   MosquitoInRangeSensitivity: 0.01
   player: {fileID: 866370234}
   positionOffset: {x: 0, y: 1, z: 0}
+  engagedPosition: {x: 0, y: 0, z: 0}
   rotationOffset: {x: 0, y: 0, z: 0, w: 0}
   followRotation: 1
   aim: {fileID: 1185679677}
