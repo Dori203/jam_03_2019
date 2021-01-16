@@ -30,7 +30,8 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
         MosquitoesInCamera,
         MosquitoeHit,
         Winning,
-        InterestPointHit
+        InterestPointHit,
+        MosquitoeNext
     }
 
 
