@@ -77,8 +77,8 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
         Messenger<bool>.Broadcast(Channels.MosquitoesInCamera.GetPath(), isMosquitoesInCamera, MessengerMode.DONT_REQUIRE_LISTENER);
     }
 
-    public void MosquitoesTriggered(bool MosquitoesTriggeredMode) {
-        Messenger<bool>.Broadcast(Channels.MosquitoesEngaged.GetPath(), MosquitoesTriggeredMode, MessengerMode.DONT_REQUIRE_LISTENER);
+    public void MosquitoesTriggered(int MosquitoeNumber) {
+        Messenger<int>.Broadcast(Channels.MosquitoesEngaged.GetPath(), MosquitoeNumber, MessengerMode.DONT_REQUIRE_LISTENER);
     }
 
     public void MosquitoeHit(int MosquitoeNumber)
