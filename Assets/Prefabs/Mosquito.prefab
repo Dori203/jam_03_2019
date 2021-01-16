@@ -67,7 +67,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5b2fadf86af1f24b8b283b84054a1be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pullForce: 6.57
+  pullForce: 3.5
+  maxSpeed: 2
+  MosquitoeNumber: 0
 --- !u!54 &3385673504337642912
 Rigidbody:
   m_ObjectHideFlags: 0

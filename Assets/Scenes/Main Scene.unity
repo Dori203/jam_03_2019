@@ -19374,7 +19374,7 @@ MonoBehaviour:
   objectToPool: {fileID: 3385673504337642916, guid: 8a3c7d32d5730464292e334a80a75c37,
     type: 3}
   amountToPool: 500
-  squareLength: 480
+  squareLength: 240
   heightVariation: 0
   restrictAreaSize: 10
   yOffset: 1
@@ -49264,7 +49264,7 @@ PrefabInstance:
     - target: {fileID: 7413930086636400218, guid: ce7de3e6e379a634eb1f3590b4d02f97,
         type: 3}
       propertyPath: m_Radius
-      value: 6
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce7de3e6e379a634eb1f3590b4d02f97, type: 3}

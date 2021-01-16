@@ -5,6 +5,7 @@ using UnityEngine;
 public class MosquitoController : MonoBehaviour
 {
     [SerializeField] private float pullForce = 5.42f;
+    [SerializeField] private float maxSpeed = 25f;
     private Rigidbody rb;
     private bool inRaft = false;
     public int MosquitoeNumber;
@@ -23,6 +24,7 @@ public class MosquitoController : MonoBehaviour
             Vector3 forceDirection = other.transform.position - transform.position;
             // apply force on target towards raft.
             rb.AddForce(forceDirection.normalized * pullForce, ForceMode.Acceleration);
+            rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
         }
     }
     private void OnTriggerEnter(Collider other)
