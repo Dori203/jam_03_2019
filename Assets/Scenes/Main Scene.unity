@@ -26793,9 +26793,12 @@ MonoBehaviour:
   aimSpeed: 0.01
   doriTest: 0
   engagedMosquito: {fileID: 0}
+  aimAnimator: {fileID: 1185679682}
   mosquitosLayer:
     serializedVersion: 2
     m_Bits: 32768
+  audio: {fileID: 1274308792}
+  swatSound: {fileID: 8300000, guid: ab2f0fe832060c042b64d0d548daba6d, type: 3}
 --- !u!65 &1185679681
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -65831,7 +65834,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 503351
+    m_Bits: 501303
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 0f0c4cacc8e1e464ca9800fc083759d8, type: 2}
   m_TargetDisplay: 0
