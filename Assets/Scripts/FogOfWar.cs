@@ -10,6 +10,7 @@ public class FogOfWar : MonoBehaviour
     [SerializeField] private LayerMask fogLayer;
     [SerializeField] private float radius = 20f;
     [SerializeField] private Color initialColor;
+    [SerializeField] private Color newColor;
     private float m_radiusSqr { get { return radius * radius; } }
 
     private ProBuilderMesh ground;
@@ -50,8 +51,8 @@ public class FogOfWar : MonoBehaviour
                 float dist = Vector3.SqrMagnitude(v - hit.point);
                 if (dist < m_radiusSqr)
                 {
-                    float alpha = 0f; // Mathf.Min(m_colors[i].a, dist / m_radiusSqr);
-                    m_colors[i].a = alpha;
+                    //float alpha = 0f; // Mathf.Min(m_colors[i].a, dist / m_radiusSqr);
+                    m_colors[i].a = 0f;
                 }
             }
             UpdateColor();
