@@ -14,11 +14,62 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
     
     public void OnSceneChanged(Scene previousScene, Scene nextScene) { }
 
+    [SerializeField] private int exterminationScore;
+    [SerializeField] private int exterminationVictoryThreshold;
+
+    [SerializeField] private int explorationScore;
+    [SerializeField] private int explorationVictoryThreshold;
+
+    [SerializeField] private int fishingScore;
+    [SerializeField] private int fishingVictoryThreshold;
+
+
+
+
+
     public enum Channels
     {
         MosquitoesEngaged,
         MosquitoesInCamera,
-        MosquitoeHit
+        MosquitoeHit,
+        Winning
+    }
+
+
+    public void incExterminationScore()
+    {
+        exterminationScore++;
+        checkVictory();
+    }
+
+    private void checkVictory()
+    {
+        bool isGameOver = false;
+        Victory victoryType = Victory.None;
+        //check each victory condition, return
+        if(exterminationScore >= exterminationVictoryThreshold)
+        {
+            Debug.Log("extermination victory");
+            isGameOver = true;
+            victoryType = Victory.Extermination;
+        }
+        else if(explorationScore >= explorationVictoryThreshold)
+        {
+            Debug.Log("exploration victory");
+            isGameOver = true;
+            victoryType = Victory.Exploration;
+        }
+        else if(fishingScore >= fishingVictoryThreshold)
+        {
+            isGameOver = true;
+            victoryType = Victory.Fishing;
+        }
+
+        if (isGameOver)
+        {
+            VictoryMessage(victoryType);
+            Time.timeScale = 0;
+        }
     }
 
     public void MosquitoesInCamera(bool isMosquitoesInCamera)
@@ -33,5 +84,10 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
     public void MosquitoeHit(int MosquitoeNumber)
     {
         Messenger<int>.Broadcast(Channels.MosquitoeHit.GetPath(), MosquitoeNumber, MessengerMode.DONT_REQUIRE_LISTENER);
+    }
+
+    private void VictoryMessage(Victory victoryType)
+    {
+        Messenger<Victory>.Broadcast(Channels.Winning.GetPath(), victoryType, MessengerMode.DONT_REQUIRE_LISTENER);
     }
 }
