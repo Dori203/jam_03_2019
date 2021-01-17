@@ -28,23 +28,28 @@ public class MosquitoController : MonoBehaviour
             rb.AddForce(forceDirection.normalized * pullForce, ForceMode.Acceleration);
             rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
         }
+        if (other.tag == "MosquitoLimit")
+        {
+            sendMosquitoAway(other.transform);
+        }
+
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "MosquitoLimit")
         {
             inRaft = true;
-            this.transform.SetParent(other.transform);
-            rb.isKinematic = true;
-            
-            // calculate force vector
-            var force = transform.position - other.transform.position;
-            // normalize force vector to get direction only and trim magnitude
-            force.Normalize();
-            gameObject.GetComponent<Rigidbody>().AddForce(force * magnitude,ForceMode.Impulse);
+            sendMosquitoAway(other.transform);
             ExterminationManager.SharedInstance.MosquitoesEngaged(MosquitoeNumber);
         }
 
     }
 
+    private void sendMosquitoAway(Transform raft)
+    {
+        var force = transform.position - raft.transform.position;
+        // normalize force vector to get direction only and trim magnitude
+        force.Normalize();
+        gameObject.GetComponent<Rigidbody>().AddForce(force * magnitude, ForceMode.Impulse);
+    }
 }
