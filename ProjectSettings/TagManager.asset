@@ -9,6 +9,7 @@ TagManager:
   - MosquitoAttractor
   - MosquitoLimit
   - mosquitoSprite
+  - raftExplorationRadar
   layers:
   - Default
   - TransparentFX

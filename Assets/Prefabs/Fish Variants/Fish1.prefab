@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6441129776672694896, guid: 8becd20b4b8c3634ead5f7917f1a165b,
+        type: 3}
+      propertyPath: typeIndex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6441129776672694897, guid: 8becd20b4b8c3634ead5f7917f1a165b,
         type: 3}
       propertyPath: m_BackSortingOrder

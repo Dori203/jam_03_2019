@@ -31,7 +31,8 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
         MosquitoeHit,
         Winning,
         InterestPointHit,
-        MosquitoeNext
+        MosquitoeNext,
+        NewFishCaught
     }
 
 
@@ -44,6 +45,12 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
     public void incExplorationScore()
     {
         explorationScore++;
+        checkVictory();
+    }
+
+    public void incFishingScore()
+    {
+        fishingScore++;
         checkVictory();
     }
 
@@ -66,6 +73,7 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
         }
         else if(fishingScore >= fishingVictoryThreshold)
         {
+            Debug.Log("fishing victory");
             isGameOver = true;
             victoryType = Victory.Fishing;
         }
@@ -104,5 +112,10 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
     public void InterestPointHit(int interetPointType)
     {
         Messenger<int>.Broadcast(Channels.InterestPointHit.GetPath(), interetPointType, MessengerMode.DONT_REQUIRE_LISTENER);
+    }
+
+    public void NewFishCaught(int FishType)
+    {
+        Messenger<int>.Broadcast(Channels.NewFishCaught.GetPath(), FishType, MessengerMode.DONT_REQUIRE_LISTENER);
     }
 }

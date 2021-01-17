@@ -33,6 +33,7 @@ public class FishingGame : MonoBehaviour {
     [SerializeField] private AudioClip escape_sound;
 
 
+
     enum rodState {
         Idle,
         Waiting,
@@ -108,10 +109,15 @@ public class FishingGame : MonoBehaviour {
                     rodAnimator.Play("pull");
                     // Debug.Log("catch");
                     audio.PlayOneShot(catch_sound);
+
+
                     fishCount += 1;
                     StartCountdown(minIdleTime, maxIdleTime);
                     rod = rodState.Idle;
-                    SpawnFish();
+                    int fishType = SpawnFish();
+                    FishingManager.SharedInstance.fishHit(fishType);
+                    Debug.Log("caught fish with type index:");
+                    Debug.Log(fishType);
                     break;
                 }
 
@@ -127,15 +133,16 @@ public class FishingGame : MonoBehaviour {
         pokeCount = Random.Range(minPokes, maxPokes);
     }
 
-    private void SpawnFish() {
+    private int SpawnFish() {
         catchParticle.Play();
         Vector3 offset = new Vector3(0f, 0.5f, 0f);
         int typeIndex = Random.Range(0, fishTypes.Count - 1);
-        {
-            GameObject currentFish = Instantiate(fishTypes[typeIndex], fishBox.transform.position + offset,
-                Quaternion.Euler(90, Random.Range(0, 360), 0), transform);
-            currentFish.transform.SetParent(fishBox.transform);
-        }
+        GameObject currentFish = Instantiate(fishTypes[typeIndex], fishBox.transform.position + offset,
+        Quaternion.Euler(90, Random.Range(0, 360), 0), transform);
+        currentFish.transform.SetParent(fishBox.transform);
+        return typeIndex;
+
+
     }
 
     private void Poke() {
