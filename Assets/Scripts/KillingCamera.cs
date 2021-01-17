@@ -43,6 +43,7 @@ public class KillingCamera : ListeningMonoBehaviour {
         } else if (mosquitoesEngagedMode) {
             //get closest mosquito
             Vector3 relativePos = engagedMosquito.transform.position - transform.position;
+            Debug.Log("follow mosquito");
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(relativePos, Vector3.up), 45.0f * Time.deltaTime);
 
             //stop rotating once camera is close to pointing at mosquito.
@@ -69,6 +70,7 @@ public class KillingCamera : ListeningMonoBehaviour {
         //calculate angles
         float minAngle = 360;
         float curAngle = 0;
+        int curIndex = -1;
         int minIndex = -1;
 
         //find minimum angle mosquito
@@ -78,7 +80,7 @@ public class KillingCamera : ListeningMonoBehaviour {
             if(curAngle < minAngle)
             {
                 minAngle = curAngle;
-                minIndex = i;
+                minIndex = ExterminationManager.SharedInstance.getEngagedMosquitoNumberByIndex(i);
             }
         }
         Debug.Log("minIndex : " + minIndex);

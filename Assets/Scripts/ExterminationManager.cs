@@ -21,8 +21,15 @@ public class ExterminationManager : MonoBehaviour {
 
 
     public Vector3 getEngagedMosquitoPositionByIndex(int i) {
-        int j = mosquitosEngagedList[i];
-        return MosquitoSpawner.SharedInstance.getMosquitoPositionByIndex(i);
+        int mosquitosNumber = mosquitosEngagedList[i];
+        Debug.Log("VAgetEngagedMosquitoPositionByIndex : " + mosquitosNumber);
+        return MosquitoSpawner.SharedInstance.getMosquitoPositionByIndex(mosquitosNumber);
+    }
+    
+    public int getEngagedMosquitoNumberByIndex(int i) {
+        int mosquitosNumber = mosquitosEngagedList[i];
+        Debug.Log("getEngagedMosquitoNumberByIndex : " + mosquitosNumber);
+        return mosquitosNumber;
     }
 
     public int getEngagedListSize() {
@@ -40,7 +47,6 @@ public class ExterminationManager : MonoBehaviour {
         Instantiate(scorePanelMark, killingScorePanel.transform);
 
         //remove mosquito from engaged list
-        Debug.Log("MosquitoeHit\ngetEngagedListSize() : " + getEngagedListSize() + "\nMosquitoeNumber : " + MosquitoeNumber);
         if(mosquitosEngagedList.Contains(MosquitoeNumber)) mosquitosEngagedList.Remove(MosquitoeNumber);
 
         //set a new random position for mosquito
@@ -54,9 +60,7 @@ public class ExterminationManager : MonoBehaviour {
             GameManager.Instance.MosquitoeHit(MosquitoeNumber);
         }
 
-        print("remove : " + MosquitoeNumber + "\nmosquitosEngagedList : " + mosquitosEngagedList.Count);
-
         aimAnimator.Play("swat");
-        Debug.Log("Played Swat Animation");
+        // Debug.Log("Played Swat Animation");
     }
 }
