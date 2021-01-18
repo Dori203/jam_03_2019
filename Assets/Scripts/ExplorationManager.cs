@@ -9,7 +9,7 @@ public class ExplorationManager : MonoBehaviour
     public static ExplorationManager SharedInstance;
 
 
-    [SerializeField] private ArrayList interetPoints = new ArrayList();
+    //[SerializeField] private ArrayList interetPoints = new ArrayList();
     [SerializeField] private List<int> interetPointsEngagedList = new List<int>();
 
     void Awake()
@@ -19,12 +19,17 @@ public class ExplorationManager : MonoBehaviour
 
     public void interestPointHit(int interestPointIndex) 
     {
-        //add score to the exploration scores.
-        
-        //broadcast
-        GameManager.Instance.InterestPointHit(interestPointIndex);
+        if (!interetPointsEngagedList.Contains(interestPointIndex))
+        {
+            //mark interest point as visited.
+            interetPointsEngagedList.Add(interestPointIndex);
 
-        //increase exploration score.
-        GameManager.Instance.incExplorationScore();
+            //broadcast
+            GameManager.Instance.InterestPointHit(interestPointIndex);
+
+            //increase exploration score.
+            GameManager.Instance.incExplorationScore();
+        }
+
     }
 }

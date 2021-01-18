@@ -23,19 +23,40 @@ public class AimController : ListeningMonoBehaviour {
     [SerializeField] private LayerMask mosquitosLayer;
     [SerializeField] private AudioSource audio;
     [SerializeField] private AudioClip swatSound;
+    [SerializeField] private float minRandomPositionTime;
+    [SerializeField] private float maxRandomPositionTime;
+    [SerializeField] private float randomPositionRadius;
+
 
     private Vector3 targetPosition;
     private bool mosquitoesEngagedMode;
     private bool mosquitoesInCamera;
+    private Vector3 velocity = Vector3.zero;
+    private bool waiting = false;
+    private float timer = 0f;
+    private Vector3 initialLocalPos;
 
     void Awake() {
         aimSpeed = 0.1f;
+        initialLocalPos = transform.localPosition;
     }
 
     void Update() {
 
         if (engagedMosquito != null && mosquitoesInCamera) {
-            transform.localPosition = Vector3.MoveTowards(transform.localPosition, targetPosition, aimSpeed);
+
+            timer -= Time.deltaTime;
+
+            if (timer <= 0)
+            {
+                lerpPosition();
+            }
+            else
+            {
+                transform.localPosition =  Vector3.SmoothDamp(transform.localPosition, targetPosition, ref velocity,  0.5f);
+                //transform.localPosition = Vector3.MoveTowards(transform.localPosition, targetPosition, aimSpeed);
+            }
+
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3)) {
@@ -64,7 +85,8 @@ public class AimController : ListeningMonoBehaviour {
     IEnumerator aimToTarget() {
         //wait for 0.5 a second.
         yield return new WaitForSeconds(0.1f);
-    
+        //StartCountdown(minRandomPositionTime, maxRandomPositionTime);
+
         RaycastHit hit;
     
         //Make Ray hit only aim layer.
@@ -74,8 +96,16 @@ public class AimController : ListeningMonoBehaviour {
         if (Physics.Raycast(killingCamera.transform.position, dir2, out hit, 10000, layerMask)) {
             targetPosition = killingCamera.transform.InverseTransformPoint(hit.point) - hit.transform.localPosition;
             targetPosition.z = transform.localPosition.z;
+
             mosquitoesInCamera = true;
         }
+    }
+
+    private void lerpPosition()
+    {
+        targetPosition = initialLocalPos +  new Vector3(Random.Range(randomPositionRadius, -1*randomPositionRadius), Random.Range(randomPositionRadius, -1 * randomPositionRadius),0);
+        StartCountdown(minRandomPositionTime, maxRandomPositionTime);
+
     }
 
     private void mosquitoesEngaged(int MosquitoeNumber) {
@@ -96,7 +126,8 @@ public class AimController : ListeningMonoBehaviour {
     private void mosquitoesInCameraMode(bool MosquitoesInCamera) {
         if (!mosquitoesEngagedMode) return;
         if (MosquitoesInCamera) {
-            StartCoroutine(aimToTarget());
+            //StartCoroutine(aimToTarget());
+            mosquitoesInCamera = true;
             return;
         } else {
             mosquitoesInCamera = false; // todo delete
@@ -105,5 +136,10 @@ public class AimController : ListeningMonoBehaviour {
 
     private void MosquitoeHit(int MosquitoeNumber) {
         mosquitoesInCamera = false;
+    }
+
+    private void StartCountdown(float min, float max)
+    {
+        timer = Random.Range(min, max);
     }
 }

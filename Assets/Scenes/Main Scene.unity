@@ -8040,7 +8040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08ee3efdb13ada34abe0052b8406ed85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
 --- !u!1 &390665406
 GameObject:
   m_ObjectHideFlags: 0
@@ -19641,7 +19641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08ee3efdb13ada34abe0052b8406ed85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 2
 --- !u!1 &808996072
 GameObject:
   m_ObjectHideFlags: 0
@@ -27303,6 +27303,9 @@ MonoBehaviour:
     m_Bits: 32768
   audio: {fileID: 1274308792}
   swatSound: {fileID: 8300000, guid: ab2f0fe832060c042b64d0d548daba6d, type: 3}
+  minRandomPositionTime: 0.5
+  maxRandomPositionTime: 2
+  randomPositionRadius: 0.2
 --- !u!65 &1185679681
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -47696,7 +47699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08ee3efdb13ada34abe0052b8406ed85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 3
 --- !u!1 &1374510892
 GameObject:
   m_ObjectHideFlags: 0

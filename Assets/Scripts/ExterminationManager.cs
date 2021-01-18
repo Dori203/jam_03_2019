@@ -22,13 +22,13 @@ public class ExterminationManager : MonoBehaviour {
 
     public Vector3 getEngagedMosquitoPositionByIndex(int i) {
         int mosquitosNumber = mosquitosEngagedList[i];
-        Debug.Log("VAgetEngagedMosquitoPositionByIndex : " + mosquitosNumber);
+        //Debug.Log("VAgetEngagedMosquitoPositionByIndex : " + mosquitosNumber);
         return MosquitoSpawner.SharedInstance.getMosquitoPositionByIndex(mosquitosNumber);
     }
     
     public int getEngagedMosquitoNumberByIndex(int i) {
         int mosquitosNumber = mosquitosEngagedList[i];
-        Debug.Log("getEngagedMosquitoNumberByIndex : " + mosquitosNumber);
+        //Debug.Log("getEngagedMosquitoNumberByIndex : " + mosquitosNumber);
         return mosquitosNumber;
     }
 
@@ -46,8 +46,11 @@ public class ExterminationManager : MonoBehaviour {
         //add another score to the extermination scores.
         Instantiate(scorePanelMark, killingScorePanel.transform);
 
+        //add mosquito score in gameManager
+        GameManager.Instance.incExterminationScore();
+
         //remove mosquito from engaged list
-        if(mosquitosEngagedList.Contains(MosquitoeNumber)) mosquitosEngagedList.Remove(MosquitoeNumber);
+        if (mosquitosEngagedList.Contains(MosquitoeNumber)) mosquitosEngagedList.Remove(MosquitoeNumber);
 
         //set a new random position for mosquito
         MosquitoSpawner.SharedInstance.GetPooledObjectByIndex(MosquitoeNumber).transform.position =
