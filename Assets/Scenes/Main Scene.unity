@@ -26959,7 +26959,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mosquitosEngagedList: 
-  killingScorePanel: {fileID: 1274308788}
+  killingScorePanel: {fileID: 2144130890}
   scorePanelMark: {fileID: 6435161138185956401, guid: bc83abdb3af497f4eb4d8513b96e82a8,
     type: 3}
   aimAnimator: {fileID: 1185679682}
@@ -51128,11 +51128,11 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   exterminationScore: 0
-  exterminationVictoryThreshold: 20
+  exterminationVictoryThreshold: 36
   explorationScore: 0
-  explorationVictoryThreshold: 3
+  explorationVictoryThreshold: 4
   fishingScore: 0
-  fishingVictoryThreshold: 3
+  fishingVictoryThreshold: 9
 --- !u!4 &1915084581
 Transform:
   m_ObjectHideFlags: 0
