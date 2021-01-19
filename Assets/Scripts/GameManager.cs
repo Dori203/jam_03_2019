@@ -75,10 +75,9 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
         checkLoss();
     }
 
-    public void decExterminationHealth()
+    public void decExterminationHealth(int amount)
     {
-        Debug.Log("gotmikk");
-        exterminationHealth--;
+        exterminationHealth = exterminationHealth - amount;
         checkLoss();
     }
 
