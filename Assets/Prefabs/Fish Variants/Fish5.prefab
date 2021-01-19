@@ -10,12 +10,22 @@ PrefabInstance:
     - target: {fileID: 6441129776672694896, guid: 8becd20b4b8c3634ead5f7917f1a165b,
         type: 3}
       propertyPath: sortOrder
-      value: 12
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6441129776672694896, guid: 8becd20b4b8c3634ead5f7917f1a165b,
         type: 3}
       propertyPath: typeIndex
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441129776672694897, guid: 8becd20b4b8c3634ead5f7917f1a165b,
+        type: 3}
+      propertyPath: m_FrontSortingOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441129776672694897, guid: 8becd20b4b8c3634ead5f7917f1a165b,
+        type: 3}
+      propertyPath: m_BackSortingOrder
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6441129776672694900, guid: 8becd20b4b8c3634ead5f7917f1a165b,
         type: 3}
@@ -76,6 +86,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fish5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441129777697132165, guid: 8becd20b4b8c3634ead5f7917f1a165b,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8becd20b4b8c3634ead5f7917f1a165b, type: 3}

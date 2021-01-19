@@ -158,7 +158,7 @@ public class FishingGame : MonoBehaviour {
             fishCount--;
             Debug.Log("trying to remove a fish");
             //deactivate a random child of fishbox.
-            Transform fish = fishBox.transform.GetChild(Random.Range(0, fishBox.transform.GetChildCount()));
+            Transform fish = fishBox.transform.GetChild(Random.Range(0, fishBox.transform.childCount));
             fish.SetParent(null);
             fish.gameObject.SetActive(false);
         }

@@ -14,7 +14,6 @@ public class FishingManager : MonoBehaviour
 
     public void fishHit(int fishTypeIndex)
     {
-
         //check if fish already caught.
         if (!fishCaughtList.Contains(fishTypeIndex))
         {
@@ -26,7 +25,5 @@ public class FishingManager : MonoBehaviour
             //broadcast
             GameManager.Instance.NewFishCaught(fishTypeIndex);
         }
-        
-
     }
 }
