@@ -24,9 +24,10 @@ public class Hunt : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Raft")
         {
-            //todo lose game
+            Debug.Log("hit player");
+            ExplorationManager.SharedInstance.monsterHit();
         }
     }
 }

@@ -32,4 +32,11 @@ public class ExplorationManager : MonoBehaviour
         }
 
     }
+
+    public void monsterHit()
+    {
+        //decrease exploration health.
+        GameManager.Instance.decExplorationHealth(1);
+        Debug.Log("monster hit");
+    }
 }
