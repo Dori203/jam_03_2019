@@ -7556,11 +7556,12 @@ MonoBehaviour:
   - {fileID: 4278215960046553519, guid: 03c9fc0797a1afa4a8aeceee64cadbc1, type: 3}
   - {fileID: 4278215960046553519, guid: 4b9135562eece694497ebb3488bca37e, type: 3}
   - {fileID: 4278215960046553519, guid: 496fc883599a18f47a4502fffd9f8c41, type: 3}
-  fishBox: {fileID: 1589413904}
+  fishBox: {fileID: 1884809310}
   catchParticle: {fileID: 2006113}
   pokeParticles: {fileID: 1260431373}
   minIdleTime: 10
   maxIdleTime: 22
+  fishConsumeTime: 30
   minPokeTime: 1.5
   maxPokeTime: 3
   minPokes: 3
@@ -27065,6 +27066,7 @@ MonoBehaviour:
   scorePanelMark: {fileID: 6435161138185956401, guid: bc83abdb3af497f4eb4d8513b96e82a8,
     type: 3}
   aimAnimator: {fileID: 1185679682}
+  overwhelmingMosquitoThreshold: 10
 --- !u!4 &1172142343
 Transform:
   m_ObjectHideFlags: 0
@@ -48976,6 +48978,7 @@ Transform:
   - {fileID: 1307311048}
   - {fileID: 1291384055}
   - {fileID: 51464465}
+  - {fileID: 1884809311}
   m_Father: {fileID: 5006512735335192857}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
@@ -51089,6 +51092,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1883809639}
   m_Mesh: {fileID: -5707973452958106302, guid: 27ec230053e2aa341b02e61ea5bbf8ff, type: 3}
+--- !u!1 &1884809310
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1884809311}
+  m_Layer: 5
+  m_Name: FishHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1884809311
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884809310}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1589413905}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1891696470
 PrefabInstance:
   m_ObjectHideFlags: 0
