@@ -13,6 +13,10 @@ public class FishingGame : MonoBehaviour {
     [SerializeField] private float minIdleTime;
     [SerializeField] private float maxIdleTime;
     private float timer = 0f;
+    private float hungerTimer = 0f;
+    [SerializeField] private float fishConsumeTime;
+
+
 
     [SerializeField] private float minPokeTime;
     [SerializeField] private float maxPokeTime;
@@ -45,12 +49,21 @@ public class FishingGame : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         StartCountdown(minIdleTime, maxIdleTime);
+        StartCountdown(fishConsumeTime, fishConsumeTime + 2f, true);
+
         pokeCount = 0;
     }
 
     // Update is called once per frame
     void Update() {
         timer -= Time.deltaTime;
+        hungerTimer -= Time.deltaTime;
+
+        if(hungerTimer <= 0)
+        {
+            consumeFish();
+            StartCountdown(fishConsumeTime, fishConsumeTime + 2f, true);
+        }
         switch (rod) {
             case rodState.Idle:
                 if (timer <= 0) {
@@ -125,8 +138,35 @@ public class FishingGame : MonoBehaviour {
         }
     }
 
-    private void StartCountdown(float min, float max) {
-        timer = Random.Range(min, max);
+    private void StartCountdown(float min, float max, bool hunger=false) {
+        if (hunger)
+        {
+            hungerTimer = Random.Range(min, max);
+        }
+        else
+        {
+            timer = Random.Range(min, max);
+        }
+    }
+
+    private void consumeFish()
+    {
+        Debug.Log("consuming fish!");
+        //if there are fish caught - consume one of them (don't remove scoring given for capture)
+        if (fishCount > 0)
+        {
+            fishCount--;
+            Debug.Log("trying to remove a fish");
+            //deactivate a random child of fishbox.
+            Transform fish = fishBox.transform.GetChild(Random.Range(0, fishBox.transform.GetChildCount()));
+            fish.SetParent(null);
+            fish.gameObject.SetActive(false);
+        }
+        else
+        {
+            GameManager.Instance.decFishingHealth(Random.Range(1, 9 - fishCount));
+        }
+
     }
 
     private void SetPokes() {

@@ -63,9 +63,9 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
         checkVictory();
     }
 
-    public void decFishingHealth()
+    public void decFishingHealth(int amount)
     {
-        fishingHealth--;
+        fishingHealth = fishingHealth - amount;
         checkLoss();
     }
 
