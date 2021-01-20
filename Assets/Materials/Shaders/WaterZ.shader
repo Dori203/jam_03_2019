@@ -60,6 +60,7 @@
             #define ATTRIBUTES_NEED_TANGENT
             #define ATTRIBUTES_NEED_TEXCOORD0
             #define VARYINGS_NEED_TEXCOORD0
+            #define FEATURES_GRAPH_VERTEX
             #define SHADERPASS_UNLIT
         
             // Includes
@@ -120,6 +121,13 @@
                 Out = A + B;
             }
             
+            void Unity_Combine_float(float R, float G, float B, float A, out float4 RGBA, out float3 RGB, out float2 RG)
+            {
+                RGBA = float4(R, G, B, A);
+                RGB = float3(R, G, B);
+                RG = float2(R, G);
+            }
+            
             void Unity_Clamp_float(float In, float Min, float Max, out float Out)
             {
                 Out = clamp(In, Min, Max);
@@ -147,7 +155,64 @@
             }
         
             // Graph Vertex
-            // GraphVertex: <None>
+            struct VertexDescriptionInputs
+            {
+                float3 ObjectSpaceNormal;
+                float3 ObjectSpaceTangent;
+                float3 ObjectSpacePosition;
+                float4 uv0;
+                float3 TimeParameters;
+            };
+            
+            struct VertexDescription
+            {
+                float3 VertexPosition;
+                float3 VertexNormal;
+                float3 VertexTangent;
+            };
+            
+            VertexDescription VertexDescriptionFunction(VertexDescriptionInputs IN)
+            {
+                VertexDescription description = (VertexDescription)0;
+                float _Split_7D6DE16B_R_1 = IN.ObjectSpacePosition[0];
+                float _Split_7D6DE16B_G_2 = IN.ObjectSpacePosition[1];
+                float _Split_7D6DE16B_B_3 = IN.ObjectSpacePosition[2];
+                float _Split_7D6DE16B_A_4 = 0;
+                float _Multiply_47EEEF4B_Out_2;
+                Unity_Multiply_float(_Split_7D6DE16B_G_2, 0.5, _Multiply_47EEEF4B_Out_2);
+                float _Property_D4C79AC3_Out_0 = Vector1_9DA1BF7E;
+                float _Multiply_93011312_Out_2;
+                Unity_Multiply_float(IN.TimeParameters.x, _Property_D4C79AC3_Out_0, _Multiply_93011312_Out_2);
+                float2 _TilingAndOffset_B5B477F3_Out_3;
+                Unity_TilingAndOffset_float(IN.uv0.xy, float2 (1, 1), (_Multiply_93011312_Out_2.xx), _TilingAndOffset_B5B477F3_Out_3);
+                float _GradientNoise_FB8BDEBB_Out_2;
+                Unity_GradientNoise_float(_TilingAndOffset_B5B477F3_Out_3, 450, _GradientNoise_FB8BDEBB_Out_2);
+                float2 _Vector2_624A42B9_Out_0 = float2(_Multiply_93011312_Out_2, 0);
+                float2 _TilingAndOffset_7A107C66_Out_3;
+                Unity_TilingAndOffset_float(IN.uv0.xy, float2 (1, 0.3), _Vector2_624A42B9_Out_0, _TilingAndOffset_7A107C66_Out_3);
+                float _GradientNoise_FFE47C59_Out_2;
+                Unity_GradientNoise_float(_TilingAndOffset_7A107C66_Out_3, 250, _GradientNoise_FFE47C59_Out_2);
+                float _Add_4184AFFE_Out_2;
+                Unity_Add_float(0, _GradientNoise_FFE47C59_Out_2, _Add_4184AFFE_Out_2);
+                float _Add_9F03C0C4_Out_2;
+                Unity_Add_float(_Add_4184AFFE_Out_2, 0.3, _Add_9F03C0C4_Out_2);
+                float _Add_780D41B_Out_2;
+                Unity_Add_float(_GradientNoise_FB8BDEBB_Out_2, _Add_9F03C0C4_Out_2, _Add_780D41B_Out_2);
+                float _Add_EE74AB12_Out_2;
+                Unity_Add_float(_Add_780D41B_Out_2, 0.2, _Add_EE74AB12_Out_2);
+                float _Multiply_858F95BD_Out_2;
+                Unity_Multiply_float(_Add_EE74AB12_Out_2, 0.6, _Multiply_858F95BD_Out_2);
+                float _Add_71089766_Out_2;
+                Unity_Add_float(_Multiply_47EEEF4B_Out_2, _Multiply_858F95BD_Out_2, _Add_71089766_Out_2);
+                float4 _Combine_BA89149E_RGBA_4;
+                float3 _Combine_BA89149E_RGB_5;
+                float2 _Combine_BA89149E_RG_6;
+                Unity_Combine_float(_Split_7D6DE16B_R_1, _Add_71089766_Out_2, _Split_7D6DE16B_B_3, _Split_7D6DE16B_A_4, _Combine_BA89149E_RGBA_4, _Combine_BA89149E_RGB_5, _Combine_BA89149E_RG_6);
+                description.VertexPosition = _Combine_BA89149E_RGB_5;
+                description.VertexNormal = IN.ObjectSpaceNormal;
+                description.VertexTangent = IN.ObjectSpaceTangent;
+                return description;
+            }
             
             // Graph Pixel
             struct SurfaceDescriptionInputs
@@ -308,6 +373,20 @@
             // --------------------------------------------------
             // Build Graph Inputs
         
+            VertexDescriptionInputs BuildVertexDescriptionInputs(Attributes input)
+            {
+                VertexDescriptionInputs output;
+                ZERO_INITIALIZE(VertexDescriptionInputs, output);
+            
+                output.ObjectSpaceNormal =           input.normalOS;
+                output.ObjectSpaceTangent =          input.tangentOS;
+                output.ObjectSpacePosition =         input.positionOS;
+                output.uv0 =                         input.uv0;
+                output.TimeParameters =              _TimeParameters.xyz;
+            
+                return output;
+            }
+            
             SurfaceDescriptionInputs BuildSurfaceDescriptionInputs(Varyings input)
             {
                 SurfaceDescriptionInputs output;
@@ -379,6 +458,8 @@
             #define _SURFACE_TYPE_TRANSPARENT 1
             #define ATTRIBUTES_NEED_NORMAL
             #define ATTRIBUTES_NEED_TANGENT
+            #define ATTRIBUTES_NEED_TEXCOORD0
+            #define FEATURES_GRAPH_VERTEX
             #define SHADERPASS_SHADOWCASTER
         
             // Includes
@@ -399,10 +480,112 @@
             CBUFFER_END
         
             // Graph Functions
-            // GraphFunctions: <None>
+            
+            void Unity_Multiply_float(float A, float B, out float Out)
+            {
+                Out = A * B;
+            }
+            
+            void Unity_TilingAndOffset_float(float2 UV, float2 Tiling, float2 Offset, out float2 Out)
+            {
+                Out = UV * Tiling + Offset;
+            }
+            
+            
+            float2 Unity_GradientNoise_Dir_float(float2 p)
+            {
+                // Permutation and hashing used in webgl-nosie goo.gl/pX7HtC
+                p = p % 289;
+                float x = (34 * p.x + 1) * p.x % 289 + p.y;
+                x = (34 * x + 1) * x % 289;
+                x = frac(x / 41) * 2 - 1;
+                return normalize(float2(x - floor(x + 0.5), abs(x) - 0.5));
+            }
+            
+            void Unity_GradientNoise_float(float2 UV, float Scale, out float Out)
+            { 
+                float2 p = UV * Scale;
+                float2 ip = floor(p);
+                float2 fp = frac(p);
+                float d00 = dot(Unity_GradientNoise_Dir_float(ip), fp);
+                float d01 = dot(Unity_GradientNoise_Dir_float(ip + float2(0, 1)), fp - float2(0, 1));
+                float d10 = dot(Unity_GradientNoise_Dir_float(ip + float2(1, 0)), fp - float2(1, 0));
+                float d11 = dot(Unity_GradientNoise_Dir_float(ip + float2(1, 1)), fp - float2(1, 1));
+                fp = fp * fp * fp * (fp * (fp * 6 - 15) + 10);
+                Out = lerp(lerp(d00, d01, fp.y), lerp(d10, d11, fp.y), fp.x) + 0.5;
+            }
+            
+            void Unity_Add_float(float A, float B, out float Out)
+            {
+                Out = A + B;
+            }
+            
+            void Unity_Combine_float(float R, float G, float B, float A, out float4 RGBA, out float3 RGB, out float2 RG)
+            {
+                RGBA = float4(R, G, B, A);
+                RGB = float3(R, G, B);
+                RG = float2(R, G);
+            }
         
             // Graph Vertex
-            // GraphVertex: <None>
+            struct VertexDescriptionInputs
+            {
+                float3 ObjectSpaceNormal;
+                float3 ObjectSpaceTangent;
+                float3 ObjectSpacePosition;
+                float4 uv0;
+                float3 TimeParameters;
+            };
+            
+            struct VertexDescription
+            {
+                float3 VertexPosition;
+                float3 VertexNormal;
+                float3 VertexTangent;
+            };
+            
+            VertexDescription VertexDescriptionFunction(VertexDescriptionInputs IN)
+            {
+                VertexDescription description = (VertexDescription)0;
+                float _Split_7D6DE16B_R_1 = IN.ObjectSpacePosition[0];
+                float _Split_7D6DE16B_G_2 = IN.ObjectSpacePosition[1];
+                float _Split_7D6DE16B_B_3 = IN.ObjectSpacePosition[2];
+                float _Split_7D6DE16B_A_4 = 0;
+                float _Multiply_47EEEF4B_Out_2;
+                Unity_Multiply_float(_Split_7D6DE16B_G_2, 0.5, _Multiply_47EEEF4B_Out_2);
+                float _Property_D4C79AC3_Out_0 = Vector1_9DA1BF7E;
+                float _Multiply_93011312_Out_2;
+                Unity_Multiply_float(IN.TimeParameters.x, _Property_D4C79AC3_Out_0, _Multiply_93011312_Out_2);
+                float2 _TilingAndOffset_B5B477F3_Out_3;
+                Unity_TilingAndOffset_float(IN.uv0.xy, float2 (1, 1), (_Multiply_93011312_Out_2.xx), _TilingAndOffset_B5B477F3_Out_3);
+                float _GradientNoise_FB8BDEBB_Out_2;
+                Unity_GradientNoise_float(_TilingAndOffset_B5B477F3_Out_3, 450, _GradientNoise_FB8BDEBB_Out_2);
+                float2 _Vector2_624A42B9_Out_0 = float2(_Multiply_93011312_Out_2, 0);
+                float2 _TilingAndOffset_7A107C66_Out_3;
+                Unity_TilingAndOffset_float(IN.uv0.xy, float2 (1, 0.3), _Vector2_624A42B9_Out_0, _TilingAndOffset_7A107C66_Out_3);
+                float _GradientNoise_FFE47C59_Out_2;
+                Unity_GradientNoise_float(_TilingAndOffset_7A107C66_Out_3, 250, _GradientNoise_FFE47C59_Out_2);
+                float _Add_4184AFFE_Out_2;
+                Unity_Add_float(0, _GradientNoise_FFE47C59_Out_2, _Add_4184AFFE_Out_2);
+                float _Add_9F03C0C4_Out_2;
+                Unity_Add_float(_Add_4184AFFE_Out_2, 0.3, _Add_9F03C0C4_Out_2);
+                float _Add_780D41B_Out_2;
+                Unity_Add_float(_GradientNoise_FB8BDEBB_Out_2, _Add_9F03C0C4_Out_2, _Add_780D41B_Out_2);
+                float _Add_EE74AB12_Out_2;
+                Unity_Add_float(_Add_780D41B_Out_2, 0.2, _Add_EE74AB12_Out_2);
+                float _Multiply_858F95BD_Out_2;
+                Unity_Multiply_float(_Add_EE74AB12_Out_2, 0.6, _Multiply_858F95BD_Out_2);
+                float _Add_71089766_Out_2;
+                Unity_Add_float(_Multiply_47EEEF4B_Out_2, _Multiply_858F95BD_Out_2, _Add_71089766_Out_2);
+                float4 _Combine_BA89149E_RGBA_4;
+                float3 _Combine_BA89149E_RGB_5;
+                float2 _Combine_BA89149E_RG_6;
+                Unity_Combine_float(_Split_7D6DE16B_R_1, _Add_71089766_Out_2, _Split_7D6DE16B_B_3, _Split_7D6DE16B_A_4, _Combine_BA89149E_RGBA_4, _Combine_BA89149E_RGB_5, _Combine_BA89149E_RG_6);
+                description.VertexPosition = _Combine_BA89149E_RGB_5;
+                description.VertexNormal = IN.ObjectSpaceNormal;
+                description.VertexTangent = IN.ObjectSpaceTangent;
+                return description;
+            }
             
             // Graph Pixel
             struct SurfaceDescriptionInputs
@@ -432,6 +615,7 @@
                 float3 positionOS : POSITION;
                 float3 normalOS : NORMAL;
                 float4 tangentOS : TANGENT;
+                float4 uv0 : TEXCOORD0;
                 #if UNITY_ANY_INSTANCING_ENABLED
                 uint instanceID : INSTANCEID_SEMANTIC;
                 #endif
@@ -516,6 +700,20 @@
             // --------------------------------------------------
             // Build Graph Inputs
         
+            VertexDescriptionInputs BuildVertexDescriptionInputs(Attributes input)
+            {
+                VertexDescriptionInputs output;
+                ZERO_INITIALIZE(VertexDescriptionInputs, output);
+            
+                output.ObjectSpaceNormal =           input.normalOS;
+                output.ObjectSpaceTangent =          input.tangentOS;
+                output.ObjectSpacePosition =         input.positionOS;
+                output.uv0 =                         input.uv0;
+                output.TimeParameters =              _TimeParameters.xyz;
+            
+                return output;
+            }
+            
             SurfaceDescriptionInputs BuildSurfaceDescriptionInputs(Varyings input)
             {
                 SurfaceDescriptionInputs output;
@@ -585,6 +783,8 @@
             #define _SURFACE_TYPE_TRANSPARENT 1
             #define ATTRIBUTES_NEED_NORMAL
             #define ATTRIBUTES_NEED_TANGENT
+            #define ATTRIBUTES_NEED_TEXCOORD0
+            #define FEATURES_GRAPH_VERTEX
             #define SHADERPASS_DEPTHONLY
         
             // Includes
@@ -605,10 +805,112 @@
             CBUFFER_END
         
             // Graph Functions
-            // GraphFunctions: <None>
+            
+            void Unity_Multiply_float(float A, float B, out float Out)
+            {
+                Out = A * B;
+            }
+            
+            void Unity_TilingAndOffset_float(float2 UV, float2 Tiling, float2 Offset, out float2 Out)
+            {
+                Out = UV * Tiling + Offset;
+            }
+            
+            
+            float2 Unity_GradientNoise_Dir_float(float2 p)
+            {
+                // Permutation and hashing used in webgl-nosie goo.gl/pX7HtC
+                p = p % 289;
+                float x = (34 * p.x + 1) * p.x % 289 + p.y;
+                x = (34 * x + 1) * x % 289;
+                x = frac(x / 41) * 2 - 1;
+                return normalize(float2(x - floor(x + 0.5), abs(x) - 0.5));
+            }
+            
+            void Unity_GradientNoise_float(float2 UV, float Scale, out float Out)
+            { 
+                float2 p = UV * Scale;
+                float2 ip = floor(p);
+                float2 fp = frac(p);
+                float d00 = dot(Unity_GradientNoise_Dir_float(ip), fp);
+                float d01 = dot(Unity_GradientNoise_Dir_float(ip + float2(0, 1)), fp - float2(0, 1));
+                float d10 = dot(Unity_GradientNoise_Dir_float(ip + float2(1, 0)), fp - float2(1, 0));
+                float d11 = dot(Unity_GradientNoise_Dir_float(ip + float2(1, 1)), fp - float2(1, 1));
+                fp = fp * fp * fp * (fp * (fp * 6 - 15) + 10);
+                Out = lerp(lerp(d00, d01, fp.y), lerp(d10, d11, fp.y), fp.x) + 0.5;
+            }
+            
+            void Unity_Add_float(float A, float B, out float Out)
+            {
+                Out = A + B;
+            }
+            
+            void Unity_Combine_float(float R, float G, float B, float A, out float4 RGBA, out float3 RGB, out float2 RG)
+            {
+                RGBA = float4(R, G, B, A);
+                RGB = float3(R, G, B);
+                RG = float2(R, G);
+            }
         
             // Graph Vertex
-            // GraphVertex: <None>
+            struct VertexDescriptionInputs
+            {
+                float3 ObjectSpaceNormal;
+                float3 ObjectSpaceTangent;
+                float3 ObjectSpacePosition;
+                float4 uv0;
+                float3 TimeParameters;
+            };
+            
+            struct VertexDescription
+            {
+                float3 VertexPosition;
+                float3 VertexNormal;
+                float3 VertexTangent;
+            };
+            
+            VertexDescription VertexDescriptionFunction(VertexDescriptionInputs IN)
+            {
+                VertexDescription description = (VertexDescription)0;
+                float _Split_7D6DE16B_R_1 = IN.ObjectSpacePosition[0];
+                float _Split_7D6DE16B_G_2 = IN.ObjectSpacePosition[1];
+                float _Split_7D6DE16B_B_3 = IN.ObjectSpacePosition[2];
+                float _Split_7D6DE16B_A_4 = 0;
+                float _Multiply_47EEEF4B_Out_2;
+                Unity_Multiply_float(_Split_7D6DE16B_G_2, 0.5, _Multiply_47EEEF4B_Out_2);
+                float _Property_D4C79AC3_Out_0 = Vector1_9DA1BF7E;
+                float _Multiply_93011312_Out_2;
+                Unity_Multiply_float(IN.TimeParameters.x, _Property_D4C79AC3_Out_0, _Multiply_93011312_Out_2);
+                float2 _TilingAndOffset_B5B477F3_Out_3;
+                Unity_TilingAndOffset_float(IN.uv0.xy, float2 (1, 1), (_Multiply_93011312_Out_2.xx), _TilingAndOffset_B5B477F3_Out_3);
+                float _GradientNoise_FB8BDEBB_Out_2;
+                Unity_GradientNoise_float(_TilingAndOffset_B5B477F3_Out_3, 450, _GradientNoise_FB8BDEBB_Out_2);
+                float2 _Vector2_624A42B9_Out_0 = float2(_Multiply_93011312_Out_2, 0);
+                float2 _TilingAndOffset_7A107C66_Out_3;
+                Unity_TilingAndOffset_float(IN.uv0.xy, float2 (1, 0.3), _Vector2_624A42B9_Out_0, _TilingAndOffset_7A107C66_Out_3);
+                float _GradientNoise_FFE47C59_Out_2;
+                Unity_GradientNoise_float(_TilingAndOffset_7A107C66_Out_3, 250, _GradientNoise_FFE47C59_Out_2);
+                float _Add_4184AFFE_Out_2;
+                Unity_Add_float(0, _GradientNoise_FFE47C59_Out_2, _Add_4184AFFE_Out_2);
+                float _Add_9F03C0C4_Out_2;
+                Unity_Add_float(_Add_4184AFFE_Out_2, 0.3, _Add_9F03C0C4_Out_2);
+                float _Add_780D41B_Out_2;
+                Unity_Add_float(_GradientNoise_FB8BDEBB_Out_2, _Add_9F03C0C4_Out_2, _Add_780D41B_Out_2);
+                float _Add_EE74AB12_Out_2;
+                Unity_Add_float(_Add_780D41B_Out_2, 0.2, _Add_EE74AB12_Out_2);
+                float _Multiply_858F95BD_Out_2;
+                Unity_Multiply_float(_Add_EE74AB12_Out_2, 0.6, _Multiply_858F95BD_Out_2);
+                float _Add_71089766_Out_2;
+                Unity_Add_float(_Multiply_47EEEF4B_Out_2, _Multiply_858F95BD_Out_2, _Add_71089766_Out_2);
+                float4 _Combine_BA89149E_RGBA_4;
+                float3 _Combine_BA89149E_RGB_5;
+                float2 _Combine_BA89149E_RG_6;
+                Unity_Combine_float(_Split_7D6DE16B_R_1, _Add_71089766_Out_2, _Split_7D6DE16B_B_3, _Split_7D6DE16B_A_4, _Combine_BA89149E_RGBA_4, _Combine_BA89149E_RGB_5, _Combine_BA89149E_RG_6);
+                description.VertexPosition = _Combine_BA89149E_RGB_5;
+                description.VertexNormal = IN.ObjectSpaceNormal;
+                description.VertexTangent = IN.ObjectSpaceTangent;
+                return description;
+            }
             
             // Graph Pixel
             struct SurfaceDescriptionInputs
@@ -638,6 +940,7 @@
                 float3 positionOS : POSITION;
                 float3 normalOS : NORMAL;
                 float4 tangentOS : TANGENT;
+                float4 uv0 : TEXCOORD0;
                 #if UNITY_ANY_INSTANCING_ENABLED
                 uint instanceID : INSTANCEID_SEMANTIC;
                 #endif
@@ -722,6 +1025,20 @@
             // --------------------------------------------------
             // Build Graph Inputs
         
+            VertexDescriptionInputs BuildVertexDescriptionInputs(Attributes input)
+            {
+                VertexDescriptionInputs output;
+                ZERO_INITIALIZE(VertexDescriptionInputs, output);
+            
+                output.ObjectSpaceNormal =           input.normalOS;
+                output.ObjectSpaceTangent =          input.tangentOS;
+                output.ObjectSpacePosition =         input.positionOS;
+                output.uv0 =                         input.uv0;
+                output.TimeParameters =              _TimeParameters.xyz;
+            
+                return output;
+            }
+            
             SurfaceDescriptionInputs BuildSurfaceDescriptionInputs(Varyings input)
             {
                 SurfaceDescriptionInputs output;

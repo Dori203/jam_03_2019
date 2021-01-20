@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -7348,7 +7348,7 @@ MonoBehaviour:
   pokeParticles: {fileID: 1260431373}
   minIdleTime: 10
   maxIdleTime: 22
-  fishConsumeTime: 30
+  fishConsumeTime: 60
   minPokeTime: 1.5
   maxPokeTime: 3
   minPokes: 3
@@ -14212,7 +14212,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 689339485}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.043, z: 1.475}
+  m_LocalPosition: {x: 0, y: 0.041, z: 1.475}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children: []
   m_Father: {fileID: 866370234}
@@ -19386,7 +19386,7 @@ MonoBehaviour:
   squareLength: 180
   heightVariation: 0
   restrictAreaSize: 10
-  yOffset: 2
+  yOffset: 2.5
 --- !u!4 &814228482
 Transform:
   m_ObjectHideFlags: 0
@@ -24308,8 +24308,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.81, y: 0.1, z: 2.54}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.81, y: 0.5, z: 2.54}
+  m_Center: {x: 0, y: -0.25, z: 0}
 --- !u!114 &866370232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24353,7 +24353,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 866370229}
   m_LocalRotation: {x: -0, y: -0.25125268, z: -0, w: 0.96792156}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.55, z: 0}
   m_LocalScale: {x: 1, y: 1.0000002, z: 1.0000002}
   m_Children:
   - {fileID: 155653428}
@@ -25411,8 +25411,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 940804519}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.967, z: -0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalPosition: {x: 0, y: -0.923, z: -0}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_Children: []
   m_Father: {fileID: 1374510893}
   m_RootOrder: 1
@@ -26918,7 +26918,7 @@ Transform:
   m_GameObject: {fileID: 1089424500}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.923, z: -0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_Children: []
   m_Father: {fileID: 1138220221}
   m_RootOrder: 1
@@ -28282,8 +28282,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1195743792}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.6, z: 0}
-  m_LocalScale: {x: 0.06, y: 0.6, z: 0.06}
+  m_LocalPosition: {x: -0, y: -0.46405, z: -0}
+  m_LocalScale: {x: 0.06, y: 0.46404657, z: 0.06000003}
   m_Children: []
   m_Father: {fileID: 1374510893}
   m_RootOrder: 0
@@ -51615,7 +51615,7 @@ MonoBehaviour:
   explorationVictoryThreshold: 3
   fishingScore: 0
   fishingVictoryThreshold: 9
-  exterminationHealth: 10
+  exterminationHealth: 20
   exterminationDeathThreshold: 0
   explorationHealth: 3
   explorationDeathThreshold: 0
@@ -51843,8 +51843,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2005202524}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.6, z: 0}
-  m_LocalScale: {x: 0.03, y: 0.6, z: 0.03}
+  m_LocalPosition: {x: -0, y: -0.4651, z: -0}
+  m_LocalScale: {x: 0.03, y: 0.46513167, z: 0.030000014}
   m_Children: []
   m_Father: {fileID: 1138220221}
   m_RootOrder: 0
@@ -67341,7 +67341,7 @@ PrefabInstance:
     - target: {fileID: 715040220349743612, guid: 2d35f68353c2eca44b9c11e7c597cc3f,
         type: 3}
       propertyPath: outlineMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 715040220349743614, guid: 2d35f68353c2eca44b9c11e7c597cc3f,
         type: 3}
@@ -67361,7 +67361,7 @@ PrefabInstance:
     - target: {fileID: 715040220399182609, guid: 2d35f68353c2eca44b9c11e7c597cc3f,
         type: 3}
       propertyPath: outlineMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 715040220399182611, guid: 2d35f68353c2eca44b9c11e7c597cc3f,
         type: 3}
@@ -67431,6 +67431,11 @@ PrefabInstance:
     - target: {fileID: 715040220586595525, guid: 2d35f68353c2eca44b9c11e7c597cc3f,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 715040220586595527, guid: 2d35f68353c2eca44b9c11e7c597cc3f,
+        type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 715040221194278709, guid: 2d35f68353c2eca44b9c11e7c597cc3f,
