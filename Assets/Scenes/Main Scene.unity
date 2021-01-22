@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6309,7 +6309,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 133710554}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 67eab5b0ab67a4dc1bf8a8e01565f223, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -24623,8 +24623,8 @@ Rigidbody:
   m_GameObject: {fileID: 866370229}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 0.6
+  m_AngularDrag: 10
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -24637,7 +24637,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 866370229}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 73450ca635a814410b3373703d245ae5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -24655,10 +24655,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a4cbfb354e46e418a753d0cb3a9d21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boatTransform: {fileID: 866370234}
-  powerFactor: 15
-  maxSpeed: 1.5
-  rotationSpeed: 1
+  restDuration: 0.7
+  PaddleDuration: 0.5
+  force: 5
+  backPos: 2.54
+  RotateMin: 0.5
+  RotateMax: 1.81
+  RotateStep: 4
 --- !u!95 &866370233
 Animator:
   serializedVersion: 3
