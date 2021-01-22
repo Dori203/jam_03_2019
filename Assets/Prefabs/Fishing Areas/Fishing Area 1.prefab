@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4742280306855860231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697702250773514736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2450a8deffd20c64ea9894b4f387b344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colliderRadius: 10
+  fishType: 1
 --- !u!1001 &2719554323638676754
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10,7 +24,12 @@ PrefabInstance:
     - target: {fileID: 3617163510475187426, guid: 3346c932f68650849994a9fdd559685c,
         type: 3}
       propertyPath: m_Name
-      value: Fishing Area
+      value: Fishing Area 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3617163510475187426, guid: 3346c932f68650849994a9fdd559685c,
+        type: 3}
+      propertyPath: m_TagString
+      value: FishingArea
       objectReference: {fileID: 0}
     - target: {fileID: 6638903135214927236, guid: 3346c932f68650849994a9fdd559685c,
         type: 3}
@@ -69,3 +88,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3346c932f68650849994a9fdd559685c, type: 3}
+--- !u!1 &1697702250773514736 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3617163510475187426, guid: 3346c932f68650849994a9fdd559685c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2719554323638676754}
+  m_PrefabAsset: {fileID: 0}

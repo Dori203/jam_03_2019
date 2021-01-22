@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour {
 
     void FixedUpdate() {
         if (Time.time > nextActionTime) {
+
             startPaddle = !startPaddle;
             nextActionTime += startPaddle ? PaddleDuration : restDuration;
 
@@ -58,6 +59,8 @@ public class PlayerController : MonoBehaviour {
     }
 
     void Paddle() {
+        Debug.Log("Paddling");
+
         boatRB.AddForceAtPosition(boatRB.rotation * forwardVector3 * force,
             boatRB.rotation * new Vector3(sidePos, 0, backPos) + boatRB.position,
             ForceMode.Force);
