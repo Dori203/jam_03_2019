@@ -23,7 +23,13 @@ public class PlayerController : MonoBehaviour {
 
     [BoxGroup("Split/rotate")] public int RotateStep = 4;
 
-    private bool paddling = false;
+    public GameObject oarRight;
+    public GameObject oarLeft;
+
+    private Animator oarRightAnim;
+    private Animator oarLeftAnim;
+
+    private bool paddleInput = false;
     private bool PaddleRight = false;
     private float sidePos;
 
@@ -35,48 +41,98 @@ public class PlayerController : MonoBehaviour {
 
 
     void Start() {
+        oarRightAnim = oarRight.GetComponent<Animator>();
+        oarLeftAnim = oarLeft.GetComponent<Animator>();
+
+        oarLeftAnim.speed = 0f;
+        oarRightAnim.speed = 0f;
+
         boatRB = GetComponent<Rigidbody>();
         // rotationDirection = -1f; // todo delete
-        paddling = false;
+        paddleInput = false;
         sidePos = RotateMin;
         stepInc = (RotateMax - RotateMin) / RotateStep;
     }
 
     void Update() {
         UserInput();
+        AnimatePaddle();
     }
 
     void FixedUpdate() {
         if (Time.time > nextActionTime) {
-
             startPaddle = !startPaddle;
             nextActionTime += startPaddle ? PaddleDuration : restDuration;
 
             sidePos += (Mathf.Abs(sidePos) < Mathf.Abs(RotateMax)) ? stepInc : 0;
         } else {
-            if (startPaddle && paddling) Paddle();
+            if (startPaddle && paddleInput) Paddle();
         }
     }
 
-    void Paddle() {
-        Debug.Log("Paddling");
-
+    void Paddle()
+    {
         boatRB.AddForceAtPosition(boatRB.rotation * forwardVector3 * force,
-            boatRB.rotation * new Vector3(sidePos, 0, backPos) + boatRB.position,
-            ForceMode.Force);
+        boatRB.rotation * new Vector3(sidePos, 0, backPos) + boatRB.position,
+        ForceMode.Force);
+        Debug.Log("Paddling");
+    }
+
+    void AnimatePaddle()
+    {
+        if (paddleInput)
+        {
+            if (startPaddle)
+            {
+                float framePercentage = Mathf.Clamp(1 - ((nextActionTime - Time.time) / PaddleDuration), 0f, 0.99f);
+                if (!PaddleRight)
+                {
+                    oarRightAnim.Play("Scur", 0, framePercentage);
+                    Debug.Log(framePercentage);
+                }
+                else
+                {
+                    oarLeftAnim.Play("Scur", 0, framePercentage);
+                }
+            }
+            else
+            {
+                float framePercentage = Mathf.Clamp(1 - ((nextActionTime - Time.time) / restDuration), 0f, 0.99f);
+                if (!PaddleRight)
+                {
+                    oarRightAnim.Play("Return", 0, framePercentage);
+                }
+                else
+                {
+                    oarLeftAnim.Play("Return", 0, framePercentage);
+                }
+            }
+        }
     }
 
     void UserInput() {
         //Steer left
         if (Input.GetKeyDown(KeyCode.Alpha2)) {
-            paddling = true;
-            PaddleRight = !PaddleRight; // switch direction
+            paddleInput = true;
             stepInc = -1f * stepInc;
             sidePos = RotateMin * Mathf.Sign(stepInc);
         }
 
         if (Input.GetKeyUp(KeyCode.Alpha2)) {
-            paddling = false;
+            paddleInput = false;
+            {
+                PaddleRight = !PaddleRight; // switch direction
+                if (PaddleRight)
+                {
+                    oarRight.SetActive(false);
+                    oarLeft.SetActive(true);
+                }
+                else
+                {
+                    oarLeft.SetActive(false);
+                    oarRight.SetActive(true);
+                }
+            }
         }
     }
 }
