@@ -23,6 +23,14 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
     [SerializeField] private int fishingScore = 0;
     [SerializeField] private int fishingVictoryThreshold = 20; //TODO RANDOM NUMBER
 
+    [SerializeField] private int exterminationHealth = 40;
+    [SerializeField] private int exterminationDeathThreshold = 0; //TODO RANDOM NUMBER
+
+    [SerializeField] private int explorationHealth = 3;
+    [SerializeField] private int explorationDeathThreshold = 0; //TODO RANDOM NUMBER
+
+    [SerializeField] private int fishingHealth = 20;
+    [SerializeField] private int fishingDeathThreshold = 0; //TODO RANDOM NUMBER
 
     public enum Channels
     {
@@ -32,7 +40,8 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
         Winning,
         InterestPointHit,
         MosquitoeNext,
-        NewFishCaught
+        NewFishCaught,
+        Losing
     }
 
 
@@ -52,6 +61,24 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
     {
         fishingScore++;
         checkVictory();
+    }
+
+    public void decFishingHealth(int amount)
+    {
+        fishingHealth = fishingHealth - amount;
+        checkLoss();
+    }
+
+    public void decExplorationHealth(int amount)
+    {
+        explorationHealth = explorationHealth - amount;
+        checkLoss();
+    }
+
+    public void decExterminationHealth(int amount)
+    {
+        exterminationHealth = exterminationHealth - amount;
+        checkLoss();
     }
 
     private void checkVictory()
@@ -85,6 +112,39 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
         }
     }
 
+    private void checkLoss()
+    {
+        bool isGameOver = false;
+        LossConditions lossType = LossConditions.None;
+
+        //check each loss condition, return
+        if (exterminationHealth < exterminationDeathThreshold)
+        {
+            Debug.Log("extermination loss");
+            isGameOver = true;
+            lossType = LossConditions.Extermination;
+        }
+        else if (explorationHealth < explorationDeathThreshold)
+        {
+            Debug.Log("exploration loss");
+            isGameOver = true;
+            lossType = LossConditions.Exploration;
+        }
+        else if (fishingHealth < fishingDeathThreshold)
+        {
+            Debug.Log("Fishing loss");
+            isGameOver = true;
+            lossType = LossConditions.Fishing;
+        }
+
+        if (isGameOver)
+        {
+            LossMessage(lossType);
+            Time.timeScale = 0;
+        }
+    }
+
+
     public void MosquitoesInCamera(bool isMosquitoesInCamera)
     {
         Messenger<bool>.Broadcast(Channels.MosquitoesInCamera.GetPath(), isMosquitoesInCamera, MessengerMode.DONT_REQUIRE_LISTENER);
@@ -107,6 +167,11 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
     private void VictoryMessage(Victory victoryType)
     {
         Messenger<Victory>.Broadcast(Channels.Winning.GetPath(), victoryType, MessengerMode.DONT_REQUIRE_LISTENER);
+    }
+
+    private void LossMessage(LossConditions lossType)
+    {
+        Messenger<LossConditions>.Broadcast(Channels.Losing.GetPath(), lossType, MessengerMode.DONT_REQUIRE_LISTENER);
     }
 
     public void InterestPointHit(int interetPointType)

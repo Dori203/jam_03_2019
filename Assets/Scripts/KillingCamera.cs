@@ -37,7 +37,7 @@ public class KillingCamera : ListeningMonoBehaviour {
         //cruising
         if (followRotation && !mosquitoesEngagedMode)
         {
-            Debug.Log("CRUSING");
+            //Debug.Log("CRUSING");
             transform.rotation = Quaternion.RotateTowards(transform.rotation, player.rotation * rotationOffset, 45.0f * Time.deltaTime);
         //engaged in battle.
         } else if (mosquitoesEngagedMode) {

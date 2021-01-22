@@ -1,4 +1,4 @@
-﻿    using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,6 +17,9 @@ public class Hunt : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Quaternion rotation = new Quaternion();
+        rotation.SetLookRotation(rb.velocity);
+        transform.rotation = rotation;
         Vector3 distance = (new Vector3(target.position.x, 0, target.position.z) - transform.position);
         rb.AddForce(distance.normalized * acceleration);
         rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
@@ -24,9 +27,10 @@ public class Hunt : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Raft")
         {
-            //todo lose game
+            Debug.Log("hit player");
+            ExplorationManager.SharedInstance.monsterHit();
         }
     }
 }

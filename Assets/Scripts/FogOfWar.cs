@@ -56,6 +56,7 @@ public class FogOfWar : MonoBehaviour
                 }
             }
             UpdateColor();
+            Debug.Log("UpdateColor");
         }
     }
 
