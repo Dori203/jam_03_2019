@@ -18,6 +18,37 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 305381652966961079, guid: 47109c731d965f3489434410b9676c10,
         type: 3}
+    - target: {fileID: 4760922257991843809, guid: 7b7a7c07b15d03741879b295a0cd6f9a,
+        type: 3}
+      propertyPath: m_Radius
+      value: 1.3301797
+      objectReference: {fileID: 0}
+    - target: {fileID: 4760922257991843809, guid: 7b7a7c07b15d03741879b295a0cd6f9a,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4760922257991843809, guid: 7b7a7c07b15d03741879b295a0cd6f9a,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4760922257991843809, guid: 7b7a7c07b15d03741879b295a0cd6f9a,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.33017963
+      objectReference: {fileID: 0}
+    - target: {fileID: 7881769272409099794, guid: 7b7a7c07b15d03741879b295a0cd6f9a,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 305381652966961079, guid: 47109c731d965f3489434410b9676c10,
+        type: 3}
+    - target: {fileID: 7881769272409099794, guid: 7b7a7c07b15d03741879b295a0cd6f9a,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8229326783711232450, guid: 7b7a7c07b15d03741879b295a0cd6f9a,
         type: 3}
       propertyPath: m_Mesh

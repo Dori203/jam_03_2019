@@ -1,8 +1,8 @@
-﻿Shader "Unlit Master"
+﻿Shader "WaterZ"
 {
     Properties
     {
-        Vector1_9DA1BF7E("Wave Speed", Float) = 0.001
+        Vector1_9DA1BF7E("Wave Speed", Float) = 0.2
         Color_6AA3AF81("Water Color", Color) = (0.6235294, 0.8313726, 0.8, 0)
         Color_11F89965("Wave Color", Color) = (1, 1, 0.9215686, 0)
     }
@@ -186,12 +186,12 @@
                 float2 _TilingAndOffset_B5B477F3_Out_3;
                 Unity_TilingAndOffset_float(IN.uv0.xy, float2 (1, 1), (_Multiply_93011312_Out_2.xx), _TilingAndOffset_B5B477F3_Out_3);
                 float _GradientNoise_FB8BDEBB_Out_2;
-                Unity_GradientNoise_float(_TilingAndOffset_B5B477F3_Out_3, 450, _GradientNoise_FB8BDEBB_Out_2);
+                Unity_GradientNoise_float(_TilingAndOffset_B5B477F3_Out_3, 200, _GradientNoise_FB8BDEBB_Out_2);
                 float2 _Vector2_624A42B9_Out_0 = float2(_Multiply_93011312_Out_2, 0);
                 float2 _TilingAndOffset_7A107C66_Out_3;
                 Unity_TilingAndOffset_float(IN.uv0.xy, float2 (1, 0.3), _Vector2_624A42B9_Out_0, _TilingAndOffset_7A107C66_Out_3);
                 float _GradientNoise_FFE47C59_Out_2;
-                Unity_GradientNoise_float(_TilingAndOffset_7A107C66_Out_3, 250, _GradientNoise_FFE47C59_Out_2);
+                Unity_GradientNoise_float(_TilingAndOffset_7A107C66_Out_3, 120, _GradientNoise_FFE47C59_Out_2);
                 float _Add_4184AFFE_Out_2;
                 Unity_Add_float(0, _GradientNoise_FFE47C59_Out_2, _Add_4184AFFE_Out_2);
                 float _Add_9F03C0C4_Out_2;
@@ -237,12 +237,12 @@
                 float2 _TilingAndOffset_B5B477F3_Out_3;
                 Unity_TilingAndOffset_float(IN.uv0.xy, float2 (1, 1), (_Multiply_93011312_Out_2.xx), _TilingAndOffset_B5B477F3_Out_3);
                 float _GradientNoise_FB8BDEBB_Out_2;
-                Unity_GradientNoise_float(_TilingAndOffset_B5B477F3_Out_3, 450, _GradientNoise_FB8BDEBB_Out_2);
+                Unity_GradientNoise_float(_TilingAndOffset_B5B477F3_Out_3, 200, _GradientNoise_FB8BDEBB_Out_2);
                 float2 _Vector2_624A42B9_Out_0 = float2(_Multiply_93011312_Out_2, 0);
                 float2 _TilingAndOffset_7A107C66_Out_3;
                 Unity_TilingAndOffset_float(IN.uv0.xy, float2 (1, 0.3), _Vector2_624A42B9_Out_0, _TilingAndOffset_7A107C66_Out_3);
                 float _GradientNoise_FFE47C59_Out_2;
-                Unity_GradientNoise_float(_TilingAndOffset_7A107C66_Out_3, 250, _GradientNoise_FFE47C59_Out_2);
+                Unity_GradientNoise_float(_TilingAndOffset_7A107C66_Out_3, 120, _GradientNoise_FFE47C59_Out_2);
                 float _Add_4184AFFE_Out_2;
                 Unity_Add_float(0, _GradientNoise_FFE47C59_Out_2, _Add_4184AFFE_Out_2);
                 float _Add_9F03C0C4_Out_2;
@@ -559,12 +559,12 @@
                 float2 _TilingAndOffset_B5B477F3_Out_3;
                 Unity_TilingAndOffset_float(IN.uv0.xy, float2 (1, 1), (_Multiply_93011312_Out_2.xx), _TilingAndOffset_B5B477F3_Out_3);
                 float _GradientNoise_FB8BDEBB_Out_2;
-                Unity_GradientNoise_float(_TilingAndOffset_B5B477F3_Out_3, 450, _GradientNoise_FB8BDEBB_Out_2);
+                Unity_GradientNoise_float(_TilingAndOffset_B5B477F3_Out_3, 200, _GradientNoise_FB8BDEBB_Out_2);
                 float2 _Vector2_624A42B9_Out_0 = float2(_Multiply_93011312_Out_2, 0);
                 float2 _TilingAndOffset_7A107C66_Out_3;
                 Unity_TilingAndOffset_float(IN.uv0.xy, float2 (1, 0.3), _Vector2_624A42B9_Out_0, _TilingAndOffset_7A107C66_Out_3);
                 float _GradientNoise_FFE47C59_Out_2;
-                Unity_GradientNoise_float(_TilingAndOffset_7A107C66_Out_3, 250, _GradientNoise_FFE47C59_Out_2);
+                Unity_GradientNoise_float(_TilingAndOffset_7A107C66_Out_3, 120, _GradientNoise_FFE47C59_Out_2);
                 float _Add_4184AFFE_Out_2;
                 Unity_Add_float(0, _GradientNoise_FFE47C59_Out_2, _Add_4184AFFE_Out_2);
                 float _Add_9F03C0C4_Out_2;
@@ -884,12 +884,12 @@
                 float2 _TilingAndOffset_B5B477F3_Out_3;
                 Unity_TilingAndOffset_float(IN.uv0.xy, float2 (1, 1), (_Multiply_93011312_Out_2.xx), _TilingAndOffset_B5B477F3_Out_3);
                 float _GradientNoise_FB8BDEBB_Out_2;
-                Unity_GradientNoise_float(_TilingAndOffset_B5B477F3_Out_3, 450, _GradientNoise_FB8BDEBB_Out_2);
+                Unity_GradientNoise_float(_TilingAndOffset_B5B477F3_Out_3, 200, _GradientNoise_FB8BDEBB_Out_2);
                 float2 _Vector2_624A42B9_Out_0 = float2(_Multiply_93011312_Out_2, 0);
                 float2 _TilingAndOffset_7A107C66_Out_3;
                 Unity_TilingAndOffset_float(IN.uv0.xy, float2 (1, 0.3), _Vector2_624A42B9_Out_0, _TilingAndOffset_7A107C66_Out_3);
                 float _GradientNoise_FFE47C59_Out_2;
-                Unity_GradientNoise_float(_TilingAndOffset_7A107C66_Out_3, 250, _GradientNoise_FFE47C59_Out_2);
+                Unity_GradientNoise_float(_TilingAndOffset_7A107C66_Out_3, 120, _GradientNoise_FFE47C59_Out_2);
                 float _Add_4184AFFE_Out_2;
                 Unity_Add_float(0, _GradientNoise_FFE47C59_Out_2, _Add_4184AFFE_Out_2);
                 float _Add_9F03C0C4_Out_2;

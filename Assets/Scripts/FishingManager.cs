@@ -141,12 +141,12 @@ public class FishingManager : MonoBehaviour
                         // Debug.Log("catch");
                         audio.PlayOneShot(catch_sound);
                         fishCount += 1;
-                        StartCountdown(minIdleTime, maxIdleTime);
-                        rod = rodState.Idle;
                         SpawnFish();
                         fishHit((int)currentFishArea);
                         Debug.Log("caught fish with type index:");
                         Debug.Log((int)currentFishArea);
+                        StartCountdown(minIdleTime, maxIdleTime);
+                        rod = rodState.Idle;
                         break;
                     }
 
@@ -155,8 +155,8 @@ public class FishingManager : MonoBehaviour
         }
         else
         {
-            rod = rodState.Idle;
             StartCountdown(minIdleTime, maxIdleTime);
+            rod = rodState.Idle;
         }
 
     }
