@@ -16,8 +16,6 @@ public class FishingGame : MonoBehaviour {
     private float hungerTimer = 0f;
     [SerializeField] private float fishConsumeTime;
 
-
-
     [SerializeField] private float minPokeTime;
     [SerializeField] private float maxPokeTime;
 
