@@ -5319,6 +5319,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Oar
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 8d0aeefdd1849cb458d7330a28905f6c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d0aeefdd1849cb458d7330a28905f6c, type: 3}
 --- !u!4 &28389648 stripped
@@ -7037,7 +7042,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 598839
+    m_Bits: 2695991
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: e4ef9b71d90af8646b559f9d70e99f83, type: 2}
   m_TargetDisplay: 0
@@ -8176,7 +8181,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: dcd169c045156314ba27daec1e61c624, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -19681,7 +19686,7 @@ GameObject:
   m_Component:
   - component: {fileID: 734744420}
   - component: {fileID: 734744421}
-  m_Layer: 13
+  m_Layer: 11
   m_Name: Oar Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44325,7 +44330,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1306589863}
   - component: {fileID: 1306589864}
-  m_Layer: 13
+  m_Layer: 11
   m_Name: Oar Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49536,6 +49541,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Oar
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 8d0aeefdd1849cb458d7330a28905f6c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d0aeefdd1849cb458d7330a28905f6c, type: 3}
@@ -69120,7 +69130,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 370231
+    m_Bits: 2467383
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 0f0c4cacc8e1e464ca9800fc083759d8, type: 2}
   m_TargetDisplay: 0
