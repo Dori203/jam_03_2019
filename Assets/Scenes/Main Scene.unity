@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5027,7 +5027,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &24917671
 GameObject:
@@ -6195,7 +6195,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 133710554}
-  m_Material: {fileID: 13400000, guid: 67eab5b0ab67a4dc1bf8a8e01565f223, type: 2}
+  m_Material: {fileID: 13400000, guid: 9aa67d40adaf15a4e94a6b9d88cc3282, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -7306,7 +7306,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &291298783
 Transform:
   m_ObjectHideFlags: 0
@@ -8041,7 +8041,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d338f47099dd0b4b9b2878d3b24673d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fishPrefabs:
+  - {fileID: 6441129776672694901, guid: 8becd20b4b8c3634ead5f7917f1a165b, type: 3}
+  - {fileID: 4278215960046553519, guid: 3445f669b3c835b478c6198863008117, type: 3}
+  - {fileID: 4278215960046553519, guid: 5a54cf0f9b726b84994427fded520900, type: 3}
+  - {fileID: 4278215960046553519, guid: 51823d46d3fc4cb49a3ec9ec9e6c1463, type: 3}
+  - {fileID: 4278215960046553519, guid: 12bde63202bd9574ab6606f540502c73, type: 3}
+  - {fileID: 4278215960046553519, guid: f0f48812fd20d7f40b128a6f55dd1e35, type: 3}
+  - {fileID: 4278215960046553519, guid: 03c9fc0797a1afa4a8aeceee64cadbc1, type: 3}
+  - {fileID: 4278215960046553519, guid: 4b9135562eece694497ebb3488bca37e, type: 3}
+  - {fileID: 4278215960046553519, guid: 496fc883599a18f47a4502fffd9f8c41, type: 3}
   fishCaughtList: 
+  currentFishArea: 9
+  minIdleTime: 5
+  maxIdleTime: 15
+  minPokeTime: 1.5
+  maxPokeTime: 3
+  rodAnimator: {fileID: 600174852}
+  xAnimator: {fileID: 883808730}
+  catchParticle: {fileID: 2006113}
+  pokeParticles: {fileID: 1260431373}
+  fishConsumeTime: 50
+  minPokes: 2
+  maxPokes: 5
+  fishBox: {fileID: 1884809310}
+  audio: {fileID: 55504577}
+  poke_sound: {fileID: 8300000, guid: 1583c9e5f0fc0f24d95be2e773d20079, type: 3}
+  catch_sound: {fileID: 8300000, guid: 4f49ecafbecde754cbe6a5af68ed2f2a, type: 3}
+  escape_sound: {fileID: 8300000, guid: 79f395a61b9f1b840aa8f4e6364ef5d5, type: 3}
 --- !u!4 &444048378
 Transform:
   m_ObjectHideFlags: 0
@@ -8054,7 +8081,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &470454914
 GameObject:
@@ -19492,7 +19519,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &814228480
 GameObject:
@@ -24418,6 +24445,7 @@ GameObject:
   - component: {fileID: 866370230}
   - component: {fileID: 866370233}
   - component: {fileID: 866370237}
+  - component: {fileID: 866370235}
   m_Layer: 13
   m_Name: Raft
   m_TagString: Raft
@@ -24448,7 +24476,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 866370229}
-  m_Material: {fileID: 13400000, guid: 73450ca635a814410b3373703d245ae5, type: 2}
+  m_Material: {fileID: 13400000, guid: 8b6c96023ae232a449037a4416361198, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -24516,6 +24544,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: -29.103, z: 0}
+--- !u!114 &866370235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866370229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2f6c26fef8eff24a8780864cb28ae7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &866370237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27880,7 +27920,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1176799522
 GameObject:
@@ -51884,7 +51924,7 @@ MonoBehaviour:
   exterminationDeathThreshold: 0
   explorationHealth: 3
   explorationDeathThreshold: 0
-  fishingHealth: 10
+  fishingHealth: 100
   fishingDeathThreshold: 0
 --- !u!4 &1915084581
 Transform:
@@ -67681,7 +67721,7 @@ PrefabInstance:
     - target: {fileID: 715040220586595525, guid: 2d35f68353c2eca44b9c11e7c597cc3f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 715040220586595525, guid: 2d35f68353c2eca44b9c11e7c597cc3f,
         type: 3}
