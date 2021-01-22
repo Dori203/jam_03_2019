@@ -12,8 +12,8 @@ public class PlayerController : MonoBehaviour {
 
     [BoxGroup("paddle timing")] public float PaddleDuration = 0.5f;
 
-    [HorizontalGroup("Split", 0.5f, LabelWidth = 75)] 
-    [BoxGroup("Split/rawing")] public float force = 5f;
+    [HorizontalGroup("Split", 0.5f, LabelWidth = 75)] [BoxGroup("Split/rawing")]
+    public float force = 5f;
 
     [BoxGroup("Split/rawing")] public float backPos = 2.54f;
 
@@ -70,40 +70,33 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    void Paddle()
-    {
+    void Paddle() {
         boatRB.AddForceAtPosition(boatRB.rotation * forwardVector3 * force,
-        boatRB.rotation * new Vector3(sidePos, 0, backPos) + boatRB.position,
-        ForceMode.Force);
+            boatRB.rotation * new Vector3(sidePos, 0, backPos) + boatRB.position,
+            ForceMode.Force);
         Debug.Log("Paddling");
     }
 
-    void AnimatePaddle()
-    {
-        if (paddleInput)
-        {
-            if (startPaddle)
-            {
+    void AnimatePaddle() {
+        if (paddleInput) {
+            if (startPaddle) {
                 float framePercentage = Mathf.Clamp(1 - ((nextActionTime - Time.time) / PaddleDuration), 0f, 0.99f);
-                if (!PaddleRight)
-                {
+                if (!PaddleRight) {
                     oarRightAnim.Play("Scur", 0, framePercentage);
                     Debug.Log(framePercentage);
                 }
-                else
-                {
+
+                if (!startPaddle) {
+                    startPaddle = true;
+                    nextActionTime = Time.time + PaddleDuration;
+                } else {
                     oarLeftAnim.Play("Scur", 0, framePercentage);
                 }
-            }
-            else
-            {
+            } else {
                 float framePercentage = Mathf.Clamp(1 - ((nextActionTime - Time.time) / restDuration), 0f, 0.99f);
-                if (!PaddleRight)
-                {
+                if (!PaddleRight) {
                     oarRightAnim.Play("Return", 0, framePercentage);
-                }
-                else
-                {
+                } else {
                     oarLeftAnim.Play("Return", 0, framePercentage);
                 }
             }
@@ -122,13 +115,10 @@ public class PlayerController : MonoBehaviour {
             paddleInput = false;
             {
                 PaddleRight = !PaddleRight; // switch direction
-                if (PaddleRight)
-                {
+                if (PaddleRight) {
                     oarRight.SetActive(false);
                     oarLeft.SetActive(true);
-                }
-                else
-                {
+                } else {
                     oarLeft.SetActive(false);
                     oarRight.SetActive(true);
                 }
