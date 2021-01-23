@@ -9293,7 +9293,7 @@ MonoBehaviour:
   image: {fileID: 4540204167348802306, guid: 0e74cceeb211a264aa02769fca59daf5, type: 3}
   canvasName: Killing Canvas
   cameraName: Killing Camera
-  viewRange: 15
+  viewRange: 25
   limitView: 1
 --- !u!114 &598259824463144103
 MonoBehaviour:

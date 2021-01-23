@@ -12,12 +12,13 @@ public class RecalculateNormals : MonoBehaviour
         {
             mesh = GetComponent<MeshFilter>().mesh;
             mesh.RecalculateNormals();
-
         }
         else if (GetComponent<SkinnedMeshRenderer>() != null)
         {
             mesh = GetComponent<SkinnedMeshRenderer>().sharedMesh;
             mesh.RecalculateNormals();
+            Debug.Log("Recalculated Normals!");
+            Debug.Log(GetComponent<SkinnedMeshRenderer>().sharedMesh);
         }
     }
 }
