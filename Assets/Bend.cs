@@ -17,10 +17,10 @@ public class Bend : MonoBehaviour
     void FixedUpdate()
     {
         distance = Mathf.Abs((transform.position - raft.position).magnitude);
-        if (distance < 5f)
+        if (distance < 6.25f)
         {
             transform.localScale = new Vector3(transform.localScale.x,
-                                                distance/5*originalHeight,
+                                                distance/6.25f*originalHeight,
                                                 transform.localScale.z);
         }
         else

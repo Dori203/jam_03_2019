@@ -14689,8 +14689,8 @@ MonoBehaviour:
   - {fileID: 1697702250773514736, guid: db6f43da99881fe4d83cf9abb7b71106, type: 3}
   numberOfObjects: 60
   squareLength: 180
-  rockMinScale: 1
-  rockMaxScale: 1
+  rockMinScale: 1.25
+  rockMaxScale: 1.25
   heightVariation: 0
   restrictAreaSize: 5
   yOffset: 0
