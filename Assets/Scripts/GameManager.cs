@@ -27,6 +27,7 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
     [SerializeField] private int exterminationHealth;
     [SerializeField] private int exterminationDeathThreshold;
 
+    [SerializeField] private int explorationMaxHealth = 3;
     [SerializeField] private int explorationHealth = 3;
     [SerializeField] private int explorationDeathThreshold = 0; //TODO RANDOM NUMBER
 
@@ -83,6 +84,7 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
     public void decExplorationHealth(int amount)
     {
         explorationHealth = explorationHealth - amount;
+        HealthUpdate(HealthType.Exploration);
         checkLoss();
     }
 
@@ -101,6 +103,11 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
     public float getExterminationHealthRatio()
     {
         return (float)exterminationHealth / exterminationMaxHealth;
+    }
+
+    public float getExplorationHealthRatio()
+    {
+        return (float)explorationHealth / explorationMaxHealth;
     }
 
 
