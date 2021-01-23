@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aec8c319c307944b8208ef9fec108ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distance: 0
+  originalHeight: 0
+  raft: {fileID: 0}
 --- !u!114 &64187356317787017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24,6 +27,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aec8c319c307944b8208ef9fec108ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distance: 0
+  originalHeight: 0
+  raft: {fileID: 0}
 --- !u!114 &424663308261324171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36,6 +42,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aec8c319c307944b8208ef9fec108ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distance: 0
+  originalHeight: 0
+  raft: {fileID: 0}
 --- !u!114 &5087448235056538758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48,6 +57,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aec8c319c307944b8208ef9fec108ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distance: 0
+  originalHeight: 0
+  raft: {fileID: 0}
 --- !u!114 &4600258773383409191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,6 +72,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aec8c319c307944b8208ef9fec108ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distance: 0
+  originalHeight: 0
+  raft: {fileID: 0}
 --- !u!114 &4147972879890092923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,6 +87,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aec8c319c307944b8208ef9fec108ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distance: 0
+  originalHeight: 0
+  raft: {fileID: 0}
 --- !u!114 &9199097328151142083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,6 +102,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aec8c319c307944b8208ef9fec108ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distance: 0
+  originalHeight: 0
+  raft: {fileID: 0}
 --- !u!114 &5721328107586533701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,6 +117,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aec8c319c307944b8208ef9fec108ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distance: 0
+  originalHeight: 0
+  raft: {fileID: 0}
 --- !u!1001 &2719554323638676754
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -179,6 +203,12 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7106312898327418188, guid: 3346c932f68650849994a9fdd559685c,
+        type: 3}
+      propertyPath: image
+      value: 
+      objectReference: {fileID: 4540204167348802306, guid: eb9a6220cf918ea4095532830d96d882,
+        type: 3}
+    - target: {fileID: 7788350969341849964, guid: 3346c932f68650849994a9fdd559685c,
         type: 3}
       propertyPath: image
       value: 

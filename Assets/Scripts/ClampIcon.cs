@@ -14,6 +14,11 @@ public class ClampIcon : MonoBehaviour
     private Camera camera;
     public string cameraName;
 
+    private float distance;
+    public float viewRange;
+
+    public bool limitView;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,5 +35,32 @@ public class ClampIcon : MonoBehaviour
         iconPos.y *= canvas.pixelRect.height / (float)camera.pixelHeight;
 
         image.rectTransform.anchoredPosition = iconPos - canvas.GetComponent<RectTransform>().sizeDelta / 2f;
+
+        distance = Vector3.Distance(transform.position, camera.transform.position);
+
+        if (limitView)
+        {
+            if (distance > viewRange) // Check if the object is within view range
+            {
+                image.enabled = false;
+            }
+            else
+            {
+                var relativePoint = camera.transform.InverseTransformPoint(transform.position);
+                if (relativePoint.z < 0.0f) // Check if the object is behind the camera
+                {
+                    image.enabled = false;
+
+                }
+                else
+                {
+                    image.enabled = true;
+                }
+            }
+        }
+        else
+        {
+            image.enabled = true;
+        }
     }
 }
