@@ -24909,11 +24909,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   restDuration: 0.7
   PaddleDuration: 0.5
-  force: 2
   backPos: 2.54
   RotateMin: 0.1
   RotateMax: 1.25
   RotateStep: 4
+  Force: 2
+  ForceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.19551855
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.3035871
+      value: 0.9701859
+      inSlope: 0.15823756
+      outSlope: 0.15823756
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.3348834
+    - serializedVersion: 3
+      time: 1
+      value: 0.22487833
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   oarRight: {fileID: 734744419}
   oarLeft: {fileID: 1306589862}
 --- !u!95 &866370233

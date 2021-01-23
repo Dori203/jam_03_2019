@@ -12,16 +12,18 @@ public class PlayerController : MonoBehaviour {
 
     [BoxGroup("paddle timing")] public float PaddleDuration = 0.5f;
 
-    [HorizontalGroup("Split", 0.5f, LabelWidth = 75)] [BoxGroup("Split/rawing")]
-    public float force = 5f;
 
-    [BoxGroup("Split/rawing")] public float backPos = 2.54f;
+    [BoxGroup("rawing")] public float backPos = 2.54f;
 
-    [BoxGroup("Split/rotate")] public float RotateMin = 0.5f;
+    [BoxGroup("rawing")] public float RotateMin = 0.5f;
 
-    [BoxGroup("Split/rotate")] public float RotateMax = 1.81f;
+    [BoxGroup("rawing")] public float RotateMax = 1.81f;
 
-    [BoxGroup("Split/rotate")] public int RotateStep = 4;
+    [BoxGroup("rawing")] public int RotateStep = 4;
+    
+    [BoxGroup("rawing")] public int Force = 4;
+    
+    [BoxGroup("rawing")] public AnimationCurve ForceCurve;
 
     public GameObject oarRight;
     public GameObject oarLeft;
@@ -33,6 +35,7 @@ public class PlayerController : MonoBehaviour {
     private bool PaddleRight = false;
     private bool startPaddle = false;
     private float sidePos;
+    private float curForce = 1f;
 
     private float nextActionTime = 0.0f;
     private float stepInc = 1f;
@@ -53,6 +56,10 @@ public class PlayerController : MonoBehaviour {
         sidePos = RotateMin;
         stepInc = (RotateMax - RotateMin) / RotateStep;
         oarLeft.SetActive(false);
+        
+        ForceCurve = new AnimationCurve(new Keyframe(0, 0), new Keyframe(0.4f, 4), new Keyframe(1, 1));
+        ForceCurve.preWrapMode = WrapMode.PingPong;
+        ForceCurve.postWrapMode = WrapMode.PingPong;
     }
 
     void Update() {
@@ -67,14 +74,17 @@ public class PlayerController : MonoBehaviour {
             if (Time.time > nextActionTime) {
                 startPaddle = !startPaddle;
                 nextActionTime = startPaddle ? Time.time + PaddleDuration : Time.time + restDuration;
-                
+
                 sidePos += (Mathf.Abs(sidePos) < Mathf.Abs(RotateMax)) ? stepInc : 0;
             }
         }
     }
 
     void Paddle() {
-        boatRB.AddForceAtPosition(boatRB.rotation * forwardVector3 * force,
+        curForce = Mathf.Clamp(1 - ((nextActionTime - Time.time) / PaddleDuration), 0f, 0.99f);
+        curForce = Force * ForceCurve.Evaluate(curForce);
+
+        boatRB.AddForceAtPosition(boatRB.rotation * forwardVector3 * curForce,
             boatRB.rotation * new Vector3(sidePos, 0, backPos) + boatRB.position,
             ForceMode.Force);
         Debug.Log("Paddling");
@@ -90,7 +100,7 @@ public class PlayerController : MonoBehaviour {
 
         if (Input.GetKeyUp(KeyCode.Alpha2)) {
             paddleInput = false;
-            if(startPaddle) nextActionTime = Time.time + restDuration;
+            if (startPaddle) nextActionTime = Time.time + restDuration;
             startPaddle = false;
             {
                 PaddleRight = !PaddleRight; // switch direction
