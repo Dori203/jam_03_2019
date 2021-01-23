@@ -19,11 +19,15 @@ public class UIManager : ListeningMonoBehaviour
     [SerializeField] private GameObject losingUI;
     [SerializeField] private Text losingText;
     [SerializeField] private GameObject fishingHealthBar;
+    [SerializeField] private GameObject exterminationHealthBar;
     private Image fishingHealthImage;
+    private Image exterminationHealthImage;
+
 
     private void Awake()
     {
         fishingHealthImage = fishingHealthBar.GetComponent<Image>();
+        exterminationHealthImage = exterminationHealthBar.GetComponent<Image>();
         updateHealthBars(GameManager.HealthType.All);
     }
 
@@ -53,17 +57,19 @@ public class UIManager : ListeningMonoBehaviour
 
     private void updateHealthBars(GameManager.HealthType healthType)
     {
-        Debug.Log("UpdateHealthBars");
-
         switch (healthType)
         {
             case GameManager.HealthType.Fishing:
                 fishingHealthImage.fillAmount = GameManager.Instance.getFishingHealthRatio();
-                Debug.Log("Change Fishing UI amount");
                 break;
-                
+
+            case GameManager.HealthType.Extermination:
+                exterminationHealthImage.fillAmount = GameManager.Instance.getExterminationHealthRatio();
+                break;
+
             case GameManager.HealthType.All:
                 fishingHealthImage.fillAmount = GameManager.Instance.getFishingHealthRatio();
+                exterminationHealthImage.fillAmount = GameManager.Instance.getExterminationHealthRatio();
                 break;
         }
 

@@ -39,13 +39,17 @@ public class ExterminationManager : MonoBehaviour {
     }
 
     public void MosquitoesEngaged(int MosquitoeNumber) {
-        if(!mosquitosEngagedList.Contains(MosquitoeNumber)) mosquitosEngagedList.Add(MosquitoeNumber);
-        if(mosquitosEngagedList.Count > overwhelmingMosquitoThreshold)
+        if (!mosquitosEngagedList.Contains(MosquitoeNumber))
         {
-            GameManager.Instance.decExterminationHealth(Random.RandomRange(0, mosquitosEngagedList.Count - overwhelmingMosquitoThreshold));
+            mosquitosEngagedList.Add(MosquitoeNumber);
+            if (mosquitosEngagedList.Count > overwhelmingMosquitoThreshold)
+            {
+                GameManager.Instance.decExterminationHealth(mosquitosEngagedList.Count);
+            }
         }
         GameManager.Instance.MosquitoesTriggered(MosquitoeNumber);
     }
+
 
     public void MosquitoeHit(int MosquitoeNumber) // TODO attach Mosquito controller
     {
