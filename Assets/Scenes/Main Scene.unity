@@ -29494,6 +29494,7 @@ GameObject:
   - component: {fileID: 1221328701}
   - component: {fileID: 1221328703}
   - component: {fileID: 1221328702}
+  - component: {fileID: 1221328704}
   m_Layer: 0
   m_Name: Trail
   m_TagString: Untagged
@@ -30412,7 +30413,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 25
+      scalar: 0
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -34255,6 +34256,19 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &1221328704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221328700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40a7aa19345aa99418538006f37885ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raftRigidBody: {fileID: 866370230}
 --- !u!1 &1236201925
 GameObject:
   m_ObjectHideFlags: 0
@@ -34361,6 +34375,7 @@ GameObject:
   - component: {fileID: 1244085168}
   - component: {fileID: 1244085170}
   - component: {fileID: 1244085169}
+  - component: {fileID: 1244085171}
   m_Layer: 0
   m_Name: Trail
   m_TagString: Untagged
@@ -35279,7 +35294,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 25
+      scalar: 0
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -39113,6 +39128,19 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &1244085171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244085167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40a7aa19345aa99418538006f37885ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raftRigidBody: {fileID: 866370230}
 --- !u!1 &1258295779
 GameObject:
   m_ObjectHideFlags: 0
