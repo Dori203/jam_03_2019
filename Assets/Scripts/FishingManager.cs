@@ -21,6 +21,8 @@ public class FishingManager : MonoBehaviour
     [SerializeField] private int minPokes;
     [SerializeField] private int maxPokes;
     [SerializeField] private GameObject fishBox;
+    [SerializeField] private int fishHealthDecrease;
+
 
     private float nextFishTimer = 0f;
     private float hungerTimer = 0f;
@@ -65,8 +67,8 @@ public class FishingManager : MonoBehaviour
         nextFishTimer -= Time.deltaTime;
         hungerTimer -= Time.deltaTime;
 
-        //consume fish
-        if (hungerTimer <= 0)
+            //consume fish
+            if (hungerTimer <= 0)
         {
             consumeFish();
             StartCountdown(fishConsumeTime, fishConsumeTime + 2f, true);
@@ -201,7 +203,7 @@ public class FishingManager : MonoBehaviour
         }
         else
         {
-            GameManager.Instance.decFishingHealth(Random.Range(1, 9 - fishCount));
+            GameManager.Instance.decFishingHealth(fishHealthDecrease);
         }
 
     }

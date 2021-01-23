@@ -23,14 +23,16 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
     [SerializeField] private int fishingScore = 0;
     [SerializeField] private int fishingVictoryThreshold = 20; //TODO RANDOM NUMBER
 
-    [SerializeField] private int exterminationHealth = 40;
-    [SerializeField] private int exterminationDeathThreshold = 0; //TODO RANDOM NUMBER
+    [SerializeField] private int exterminationMaxHealth;
+    [SerializeField] private int exterminationHealth;
+    [SerializeField] private int exterminationDeathThreshold;
 
     [SerializeField] private int explorationHealth = 3;
     [SerializeField] private int explorationDeathThreshold = 0; //TODO RANDOM NUMBER
 
-    [SerializeField] private int fishingHealth = 20;
-    [SerializeField] private int fishingDeathThreshold = 0; //TODO RANDOM NUMBER
+    [SerializeField] private int fishingMaxHealth;
+    [SerializeField] private int fishingHealth;
+    [SerializeField] private int fishingDeathThreshold;
 
     public enum Channels
     {
@@ -41,9 +43,17 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
         InterestPointHit,
         MosquitoeNext,
         NewFishCaught,
-        Losing
+        Losing,
+        HealthUpdate
     }
 
+    public enum HealthType
+    {
+        Fishing,
+        Exploration,
+        Extermination,
+        All
+    }
 
     public void incExterminationScore()
     {
@@ -66,6 +76,7 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
     public void decFishingHealth(int amount)
     {
         fishingHealth = fishingHealth - amount;
+        HealthUpdate(HealthType.Fishing);
         checkLoss();
     }
 
@@ -78,8 +89,20 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
     public void decExterminationHealth(int amount)
     {
         exterminationHealth = exterminationHealth - amount;
+        HealthUpdate(HealthType.Extermination);
         checkLoss();
     }
+
+    public float getFishingHealthRatio()
+    {
+        return (float) fishingHealth / fishingMaxHealth;
+    }
+
+    public float getExterminationHealthRatio()
+    {
+        return (float)exterminationHealth / exterminationMaxHealth;
+    }
+
 
     private void checkVictory()
     {
@@ -145,6 +168,7 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
     }
 
 
+
     public void MosquitoesInCamera(bool isMosquitoesInCamera)
     {
         Messenger<bool>.Broadcast(Channels.MosquitoesInCamera.GetPath(), isMosquitoesInCamera, MessengerMode.DONT_REQUIRE_LISTENER);
@@ -164,13 +188,14 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
         Messenger<int>.Broadcast(Channels.MosquitoeNext.GetPath(), MosquitoeNumber, MessengerMode.DONT_REQUIRE_LISTENER);
     }
 
-    private void VictoryMessage(Victory victoryType)
+    public void VictoryMessage(Victory victoryType)
     {
         Messenger<Victory>.Broadcast(Channels.Winning.GetPath(), victoryType, MessengerMode.DONT_REQUIRE_LISTENER);
     }
 
     private void LossMessage(LossConditions lossType)
     {
+        Debug.Log("SentLossMessage");
         Messenger<LossConditions>.Broadcast(Channels.Losing.GetPath(), lossType, MessengerMode.DONT_REQUIRE_LISTENER);
     }
 
@@ -182,5 +207,11 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
     public void NewFishCaught(int FishType)
     {
         Messenger<int>.Broadcast(Channels.NewFishCaught.GetPath(), FishType, MessengerMode.DONT_REQUIRE_LISTENER);
+    }
+
+    public void HealthUpdate(HealthType healthType)
+    {
+        Debug.Log("Sent health refresh message");
+        Messenger<HealthType>.Broadcast(Channels.HealthUpdate.GetPath(), healthType, MessengerMode.DONT_REQUIRE_LISTENER);
     }
 }

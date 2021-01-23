@@ -20,12 +20,12 @@ public class SpeedEmission : MonoBehaviour
         if (currentSpeed > 1f)
         {
             particleSystem.emissionRate = 25f;
-            Debug.Log("Emission 25");
+            //Debug.Log("Emission 25");
         }
         else
         {
             particleSystem.emissionRate = 0f;
-            Debug.Log("Emisison 0");
+            //Debug.Log("Emisison 0");
         }
     }
 }
