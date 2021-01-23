@@ -8381,7 +8381,7 @@ MonoBehaviour:
   minPokes: 2
   maxPokes: 5
   fishBox: {fileID: 1884809310}
-  fishHealthDecrease: 0
+  fishHealthDecrease: 5
   audio: {fileID: 55504577}
   poke_sound: {fileID: 8300000, guid: 1583c9e5f0fc0f24d95be2e773d20079, type: 3}
   catch_sound: {fileID: 8300000, guid: 4f49ecafbecde754cbe6a5af68ed2f2a, type: 3}
@@ -53858,12 +53858,12 @@ MonoBehaviour:
   explorationVictoryThreshold: 3
   fishingScore: 0
   fishingVictoryThreshold: 9
-  exterminationMaxHealth: 0
-  exterminationHealth: 20
+  exterminationMaxHealth: 100
+  exterminationHealth: 100
   exterminationDeathThreshold: 0
   explorationHealth: 3
   explorationDeathThreshold: 0
-  fishingMaxHealth: 0
+  fishingMaxHealth: 100
   fishingHealth: 100
   fishingDeathThreshold: 0
 --- !u!4 &1915084581
