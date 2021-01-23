@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour {
         paddleInput = false;
         sidePos = RotateMin;
         stepInc = (RotateMax - RotateMin) / RotateStep;
+        oarLeft.SetActive(false);
     }
 
     void Update() {
