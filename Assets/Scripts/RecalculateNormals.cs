@@ -4,9 +4,20 @@ using UnityEngine;
 
 public class RecalculateNormals : MonoBehaviour
 {
+    private Mesh mesh;
+
     void Awake()
     {
-        Mesh mesh = GetComponent<MeshFilter>().mesh;
-        mesh.RecalculateNormals();
+        if (GetComponent<MeshFilter>() != null)
+        {
+            mesh = GetComponent<MeshFilter>().mesh;
+            mesh.RecalculateNormals();
+
+        }
+        else if (GetComponent<SkinnedMeshRenderer>() != null)
+        {
+            mesh = GetComponent<SkinnedMeshRenderer>().sharedMesh;
+            mesh.RecalculateNormals();
+        }
     }
 }
