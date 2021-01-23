@@ -31,11 +31,11 @@ public class PlayerController : MonoBehaviour {
 
     private bool paddleInput = false;
     private bool PaddleRight = false;
+    private bool startPaddle = false;
     private float sidePos;
 
     private float nextActionTime = 0.0f;
-    private float stepInc = 1;
-    private bool startPaddle;
+    private float stepInc = 1f;
 
     private Vector3 forwardVector3 = Vector3.forward;
 
@@ -61,13 +61,15 @@ public class PlayerController : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        if (Time.time > nextActionTime) {
-            startPaddle = !startPaddle;
-            nextActionTime += startPaddle ? PaddleDuration : restDuration;
-
-            sidePos += (Mathf.Abs(sidePos) < Mathf.Abs(RotateMax)) ? stepInc : 0;
-        } else {
-            if (startPaddle && paddleInput) Paddle();
+        if (paddleInput) {
+            Debug.Log("Time.time : " + Time.time + "\nnextActionTime : " + nextActionTime);
+            if (startPaddle) Paddle();
+            if (Time.time > nextActionTime) {
+                startPaddle = !startPaddle;
+                nextActionTime = startPaddle ? Time.time + PaddleDuration : Time.time + restDuration;
+                
+                sidePos += (Mathf.Abs(sidePos) < Mathf.Abs(RotateMax)) ? stepInc : 0;
+            }
         }
     }
 
@@ -76,6 +78,31 @@ public class PlayerController : MonoBehaviour {
             boatRB.rotation * new Vector3(sidePos, 0, backPos) + boatRB.position,
             ForceMode.Force);
         Debug.Log("Paddling");
+    }
+
+    void UserInput() {
+        //Steer left
+        if (Input.GetKeyDown(KeyCode.Alpha2)) {
+            paddleInput = true;
+            stepInc = -1f * stepInc;
+            sidePos = RotateMin * Mathf.Sign(stepInc);
+        }
+
+        if (Input.GetKeyUp(KeyCode.Alpha2)) {
+            paddleInput = false;
+            if(startPaddle) nextActionTime = Time.time + restDuration;
+            startPaddle = false;
+            {
+                PaddleRight = !PaddleRight; // switch direction
+                if (PaddleRight) {
+                    oarRight.SetActive(false);
+                    oarLeft.SetActive(true);
+                } else {
+                    oarLeft.SetActive(false);
+                    oarRight.SetActive(true);
+                }
+            }
+        }
     }
 
     void AnimatePaddle() {
@@ -99,29 +126,6 @@ public class PlayerController : MonoBehaviour {
                     oarRightAnim.Play("Return", 0, framePercentage);
                 } else {
                     oarLeftAnim.Play("Return", 0, framePercentage);
-                }
-            }
-        }
-    }
-
-    void UserInput() {
-        //Steer left
-        if (Input.GetKeyDown(KeyCode.Alpha2)) {
-            paddleInput = true;
-            stepInc = -1f * stepInc;
-            sidePos = RotateMin * Mathf.Sign(stepInc);
-        }
-
-        if (Input.GetKeyUp(KeyCode.Alpha2)) {
-            paddleInput = false;
-            {
-                PaddleRight = !PaddleRight; // switch direction
-                if (PaddleRight) {
-                    oarRight.SetActive(false);
-                    oarLeft.SetActive(true);
-                } else {
-                    oarLeft.SetActive(false);
-                    oarRight.SetActive(true);
                 }
             }
         }
