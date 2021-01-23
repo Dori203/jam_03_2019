@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour {
 
     void FixedUpdate() {
         if (paddleInput) {
-            Debug.Log("Time.time : " + Time.time + "\nnextActionTime : " + nextActionTime);
+            //Debug.Log("Time.time : " + Time.time + "\nnextActionTime : " + nextActionTime);
             if (startPaddle) Paddle();
             if (Time.time > nextActionTime) {
                 startPaddle = !startPaddle;
