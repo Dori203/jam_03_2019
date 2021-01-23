@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour {
 
     [BoxGroup("rawing")] public int RotateStep = 4;
     
-    [BoxGroup("rawing")] public int Force = 4;
+    [BoxGroup("rawing")] public float Force = 4;
     
     [BoxGroup("rawing")] public AnimationCurve ForceCurve;
 

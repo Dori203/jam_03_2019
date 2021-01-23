@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8307,6 +8307,7 @@ MonoBehaviour:
   minPokes: 2
   maxPokes: 5
   fishBox: {fileID: 1884809310}
+  fishHealthDecrease: 0
   audio: {fileID: 55504577}
   poke_sound: {fileID: 8300000, guid: 1583c9e5f0fc0f24d95be2e773d20079, type: 3}
   catch_sound: {fileID: 8300000, guid: 4f49ecafbecde754cbe6a5af68ed2f2a, type: 3}
@@ -19958,6 +19959,8 @@ MonoBehaviour:
   winningText: {fileID: 988515902}
   losingUI: {fileID: 520020136}
   losingText: {fileID: 1258295781}
+  fishingHealthBar: {fileID: 0}
+  exterminationHealthBar: {fileID: 0}
 --- !u!4 &813233321
 Transform:
   m_ObjectHideFlags: 0
@@ -24948,9 +24951,9 @@ MonoBehaviour:
   PaddleDuration: 0.5
   backPos: 2.54
   RotateMin: 0.1
-  RotateMax: 1.25
+  RotateMax: 1.15
   RotateStep: 4
-  Force: 2
+  Force: 1.5
   ForceCurve:
     serializedVersion: 2
     m_Curve:
@@ -53779,10 +53782,12 @@ MonoBehaviour:
   explorationVictoryThreshold: 3
   fishingScore: 0
   fishingVictoryThreshold: 9
+  exterminationMaxHealth: 0
   exterminationHealth: 20
   exterminationDeathThreshold: 0
   explorationHealth: 3
   explorationDeathThreshold: 0
+  fishingMaxHealth: 0
   fishingHealth: 100
   fishingDeathThreshold: 0
 --- !u!4 &1915084581
