@@ -22,7 +22,7 @@ public class FishingManager : MonoBehaviour
     [SerializeField] private int maxPokes;
     [SerializeField] private GameObject fishBox;
     [SerializeField] private int fishHealthDecrease;
-
+    [SerializeField] private Sprite eatenSprite;
 
     private float nextFishTimer = 0f;
     private float hungerTimer = 0f;
@@ -199,8 +199,12 @@ public class FishingManager : MonoBehaviour
             //deactivate a random child of fishbox.
             Transform fish = fishBox.transform.GetChild(Random.Range(0, fishBox.transform.childCount));
             fish.SetParent(null);
-            fish.gameObject.SetActive(false);
+            fish.GetComponent<SpriteMask>().enabled = false;
+            fish.GetComponent<FishJump>().enabled = false;
+            fish.gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = eatenSprite;
+            fish.gameObject.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().sprite = eatenSprite;
         }
+
         else
         {
             GameManager.Instance.decFishingHealth(fishHealthDecrease);
