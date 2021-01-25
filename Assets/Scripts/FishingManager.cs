@@ -203,6 +203,9 @@ public class FishingManager : MonoBehaviour
             fish.GetComponent<FishJump>().enabled = false;
             fish.gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = eatenSprite;
             fish.gameObject.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().sprite = eatenSprite;
+            fish.gameObject.transform.GetChild(2).gameObject.GetComponent<ParticleSystem>().Play();
+            Vector3 fishPos = fish.transform.position;
+            fish.gameObject.transform.position = new Vector3(fishPos.x, fishPos.y + 2f, fishPos.z);
         }
 
         else
