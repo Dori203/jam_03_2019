@@ -46,7 +46,7 @@ public class AimController : ListeningMonoBehaviour {
 
     void Update() {
         float cooldownPercentage = Mathf.Clamp(((Time.time - lastShotTime) / delayBetweenShots),0,1);
-        cooldownBar.localScale = new Vector3(cooldownPercentage*30,2,1);
+        cooldownBar.localScale = new Vector3(cooldownPercentage*28,2,1);
         Debug.Log(cooldownPercentage);
         if (mosquitoesEngagedMode) {
 
