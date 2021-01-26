@@ -171,10 +171,10 @@ TextureImporter:
       name: UI Timers_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 62
-        width: 31
-        height: 31
+        x: 3
+        y: 65
+        width: 25
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -344,7 +344,7 @@ TextureImporter:
         width: 31
         height: 31
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
