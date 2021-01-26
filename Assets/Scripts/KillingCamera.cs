@@ -40,14 +40,12 @@ public class KillingCamera : ListeningMonoBehaviour {
             //stop rotating once camera is close to pointing at mosquito.
             float angle = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(relativePos, Vector3.up));
             GameManager.Instance.MosquitoesInCamera(angle < MosquitoInRangeSensitivity);
-            aim.SetActive(angle < MosquitoInRangeSensitivity);
         }
     }
 
     private void mosquitoesEngaged(int MosquitoeNumber) {
         if (MosquitoeNumber == -1) {
             mosquitoesEngagedMode = false;
-            aim.SetActive(false);
             return;
         }
 
