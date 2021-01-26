@@ -13,7 +13,7 @@ public class ExterminationManager : MonoBehaviour {
     [SerializeField] private GameObject scorePanelMark;
     [SerializeField] private Animator aimAnimator;
     [SerializeField] private int overwhelmingMosquitoThreshold;
-
+    [SerializeField] private int mosquitoAttack;
 
     void Awake() {
         SharedInstance = this;
@@ -44,7 +44,7 @@ public class ExterminationManager : MonoBehaviour {
             mosquitosEngagedList.Add(MosquitoeNumber);
             if (mosquitosEngagedList.Count > overwhelmingMosquitoThreshold)
             {
-                GameManager.Instance.decExterminationHealth(mosquitosEngagedList.Count);
+                GameManager.Instance.decExterminationHealth(mosquitosEngagedList.Count*mosquitoAttack);
             }
         }
         GameManager.Instance.MosquitoesTriggered(MosquitoeNumber);
