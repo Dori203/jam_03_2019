@@ -77,6 +77,15 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
     public void decFishingHealth(int amount)
     {
         fishingHealth = fishingHealth - amount;
+        if(fishingHealth < fishingDeathThreshold)
+        {
+            if (FishingManager.SharedInstance.consumeFish())
+            {
+                Debug.Log("consume fish from game manager");
+                // a fish was consumed, restart count.
+                fishingHealth = fishingMaxHealth;
+            }
+        }
         HealthUpdate(HealthType.Fishing);
         checkLoss();
     }

@@ -26,8 +26,9 @@ public class AimController : ListeningMonoBehaviour {
     [SerializeField] private float minRandomPositionTime;
     [SerializeField] private float maxRandomPositionTime;
     [SerializeField] private float randomPositionRadius;
+    [SerializeField] private float delayBetweenShots;
 
-
+    private float lastShotTime;
     private Vector3 targetPosition;
     private bool mosquitoesEngagedMode;
     private bool mosquitoesInCamera;
@@ -39,11 +40,12 @@ public class AimController : ListeningMonoBehaviour {
     void Awake() {
         aimSpeed = 0.1f;
         initialLocalPos = transform.localPosition;
+        lastShotTime = Time.time;
     }
 
     void Update() {
 
-        if (engagedMosquito != null && mosquitoesInCamera) {
+        if (mosquitoesInCamera) {
 
             timer -= Time.deltaTime;
 
@@ -60,25 +62,32 @@ public class AimController : ListeningMonoBehaviour {
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3)) {
-            RaycastHit hit;
-            Vector3 dir = transform.position - killingCamera.transform.position;
+            if((Time.time - lastShotTime > delayBetweenShots))
+            {
+                lastShotTime = Time.time;
+                RaycastHit hit;
+                Vector3 dir = transform.position - killingCamera.transform.position;
 
-            int layerMask = 1 << 15;
-            //try to hit mosquitos only.
-            if (Physics.Raycast(killingCamera.transform.position, dir, out hit, 1000f, layerMask)) {
-                Debug.Log("hit!");
+                int layerMask = 1 << 15;
+                //try to hit mosquitos only.
+                if (Physics.Raycast(killingCamera.transform.position, dir, out hit, 1000f, layerMask))
+                {
+                    Debug.Log("hit!");
 
-                GameObject mosquito = hit.transform.gameObject;
-                MosquitoController mosquitoController = mosquito.GetComponent<MosquitoController>();
-                int MosquitoeNumber = mosquitoController.MosquitoeNumber;
-                
-                aimAnimator.Play("swat");
-                audio.PlayOneShot(swatSound);
-                
-                ExterminationManager.SharedInstance.MosquitoeHit(MosquitoeNumber);
-                
-                hit.transform.gameObject.SetActive(false);
+                    GameObject mosquito = hit.transform.gameObject;
+                    MosquitoController mosquitoController = mosquito.GetComponent<MosquitoController>();
+                    int MosquitoeNumber = mosquitoController.MosquitoeNumber;
+
+                    aimAnimator.Play("swat");
+                    audio.PlayOneShot(swatSound);
+
+                    ExterminationManager.SharedInstance.MosquitoeHit(MosquitoeNumber);
+
+                    hit.transform.gameObject.SetActive(false);
+                }
             }
+
+            
         }
     }
 
