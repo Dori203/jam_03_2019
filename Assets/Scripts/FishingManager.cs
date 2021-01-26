@@ -70,7 +70,7 @@ public class FishingManager : MonoBehaviour
             //consume fish
             if (hungerTimer <= 0)
         {
-            consumeFish();
+            GameManager.Instance.decFishingHealth(fishHealthDecrease);
             StartCountdown(fishConsumeTime, fishConsumeTime + 2f, true);
         }
 
@@ -143,6 +143,7 @@ public class FishingManager : MonoBehaviour
                         // Debug.Log("catch");
                         audio.PlayOneShot(catch_sound);
                         fishCount += 1;
+                        GameManager.Instance.HealthUpdate(GameManager.HealthType.Fishing);
                         SpawnFish();
                         fishHit((int)currentFishArea);
                         Debug.Log("caught fish with type index:");
@@ -188,10 +189,14 @@ public class FishingManager : MonoBehaviour
         return currentFishArea;
     }
 
-    private void consumeFish()
+    public bool noFishLeft()
+    {
+        return fishCount == 0;
+    }
+
+    public bool consumeFish()
     {
         Debug.Log("consuming fish!");
-        //if there are fish caught - consume one of them (don't remove scoring given for capture)
         if (fishCount > 0)
         {
             fishCount--;
@@ -206,13 +211,10 @@ public class FishingManager : MonoBehaviour
             fish.gameObject.transform.GetChild(2).gameObject.GetComponent<ParticleSystem>().Play();
             Vector3 fishPos = fish.transform.position;
             fish.gameObject.transform.position = new Vector3(fishPos.x, fishPos.y + 2f, fishPos.z);
+            return true;
         }
-
-        else
-        {
-            GameManager.Instance.decFishingHealth(fishHealthDecrease);
-        }
-
+        return false;
+//            GameManager.Instance.decFishingHealth(fishHealthDecrease);
     }
 
     private void StartCountdown(float min, float max, bool hunger = false)

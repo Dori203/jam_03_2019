@@ -21,10 +21,14 @@ public class UIManager : ListeningMonoBehaviour
     [SerializeField] private GameObject fishingHealthBar;
     [SerializeField] private GameObject exterminationHealthBar;
     [SerializeField] private GameObject explorationHealthBar;
+    [SerializeField] private GameObject fishingHealthBarRemaining;
+
 
     private Image fishingHealthImage;
     private Image exterminationHealthImage;
     private Image explorationHealthImage;
+    private Image fishingHealthImageRemaining;
+
 
 
 
@@ -33,6 +37,7 @@ public class UIManager : ListeningMonoBehaviour
         fishingHealthImage = fishingHealthBar.GetComponent<Image>();
         exterminationHealthImage = exterminationHealthBar.GetComponent<Image>();
         explorationHealthImage = explorationHealthBar.GetComponent <Image>();
+        fishingHealthImageRemaining = fishingHealthBarRemaining.GetComponent<Image>();
         updateHealthBars(GameManager.HealthType.All);
     }
 
@@ -65,6 +70,14 @@ public class UIManager : ListeningMonoBehaviour
         switch (healthType)
         {
             case GameManager.HealthType.Fishing:
+                if (FishingManager.SharedInstance.noFishLeft())
+                {
+                    fishingHealthImageRemaining.gameObject.SetActive(false);
+                }
+                else
+                {
+                    fishingHealthImageRemaining.gameObject.SetActive(true);
+                }
                 fishingHealthImage.fillAmount = GameManager.Instance.getFishingHealthRatio();
                 break;
 
