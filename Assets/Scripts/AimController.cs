@@ -69,6 +69,8 @@ public class AimController : ListeningMonoBehaviour {
                 lastShotTime = Time.time;
                 RaycastHit hit;
                 Vector3 dir = transform.position - killingCamera.transform.position;
+                
+                swat();
 
                 int layerMask = 1 << 15;
                 //try to hit mosquitos only.
@@ -80,9 +82,6 @@ public class AimController : ListeningMonoBehaviour {
                     MosquitoController mosquitoController = mosquito.GetComponent<MosquitoController>();
                     int MosquitoeNumber = mosquitoController.MosquitoeNumber;
 
-                    aimAnimator.Play("swat");
-                    audio.PlayOneShot(swatSound);
-
                     ExterminationManager.SharedInstance.MosquitoeHit(MosquitoeNumber);
 
                     hit.transform.gameObject.SetActive(false);
@@ -90,6 +89,11 @@ public class AimController : ListeningMonoBehaviour {
             }
         }
     }
+
+    private void swat() {
+        aimAnimator.Play("swat");
+        audio.PlayOneShot(swatSound);
+    } 
 
     IEnumerator aimToTarget() {
         //wait for 0.5 a second.
