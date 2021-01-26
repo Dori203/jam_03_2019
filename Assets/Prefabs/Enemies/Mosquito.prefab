@@ -70,6 +70,10 @@ MonoBehaviour:
   pullForce: 3.5
   maxSpeed: 2
   magnitude: 0.01
+  randomMovementMagnitude: 0.01
+  randomPositionRadius: 1
+  minRandomPositionTime: 2
+  maxRandomPositionTime: 3
   MosquitoeNumber: 0
   playerFace: {fileID: 0}
 --- !u!54 &3385673504337642912
@@ -86,7 +90,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 4
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!135 &3385673504337642942
 SphereCollider:

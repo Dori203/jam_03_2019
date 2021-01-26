@@ -7,11 +7,17 @@ public class MosquitoController : MonoBehaviour
     [SerializeField] private float pullForce = 5.42f;
     [SerializeField] private float maxSpeed = 25f;
     [SerializeField] private float magnitude = 0.03f;
+    [SerializeField] private float randomMovementMagnitude;
+    [SerializeField] private float randomPositionRadius;
+    [SerializeField] private float minRandomPositionTime;
+    [SerializeField] private float maxRandomPositionTime;
 
     private Rigidbody rb;
     private bool inRaft = false;
     public int MosquitoeNumber;
     [SerializeField] private Transform playerFace;
+    private float timer = 0f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +31,17 @@ public class MosquitoController : MonoBehaviour
     {
         if (other.tag == "MosquitoAttractor")
         {
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                //randomize a vector in small range to move mosquito to.
+                var force = new Vector3(Random.Range(randomPositionRadius, -1 * randomPositionRadius), Random.Range( 1 * randomPositionRadius, -1 * randomPositionRadius), Random.Range(1 * randomPositionRadius, -1 * randomPositionRadius));
+                // normalize force vector to get direction only and trim magnitude
+                rb.AddForce(force * randomMovementMagnitude, ForceMode.Impulse);
+                StartCountdown(minRandomPositionTime, maxRandomPositionTime);
+            }
             Vector3 forceDirection = playerFace.transform.position - transform.position;
+            forceDirection.y = 0;
             // apply force on target towards raft.
             rb.AddForce(forceDirection.normalized * pullForce, ForceMode.Acceleration);
             rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
@@ -52,6 +68,12 @@ public class MosquitoController : MonoBehaviour
         var force = transform.position - raft.transform.position;
         // normalize force vector to get direction only and trim magnitude
         force.Normalize();
-        gameObject.GetComponent<Rigidbody>().AddForce(force * magnitude, ForceMode.Impulse);
+        rb.AddForce(force * magnitude, ForceMode.Impulse);
+    }
+
+
+    private void StartCountdown(float min, float max)
+    {
+        timer = Random.Range(min, max);
     }
 }
