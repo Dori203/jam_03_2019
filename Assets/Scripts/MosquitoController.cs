@@ -11,11 +11,13 @@ public class MosquitoController : MonoBehaviour
     private Rigidbody rb;
     private bool inRaft = false;
     public int MosquitoeNumber;
+    [SerializeField] private Transform playerFace;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        playerFace = GameObject.Find("Face").transform;
     }
 
     //When the Mosquito collides with the MosquitoAttractor, it will start moving towards the raft.
@@ -23,7 +25,7 @@ public class MosquitoController : MonoBehaviour
     {
         if (other.tag == "MosquitoAttractor")
         {
-            Vector3 forceDirection = other.transform.position - transform.position;
+            Vector3 forceDirection = playerFace.transform.position - transform.position;
             // apply force on target towards raft.
             rb.AddForce(forceDirection.normalized * pullForce, ForceMode.Acceleration);
             rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);

@@ -69,7 +69,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pullForce: 3.5
   maxSpeed: 2
-  magnitude: 0.03
+  magnitude: 0.01
+  attractPosition: {fileID: 0}
   MosquitoeNumber: 0
 --- !u!54 &3385673504337642912
 Rigidbody:
