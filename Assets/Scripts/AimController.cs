@@ -45,7 +45,7 @@ public class AimController : ListeningMonoBehaviour {
 
     void Update() {
 
-        if (engagedMosquito != null && mosquitoesInCamera) {
+        if (mosquitoesInCamera) {
 
             timer -= Time.deltaTime;
 
