@@ -27,6 +27,7 @@ public class AimController : ListeningMonoBehaviour {
     [SerializeField] private float maxRandomPositionTime;
     [SerializeField] private float randomPositionRadius;
     [SerializeField] private float delayBetweenShots;
+    [SerializeField] private Transform cooldownBar;
 
     private float lastShotTime;
     private Vector3 targetPosition;
@@ -44,7 +45,9 @@ public class AimController : ListeningMonoBehaviour {
     }
 
     void Update() {
-
+        float cooldownPercentage = Mathf.Clamp(((Time.time - lastShotTime) / delayBetweenShots),0,1);
+        cooldownBar.localScale = new Vector3(cooldownPercentage*30,2,1);
+        Debug.Log(cooldownPercentage);
         if (mosquitoesInCamera) {
 
             timer -= Time.deltaTime;
@@ -58,7 +61,6 @@ public class AimController : ListeningMonoBehaviour {
                 transform.localPosition =  Vector3.SmoothDamp(transform.localPosition, targetPosition, ref velocity,  0.5f);
                 //transform.localPosition = Vector3.MoveTowards(transform.localPosition, targetPosition, aimSpeed);
             }
-
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3)) {
@@ -86,8 +88,6 @@ public class AimController : ListeningMonoBehaviour {
                     hit.transform.gameObject.SetActive(false);
                 }
             }
-
-            
         }
     }
 
