@@ -62,7 +62,10 @@ public class AimController : ListeningMonoBehaviour {
                 //transform.localPosition = Vector3.MoveTowards(transform.localPosition, targetPosition, aimSpeed);
             }
         }
-
+        else
+        {
+            transform.localPosition = Vector3.SmoothDamp(transform.localPosition, initialLocalPos, ref velocity, 0.5f);
+        }
         if (Input.GetKeyDown(KeyCode.Alpha3)) {
             if((Time.time - lastShotTime > delayBetweenShots))
             {
