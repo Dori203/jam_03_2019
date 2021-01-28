@@ -189,7 +189,7 @@ public class FishingManager : MonoBehaviour
     public void leaveFishingArea(FishType fishType)
     {
         currentFishAreas.Remove(fishType);
-        if (currentFishAreas.Count == 0)
+        if (currentFishAreas.Count == 0 && rod != rodState.Idle)
         {
             //animate + play sound of fish escaping.
             xAnimator.Play("appear");
