@@ -60,6 +60,7 @@ public class FishingManager : MonoBehaviour
     void Awake()
     {
         SharedInstance = this;
+        spawnInitialFish();
     }
 
     // Update is called once per frame
@@ -146,7 +147,7 @@ public class FishingManager : MonoBehaviour
                         audio.PlayOneShot(catch_sound);
                         fishCount += 1;
                         GameManager.Instance.HealthUpdate(GameManager.HealthType.Fishing);
-                        SpawnFish();
+                        SpawnFish((int)currentFishAreas[0]);
                         fishHit((int)currentFishAreas[0]);
                         Debug.Log("caught fish with type index:");
                         Debug.Log((int)currentFishAreas[0]);
@@ -189,7 +190,7 @@ public class FishingManager : MonoBehaviour
     public void leaveFishingArea(FishType fishType)
     {
         currentFishAreas.Remove(fishType);
-        if (currentFishAreas.Count == 0)
+        if (currentFishAreas.Count == 0 && rod != rodState.Idle)
         {
             //animate + play sound of fish escaping.
             xAnimator.Play("appear");
@@ -252,16 +253,18 @@ public class FishingManager : MonoBehaviour
         // Debug.Log("poke");
     }
 
-    private void SpawnFish()
+    private void SpawnFish(int fishAreaIndex)
     {
         catchParticle.Play();
         Vector3 offset = new Vector3(0f, 0.5f, 0f);
-        int typeIndex = (int)currentFishAreas[0];
-        Debug.Log("Instantiating a fish at index");
-        Debug.Log(typeIndex);
-        GameObject currentFish = Instantiate(fishPrefabs[typeIndex], fishBox.transform.position + offset,
+        GameObject currentFish = Instantiate(fishPrefabs[fishAreaIndex], fishBox.transform.position + offset,
         Quaternion.Euler(90, Random.Range(0, 360), 0), transform);
         currentFish.transform.SetParent(fishBox.transform);
     }
 
+    private void spawnInitialFish()
+    {
+        SpawnFish((int)FishType.None);
+        fishCount += 1;
+    }
 }

@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour {
         boatRB.AddForceAtPosition(boatRB.rotation * forwardVector3 * curForce,
             boatRB.rotation * new Vector3(sidePos, 0, backPos) + boatRB.position,
             ForceMode.Force);
-        Debug.Log("Paddling");
+        //Debug.Log("Paddling");
     }
 
     void UserInput() {
@@ -121,7 +121,7 @@ public class PlayerController : MonoBehaviour {
                 float framePercentage = Mathf.Clamp(1 - ((nextActionTime - Time.time) / PaddleDuration), 0f, 0.99f);
                 if (!PaddleRight) {
                     oarRightAnim.Play("Scur", 0, framePercentage);
-                    Debug.Log(framePercentage);
+                    //Debug.Log(framePercentage);
                 }
 
                 if (!startPaddle) {
