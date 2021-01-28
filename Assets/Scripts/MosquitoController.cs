@@ -7,6 +7,8 @@ public class MosquitoController : MonoBehaviour
     [SerializeField] private float pullForce = 5.42f;
     [SerializeField] private float maxSpeed = 25f;
     [SerializeField] private float magnitude = 0.03f;
+    [SerializeField] private float magnitudeToKeepMosquitoClose = 1.2f;
+
 
     private Rigidbody rb;
     private bool inRaft = false;
@@ -47,11 +49,28 @@ public class MosquitoController : MonoBehaviour
 
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "MosquitoBackLimit")
+        {
+            Debug.Log("sending mosquitos back");
+            sendMosquitoToRaft(other.transform);
+        }
+    }
+
     private void sendMosquitoAway(Transform raft)
     {
         var force = transform.position - raft.transform.position;
         // normalize force vector to get direction only and trim magnitude
         force.Normalize();
         gameObject.GetComponent<Rigidbody>().AddForce(force * magnitude, ForceMode.Impulse);
+    }
+
+    private void sendMosquitoToRaft(Transform raft)
+    {
+        var force =  raft.transform.position - transform.position;
+        // normalize force vector to get direction only and trim magnitude
+        force.Normalize();
+        gameObject.GetComponent<Rigidbody>().AddForce(force * magnitudeToKeepMosquitoClose, ForceMode.Impulse);
     }
 }

@@ -47,7 +47,7 @@ public class AimController : ListeningMonoBehaviour {
     void Update() {
         float cooldownPercentage = Mathf.Clamp(((Time.time - lastShotTime) / delayBetweenShots),0,1);
         cooldownBar.localScale = new Vector3(cooldownPercentage*28,2,1);
-        Debug.Log(cooldownPercentage);
+        //Debug.Log(cooldownPercentage);
         if (mosquitoesEngagedMode) {
 
             timer -= Time.deltaTime;
@@ -79,7 +79,7 @@ public class AimController : ListeningMonoBehaviour {
                 //try to hit mosquitos only.
                 if (Physics.Raycast(killingCamera.transform.position, dir, out hit, 1000f, layerMask))
                 {
-                    Debug.Log("hit!");
+                    //Debug.Log("hit!");
 
                     GameObject mosquito = hit.transform.gameObject;
                     MosquitoController mosquitoController = mosquito.GetComponent<MosquitoController>();

@@ -12,6 +12,7 @@ TagManager:
   - raftExplorationRadar
   - Monster
   - FishingArea
+  - MosquitoBackLimit
   layers:
   - Default
   - TransparentFX
