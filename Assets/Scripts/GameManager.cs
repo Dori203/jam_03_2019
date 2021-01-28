@@ -90,10 +90,19 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
         checkLoss();
     }
 
+    public void incExterminationHealth(int amount)
+    {
+        if(exterminationHealth < exterminationMaxHealth)
+        {
+            exterminationHealth += amount;
+            HealthUpdate(HealthType.Fishing);
+        }
+    }
+
     public void decExplorationHealth(int amount)
     {
         explorationHealth = explorationHealth - amount;
-        HealthUpdate(HealthType.Exploration);
+        HealthUpdate(HealthType.Extermination);
         checkLoss();
     }
 

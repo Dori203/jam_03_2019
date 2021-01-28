@@ -14,13 +14,29 @@ public class ExterminationManager : MonoBehaviour {
     [SerializeField] private Animator aimAnimator;
     [SerializeField] private int overwhelmingMosquitoThreshold;
     [SerializeField] private int mosquitoAttack;
+    [SerializeField] private int exterminationHealthRecovery;
+    [SerializeField] private float recoverytime;
+
+    private float healthTimer = 0f;
+
 
     void Awake() {
         SharedInstance = this;
     }
 
     // Start is called before the first frame update
-
+    private void Update()
+    {
+        if(healthTimer <= 0)
+        {
+            if(getEngagedListSize() == 0)
+            {
+                GameManager.Instance.incExterminationHealth(exterminationHealthRecovery);
+            }
+            healthTimer = recoverytime;
+        }
+        healthTimer -= Time.deltaTime;
+    }
 
     public Vector3 getEngagedMosquitoPositionByIndex(int i) {
         int mosquitosNumber = mosquitosEngagedList[i];
@@ -76,4 +92,8 @@ public class ExterminationManager : MonoBehaviour {
         aimAnimator.Play("swat");
         // Debug.Log("Played Swat Animation");
     }
+
+
+
+
 }
