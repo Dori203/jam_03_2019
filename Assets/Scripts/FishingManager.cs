@@ -55,6 +55,7 @@ public class FishingManager : MonoBehaviour
     [SerializeField] private AudioClip poke_sound;
     [SerializeField] private AudioClip catch_sound;
     [SerializeField] private AudioClip escape_sound;
+    [SerializeField] private AudioClip splash_sound;
 
     void Awake()
     {
@@ -106,6 +107,7 @@ public class FishingManager : MonoBehaviour
                     if ((pokeCount) == 0)
                     {
                         rodAnimator.Play("hold");
+                        audio.PlayOneShot(splash_sound);
                         // Debug.Log("hold");
                         rod = rodState.Catch;
                         break;
