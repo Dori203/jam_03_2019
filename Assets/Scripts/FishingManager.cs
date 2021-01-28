@@ -8,7 +8,7 @@ public class FishingManager : MonoBehaviour
     [SerializeField] private List<int> fishCaughtList = new List<int>();
     public static FishingManager SharedInstance;
 
-    [SerializeField] private FishType currentFishArea;
+    [SerializeField] private List<FishType> currentFishAreas = new List<FishType>();
     [SerializeField] private float minIdleTime;
     [SerializeField] private float maxIdleTime;
     [SerializeField] private float minPokeTime;
@@ -74,7 +74,7 @@ public class FishingManager : MonoBehaviour
             StartCountdown(fishConsumeTime, fishConsumeTime + 2f, true);
         }
 
-        if(currentFishArea != FishType.None)
+        if(currentFishAreas.Count != 0)
         {
             switch (rod)
             {
@@ -145,9 +145,9 @@ public class FishingManager : MonoBehaviour
                         fishCount += 1;
                         GameManager.Instance.HealthUpdate(GameManager.HealthType.Fishing);
                         SpawnFish();
-                        fishHit((int)currentFishArea);
+                        fishHit((int)currentFishAreas[0]);
                         Debug.Log("caught fish with type index:");
-                        Debug.Log((int)currentFishArea);
+                        Debug.Log((int)currentFishAreas[0]);
                         StartCountdown(minIdleTime, maxIdleTime);
                         rod = rodState.Idle;
                         break;
@@ -179,14 +179,14 @@ public class FishingManager : MonoBehaviour
         }
     }
 
-    public void setFishingArea(FishType fishType)
+    public void enterFishingArea(FishType fishType)
     {
-        currentFishArea = fishType;
+        currentFishAreas.Add(fishType);
     }
 
-    public FishType getFishingArea()
+    public void leaveFishingArea(FishType fishType)
     {
-        return currentFishArea;
+        currentFishAreas.Remove(fishType);
     }
 
     public bool noFishLeft()
@@ -247,7 +247,7 @@ public class FishingManager : MonoBehaviour
     {
         catchParticle.Play();
         Vector3 offset = new Vector3(0f, 0.5f, 0f);
-        int typeIndex = (int)currentFishArea;
+        int typeIndex = (int)currentFishAreas[0];
         Debug.Log("Instantiating a fish at index");
         Debug.Log(typeIndex);
         GameObject currentFish = Instantiate(fishPrefabs[typeIndex], fishBox.transform.position + offset,

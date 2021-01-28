@@ -11,18 +11,15 @@ public class CatchFish : MonoBehaviour
         {
             Debug.Log("Raft at Fishing area");
             //Update current fishing area.
-            FishingManager.SharedInstance.setFishingArea(other.gameObject.GetComponent<FishingArea>().getFishType());
+            FishingManager.SharedInstance.enterFishingArea(other.gameObject.GetComponent<FishingArea>().getFishType());
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "FishingArea")
         {
-            if(FishingManager.SharedInstance.getFishingArea() == other.gameObject.GetComponent<FishingArea>().getFishType())
-            {
-                Debug.Log("Raft left Fishing area");
-                FishingManager.SharedInstance.setFishingArea(FishingManager.FishType.None);
-            }
+            Debug.Log("Raft left Fishing area");
+            FishingManager.SharedInstance.leaveFishingArea(other.gameObject.GetComponent<FishingArea>().getFishType());
         }
     }
 }

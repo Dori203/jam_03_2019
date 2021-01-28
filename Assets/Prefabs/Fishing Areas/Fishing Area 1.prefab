@@ -22,6 +22,11 @@ PrefabInstance:
       propertyPath: fishType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3651633771607931493, guid: 3346c932f68650849994a9fdd559685c,
+        type: 3}
+      propertyPath: colliderRadius
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6638903135214927236, guid: 3346c932f68650849994a9fdd559685c,
         type: 3}
       propertyPath: m_LocalPosition.x

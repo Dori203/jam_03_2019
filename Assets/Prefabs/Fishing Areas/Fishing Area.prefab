@@ -9192,7 +9192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2450a8deffd20c64ea9894b4f387b344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colliderRadius: 4.5
+  colliderRadius: 5
   fishType: 0
 --- !u!114 &4361009078616901563
 MonoBehaviour:
