@@ -9812,6 +9812,8 @@ MonoBehaviour:
   randomRotationZ: 1
   innerRadius: 20
   outerRadius: 90
+  spawnEqualy: 0
+  fishingeaer: 0
 --- !u!4 &599878145
 Transform:
   m_ObjectHideFlags: 0
@@ -14798,7 +14800,7 @@ PrefabInstance:
     - target: {fileID: 4234628431768319028, guid: 077c3323c2e6cbf4b9b18dcac3e631b9,
         type: 3}
       propertyPath: m_Name
-      value: MosquitoLimit (1)
+      value: MosquitoBackLimit
       objectReference: {fileID: 0}
     - target: {fileID: 4234628431768319028, guid: 077c3323c2e6cbf4b9b18dcac3e631b9,
         type: 3}
@@ -15020,6 +15022,8 @@ MonoBehaviour:
   randomRotationZ: 0
   innerRadius: 20
   outerRadius: 90
+  spawnEqualy: 0
+  fishingeaer: 0
 --- !u!4 &657109567
 Transform:
   m_ObjectHideFlags: 0
@@ -28951,7 +28955,7 @@ MonoBehaviour:
     type: 3}
   aimAnimator: {fileID: 1185679682}
   overwhelmingMosquitoThreshold: 0
-  mosquitoAttack: 4
+  mosquitoAttack: 2
   exterminationHealthRecovery: 1
   recoverytime: 1
 --- !u!4 &1172142343
@@ -29198,6 +29202,7 @@ MonoBehaviour:
   randomPositionRadius: 0.125
   delayBetweenShots: 1.5
   cooldownBar: {fileID: 293581189}
+  HitmaxDistance: 1000
 --- !u!65 &1185679681
 BoxCollider:
   m_ObjectHideFlags: 0
