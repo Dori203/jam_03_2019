@@ -8658,7 +8658,7 @@ MonoBehaviour:
   xAnimator: {fileID: 883808730}
   catchParticle: {fileID: 2006113}
   pokeParticles: {fileID: 1260431373}
-  fishConsumeTime: 0.03125
+  fishConsumeTime: 0.0234375
   minPokes: 2
   maxPokes: 5
   fishBox: {fileID: 1884809310}
@@ -28951,9 +28951,9 @@ MonoBehaviour:
     type: 3}
   aimAnimator: {fileID: 1185679682}
   overwhelmingMosquitoThreshold: 0
-  mosquitoAttack: 4
-  exterminationHealthRecovery: 1
-  recoverytime: 1
+  mosquitoAttack: 3
+  exterminationHealthRecovery: 2
+  recoverytime: 0.5
 --- !u!4 &1172142343
 Transform:
   m_ObjectHideFlags: 0

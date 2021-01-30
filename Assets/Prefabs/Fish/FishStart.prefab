@@ -168,7 +168,7 @@ MonoBehaviour:
   timerMax: 1
   forceFactor: 0.03
   torqueFactor: 0.1
-  typeIndex: 8
+  typeIndex: 9
   fishObjective: {fileID: 0}
   sortOrder: 27
 --- !u!331 &4036299299927686427
