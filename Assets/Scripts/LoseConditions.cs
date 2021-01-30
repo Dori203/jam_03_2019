@@ -9,7 +9,7 @@ public class LossConditions
     public string Value { get; set; }
 
     public static LossConditions Extermination { get { return new LossConditions("YOU WERE OVERWHELMED BY MOSQUITOS"); } }
-    public static LossConditions Exploration { get { return new LossConditions("YOU GOT CAUGH BY THE SHARK"); } }
+    public static LossConditions Exploration { get { return new LossConditions("YOU GOT CAUGHT BY THE SHARK"); } }
     public static LossConditions Fishing { get { return new LossConditions("YOU FORGOT TO EAT"); } }
     public static LossConditions None { get { return new LossConditions(""); } }
 }
