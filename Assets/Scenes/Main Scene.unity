@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9813,7 +9813,6 @@ MonoBehaviour:
   innerRadius: 20
   outerRadius: 90
   spawnEqualy: 0
-  fishingeaer: 0
 --- !u!4 &599878145
 Transform:
   m_ObjectHideFlags: 0
@@ -15022,8 +15021,7 @@ MonoBehaviour:
   randomRotationZ: 0
   innerRadius: 20
   outerRadius: 90
-  spawnEqualy: 0
-  fishingeaer: 0
+  spawnEqualy: 1
 --- !u!4 &657109567
 Transform:
   m_ObjectHideFlags: 0
@@ -29202,7 +29200,7 @@ MonoBehaviour:
   randomPositionRadius: 0.125
   delayBetweenShots: 1.5
   cooldownBar: {fileID: 293581189}
-  HitmaxDistance: 1000
+  HitmaxDistance: 5
 --- !u!65 &1185679681
 BoxCollider:
   m_ObjectHideFlags: 0
