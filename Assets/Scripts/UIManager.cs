@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Helpers;
-
+using TMPro;
 
 
 public class UIManager : ListeningMonoBehaviour
@@ -15,9 +15,9 @@ public class UIManager : ListeningMonoBehaviour
     };
 
     [SerializeField] private GameObject winningUI;
-    [SerializeField] private Text winningText;
+    [SerializeField] private TextMeshProUGUI winningText;
     [SerializeField] private GameObject losingUI;
-    [SerializeField] private Text losingText;
+    [SerializeField] private TextMeshProUGUI losingText;
     [SerializeField] private GameObject fishingHealthBar;
     [SerializeField] private GameObject exterminationHealthBar;
     [SerializeField] private GameObject explorationHealthBar;
