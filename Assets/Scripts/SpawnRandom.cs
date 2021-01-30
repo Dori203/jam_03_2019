@@ -17,16 +17,20 @@ public class SpawnRandom : MonoBehaviour
     public bool randomRotationZ = true;
     public float innerRadius = 90f;
     public float outerRadius = 90f;
+    public bool spawnEqualy = false;
+
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
+        int equalPart = numberOfObjects / objects.Length;
         for (int i = 0; i < numberOfObjects; i++)
         {
             float ratio = innerRadius / outerRadius;
             float radius = Mathf.Sqrt(Random.Range(ratio * ratio, 1f)) * outerRadius;
             var xz = Random.insideUnitCircle.normalized * radius;
             var spawnPosition = new Vector3(xz.x, 0, xz.y);
-            GameObject objectType = objects[Random.Range(0, objects.Length)];
+            int objectNum = spawnEqualy ? i / equalPart : Random.Range(0, objects.Length);
+            if (objectNum >= objects.Length) break;
+            GameObject objectType = objects[objectNum];
             GameObject currentObject = Instantiate(objectType, spawnPosition, Quaternion.identity, gameObject.transform);
             currentObject.transform.localRotation = Quaternion.Euler(new Vector3(System.Convert.ToInt32(randomRotationX) * (Random.Range(0f, 360f)),
                             System.Convert.ToInt32(randomRotationY) * (Random.Range(0f, 360f)),

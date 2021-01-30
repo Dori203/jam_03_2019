@@ -28,6 +28,7 @@ public class AimController : ListeningMonoBehaviour {
     [SerializeField] private float randomPositionRadius;
     [SerializeField] private float delayBetweenShots;
     [SerializeField] private Transform cooldownBar;
+    [SerializeField] public float HitmaxDistance = 1000f;
 
     private float lastShotTime;
     private Vector3 targetPosition;
@@ -73,11 +74,11 @@ public class AimController : ListeningMonoBehaviour {
                 RaycastHit hit;
                 Vector3 dir = transform.position - killingCamera.transform.position;
                 
-                swat();
+                swatAnimationAndSound();
 
                 int layerMask = 1 << 15;
                 //try to hit mosquitos only.
-                if (Physics.Raycast(killingCamera.transform.position, dir, out hit, 1000f, layerMask))
+                if (Physics.Raycast(killingCamera.transform.position, dir, out hit, HitmaxDistance, layerMask))
                 {
                     //Debug.Log("hit!");
 
@@ -93,7 +94,7 @@ public class AimController : ListeningMonoBehaviour {
         }
     }
 
-    private void swat() {
+    private void swatAnimationAndSound() {
         aimAnimator.Play("swat");
         audio.PlayOneShot(swatSound);
     } 

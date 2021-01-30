@@ -95,7 +95,7 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
         if(exterminationHealth < exterminationMaxHealth)
         {
             exterminationHealth += amount;
-            HealthUpdate(HealthType.Fishing);
+            HealthUpdate(HealthType.Extermination);
         }
     }
 

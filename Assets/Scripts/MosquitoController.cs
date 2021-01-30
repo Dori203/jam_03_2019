@@ -10,6 +10,7 @@ public class MosquitoController : MonoBehaviour
     [SerializeField] private float magnitudeToKeepMosquitoClose = 1.2f;
 
 
+    private float initialMaxSpeed;
     private Rigidbody rb;
     private bool inRaft = false;
     public int MosquitoeNumber;
@@ -18,6 +19,7 @@ public class MosquitoController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        initialMaxSpeed = maxSpeed;
         rb = GetComponent<Rigidbody>();
         playerFace = GameObject.Find("Face").transform;
     }
@@ -46,6 +48,11 @@ public class MosquitoController : MonoBehaviour
             sendMosquitoAway(other.transform);
             ExterminationManager.SharedInstance.MosquitoesEngaged(MosquitoeNumber);
         }
+        if (other.tag == "MosquitoBackLimit")
+        {
+            //sendMosquitoToRaft(other.transform);
+            maxSpeed = initialMaxSpeed;
+        }
 
     }
 
@@ -54,7 +61,8 @@ public class MosquitoController : MonoBehaviour
         if (other.tag == "MosquitoBackLimit")
         {
             Debug.Log("sending mosquitos back");
-            sendMosquitoToRaft(other.transform);
+            //sendMosquitoToRaft(other.transform);
+            maxSpeed *= 3;
         }
     }
 

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9812,6 +9812,7 @@ MonoBehaviour:
   randomRotationZ: 1
   innerRadius: 20
   outerRadius: 90
+  spawnEqualy: 0
 --- !u!4 &599878145
 Transform:
   m_ObjectHideFlags: 0
@@ -14798,7 +14799,7 @@ PrefabInstance:
     - target: {fileID: 4234628431768319028, guid: 077c3323c2e6cbf4b9b18dcac3e631b9,
         type: 3}
       propertyPath: m_Name
-      value: MosquitoLimit (1)
+      value: MosquitoBackLimit
       objectReference: {fileID: 0}
     - target: {fileID: 4234628431768319028, guid: 077c3323c2e6cbf4b9b18dcac3e631b9,
         type: 3}
@@ -15020,6 +15021,7 @@ MonoBehaviour:
   randomRotationZ: 0
   innerRadius: 20
   outerRadius: 90
+  spawnEqualy: 1
 --- !u!4 &657109567
 Transform:
   m_ObjectHideFlags: 0
@@ -25351,9 +25353,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   restDuration: 0.7
   PaddleDuration: 0.5
-  backPos: 2.54
-  RotateMin: -0.1
-  RotateMax: 1.15
+  backPos: 0.1
+  RotateMin: 0.01
+  RotateMax: 1
   RotateStep: 5
   Force: 1.5
   ForceCurve:
@@ -25361,33 +25363,33 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.19551855
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.3035871
-      value: 0.9701859
-      inSlope: 0.15823756
-      outSlope: 0.15823756
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.3348834
-    - serializedVersion: 3
-      time: 1
-      value: 0.22487833
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
       outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
+    - serializedVersion: 3
+      time: 0.4
+      value: 4
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 0
+    m_PostInfinity: 0
     m_RotationOrder: 4
   oarRight: {fileID: 1306589862}
   oarLeft: {fileID: 734744419}
@@ -29198,6 +29200,7 @@ MonoBehaviour:
   randomPositionRadius: 0.125
   delayBetweenShots: 1.5
   cooldownBar: {fileID: 293581189}
+  HitmaxDistance: 5
 --- !u!65 &1185679681
 BoxCollider:
   m_ObjectHideFlags: 0

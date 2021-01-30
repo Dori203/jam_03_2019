@@ -12,12 +12,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Type Icon 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2357569854407987684, guid: b92876e93b9795f4aa99eb8ca184f536,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2357569854407987686, guid: b92876e93b9795f4aa99eb8ca184f536,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 7201647538912879150, guid: e15c606eeadf2ea4e9d7ec7e74da2678,
         type: 3}
+    - target: {fileID: 2357569854407987686, guid: b92876e93b9795f4aa99eb8ca184f536,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2357569854407987687, guid: b92876e93b9795f4aa99eb8ca184f536,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -76,12 +86,12 @@ PrefabInstance:
     - target: {fileID: 2357569854407987687, guid: b92876e93b9795f4aa99eb8ca184f536,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -86.71901
       objectReference: {fileID: 0}
     - target: {fileID: 2357569854407987687, guid: b92876e93b9795f4aa99eb8ca184f536,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -0.20794678
       objectReference: {fileID: 0}
     - target: {fileID: 2357569854407987687, guid: b92876e93b9795f4aa99eb8ca184f536,
         type: 3}
