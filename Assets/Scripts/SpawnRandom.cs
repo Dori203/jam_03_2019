@@ -29,7 +29,7 @@ public class SpawnRandom : MonoBehaviour
             var xz = Random.insideUnitCircle.normalized * radius;
             var spawnPosition = new Vector3(xz.x, 0, xz.y);
             int objectNum = spawnEqualy ? i / equalPart : Random.Range(0, objects.Length);
-            if (objectNum >= objects.Length) break;
+            if (objectNum >= objects.Length) objectNum = Random.Range(0, objects.Length);
             GameObject objectType = objects[objectNum];
             GameObject currentObject = Instantiate(objectType, spawnPosition, Quaternion.identity, gameObject.transform);
             currentObject.transform.localRotation = Quaternion.Euler(new Vector3(System.Convert.ToInt32(randomRotationX) * (Random.Range(0f, 360f)),
