@@ -29200,7 +29200,7 @@ MonoBehaviour:
   randomPositionRadius: 0.125
   delayBetweenShots: 1.5
   cooldownBar: {fileID: 293581189}
-  HitmaxDistance: 2
+  HitmaxDistance: 5
 --- !u!65 &1185679681
 BoxCollider:
   m_ObjectHideFlags: 0
