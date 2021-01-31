@@ -93,11 +93,57 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4540204167348802306, guid: d74954b158633c441bf6a52ea8458b24,
         type: 3}
+    - target: {fileID: 7106312898327418188, guid: 3346c932f68650849994a9fdd559685c,
+        type: 3}
+      propertyPath: image1
+      value: 
+      objectReference: {fileID: 8068579788950835681, guid: e15c606eeadf2ea4e9d7ec7e74da2678,
+        type: 3}
+    - target: {fileID: 7106312898327418188, guid: 3346c932f68650849994a9fdd559685c,
+        type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 7106312898327418188, guid: 3346c932f68650849994a9fdd559685c,
+        type: 3}
+    - target: {fileID: 7106312898327418188, guid: 3346c932f68650849994a9fdd559685c,
+        type: 3}
+      propertyPath: image2
+      value: 
+      objectReference: {fileID: -2492580962645500742, guid: 6b974be1a7521024ab7e394902ea9490,
+        type: 3}
+    - target: {fileID: 7106312898327418188, guid: 3346c932f68650849994a9fdd559685c,
+        type: 3}
+      propertyPath: fishType
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7788350969341849964, guid: 3346c932f68650849994a9fdd559685c,
         type: 3}
       propertyPath: image
       value: 
       objectReference: {fileID: 4540204167348802306, guid: d74954b158633c441bf6a52ea8458b24,
         type: 3}
+    - target: {fileID: 7788350969341849964, guid: 3346c932f68650849994a9fdd559685c,
+        type: 3}
+      propertyPath: image1
+      value: 
+      objectReference: {fileID: 8068579788950835681, guid: e15c606eeadf2ea4e9d7ec7e74da2678,
+        type: 3}
+    - target: {fileID: 7788350969341849964, guid: 3346c932f68650849994a9fdd559685c,
+        type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 7788350969341849964, guid: 3346c932f68650849994a9fdd559685c,
+        type: 3}
+    - target: {fileID: 7788350969341849964, guid: 3346c932f68650849994a9fdd559685c,
+        type: 3}
+      propertyPath: image2
+      value: 
+      objectReference: {fileID: -2492580962645500742, guid: 6b974be1a7521024ab7e394902ea9490,
+        type: 3}
+    - target: {fileID: 7788350969341849964, guid: 3346c932f68650849994a9fdd559685c,
+        type: 3}
+      propertyPath: fishType
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3346c932f68650849994a9fdd559685c, type: 3}

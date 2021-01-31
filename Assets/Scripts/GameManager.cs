@@ -35,6 +35,8 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
     [SerializeField] private int fishingHealth;
     [SerializeField] private int fishingDeathThreshold;
 
+    [SerializeField] private Animator raftHealthAnim;
+
     public enum Channels
     {
         MosquitoesEngaged,
@@ -102,6 +104,7 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
     public void decExplorationHealth(int amount)
     {
         explorationHealth = explorationHealth - amount;
+        raftHealthAnim.SetInteger("hp", explorationHealth);
         HealthUpdate(HealthType.Extermination);
         checkLoss();
     }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Helpers;
-
+using TMPro;
 
 
 public class UIManager : ListeningMonoBehaviour
@@ -15,9 +15,9 @@ public class UIManager : ListeningMonoBehaviour
     };
 
     [SerializeField] private GameObject winningUI;
-    [SerializeField] private Text winningText;
+    [SerializeField] private GameObject winningText;
     [SerializeField] private GameObject losingUI;
-    [SerializeField] private Text losingText;
+    [SerializeField] private GameObject losingText;
     [SerializeField] private GameObject fishingHealthBar;
     [SerializeField] private GameObject exterminationHealthBar;
     [SerializeField] private GameObject explorationHealthBar;
@@ -43,15 +43,20 @@ public class UIManager : ListeningMonoBehaviour
 
     private void activateWinUI(Victory victoryType)
     {
-
-        winningText.text = victoryType.Value;
+        for (int i = 0; i < 10; i++)
+        {
+            winningText.transform.GetChild(i).GetComponent<TextMeshProUGUI>().text = victoryType.Value;
+        }
         winningUI.SetActive(true);
     }
 
     private void activateLossUI(LossConditions lossType)
     {
-        Debug.Log("Loss UI updated");   
-        losingText.text = lossType.Value;
+        Debug.Log("Loss UI updated");
+        for (int i = 0; i < 10; i++)
+        {
+            losingText.transform.GetChild(i).GetComponent<TextMeshProUGUI>().text = lossType.Value;
+        }
         losingUI.SetActive(true);
     }
 
