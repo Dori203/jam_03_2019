@@ -7,7 +7,7 @@ public class ClampIcon : MonoBehaviour
 {
 
     public Image image;
-
+    
     private Canvas canvas;
     public string canvasName;
 
@@ -63,4 +63,5 @@ public class ClampIcon : MonoBehaviour
             image.enabled = true;
         }
     }
+    
 }

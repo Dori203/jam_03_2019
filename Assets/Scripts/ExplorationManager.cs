@@ -8,7 +8,6 @@ public class ExplorationManager : MonoBehaviour
 
     public static ExplorationManager SharedInstance;
 
-
     //[SerializeField] private ArrayList interetPoints = new ArrayList();
     [SerializeField] private List<int> interetPointsEngagedList = new List<int>();
 
