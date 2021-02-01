@@ -23,6 +23,10 @@ public class FishingManager : MonoBehaviour
     [SerializeField] private GameObject fishBox;
     [SerializeField] private int fishHealthDecrease;
     [SerializeField] private Sprite eatenSprite;
+    [SerializeField] private Transform raftTransform;
+    [SerializeField] private float radius;
+
+
 
     private float nextFishTimer = 0f;
     private float hungerTimer = 0f;
@@ -147,10 +151,24 @@ public class FishingManager : MonoBehaviour
                         audio.PlayOneShot(catch_sound);
                         fishCount += 1;
                         GameManager.Instance.HealthUpdate(GameManager.HealthType.Fishing);
-                        SpawnFish((int)currentFishAreas[0]);
-                        fishHit((int)currentFishAreas[0]);
-                        Debug.Log("caught fish with type index:");
-                        Debug.Log((int)currentFishAreas[0]);
+                        Collider[] colliders = Physics.OverlapSphere(raftTransform.position, radius);
+                        FishType closest = FishType.None;
+                        float minDistance = 200;
+                        foreach (Collider hit in colliders)
+                        {
+                            GameObject go = hit.gameObject;
+                            if (go.CompareTag("FishingArea"))
+                            {
+                                float distance = (go.transform.position - raftTransform.position).magnitude;
+                                if (distance < minDistance)
+                                    minDistance = distance;
+                                    closest = go.GetComponent<FishingArea>().getFishType();
+                                    //Debug.Log("closest fishing area check, checking area with index " + go.GetComponent<FishingArea>().getFishType());
+                            }
+                        }
+                        SpawnFish((int)closest);
+                        fishHit((int)closest);
+                        //Debug.Log("caught fish with type index: " + (int)closest);
                         StartCountdown(minIdleTime, maxIdleTime);
                         rod = rodState.Idle;
                         break;
@@ -210,7 +228,7 @@ public class FishingManager : MonoBehaviour
         if (fishCount > 0)
         {
             fishCount--;
-            Debug.Log("trying to remove a fish");
+            //Debug.Log("trying to remove a fish");
             //deactivate a random child of fishbox.
             Transform fish = fishBox.transform.GetChild(Random.Range(0, fishBox.transform.childCount));
             fish.SetParent(null);

@@ -5433,6 +5433,9 @@ MonoBehaviour:
   target: {fileID: 866370234}
   maxSpeed: 0.6
   acceleration: 4
+  cooldownTime: 5
+  turningMagnitude: 50
+  cooldown: 0
 --- !u!4 &49894501
 Transform:
   m_ObjectHideFlags: 0
@@ -11241,7 +11244,7 @@ MonoBehaviour:
   currentFishAreas: 
   minIdleTime: 5
   maxIdleTime: 15
-  minPokeTime: 1.5
+  minPokeTime: 2
   maxPokeTime: 3
   rodAnimator: {fileID: 600174852}
   xAnimator: {fileID: 883808730}
@@ -11253,6 +11256,8 @@ MonoBehaviour:
   fishBox: {fileID: 1884809310}
   fishHealthDecrease: 1
   eatenSprite: {fileID: 21300000, guid: 7112da18a5012184b80d71b17d817077, type: 3}
+  raftTransform: {fileID: 866370234}
+  radius: 0.5
   audio: {fileID: 55504577}
   poke_sound: {fileID: 8300000, guid: 1583c9e5f0fc0f24d95be2e773d20079, type: 3}
   catch_sound: {fileID: 8300000, guid: 4f49ecafbecde754cbe6a5af68ed2f2a, type: 3}
