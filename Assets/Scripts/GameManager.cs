@@ -38,6 +38,8 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
     [SerializeField] private Animator raftHealthAnim;
     [SerializeField] private Animator explorationBarAnim;
 
+    [SerializeField] private AudioSource explorationSuccess;
+
     public enum Channels
     {
         MosquitoesEngaged,
@@ -68,6 +70,7 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
     public void incExplorationScore()
     {
         explorationScore++;
+        explorationSuccess.Play();
         checkVictory();
     }
 
