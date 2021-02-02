@@ -7642,6 +7642,7 @@ GameObject:
   - component: {fileID: 155653428}
   - component: {fileID: 155653430}
   - component: {fileID: 155653429}
+  - component: {fileID: 155653431}
   m_Layer: 20
   m_Name: Rock Bumpers
   m_TagString: Untagged
@@ -7691,6 +7692,20 @@ CapsuleCollider:
   m_Height: 3.15
   m_Direction: 2
   m_Center: {x: -1, y: 0, z: 0}
+--- !u!114 &155653431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155653427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1dc04fd468b4fe4c9847deaae28a3b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 866370230}
+  rockHitForce: 2
 --- !u!1 &171413785
 GameObject:
   m_ObjectHideFlags: 0
@@ -29732,6 +29747,7 @@ GameObject:
   - component: {fileID: 866370230}
   - component: {fileID: 866370233}
   - component: {fileID: 866370237}
+  - component: {fileID: 866370235}
   m_Layer: 13
   m_Name: Raft
   m_TagString: Raft
@@ -29871,6 +29887,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: -30, z: 0}
+--- !u!114 &866370235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866370229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1dc04fd468b4fe4c9847deaae28a3b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 866370230}
+  rockHitForce: 3
 --- !u!114 &866370237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32595,6 +32625,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Lighthouse
+      objectReference: {fileID: 0}
+    - target: {fileID: 1815141672374460027, guid: 3ee1f22bab2a7434d8edf5e722c085a2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Rock
       objectReference: {fileID: 0}
     - target: {fileID: 1959145417160966268, guid: 3ee1f22bab2a7434d8edf5e722c085a2,
         type: 3}
@@ -82934,6 +82969,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arc
       objectReference: {fileID: 0}
+    - target: {fileID: 8771674409873133012, guid: cb8f09bc8e916f04db37f22c4042e373,
+        type: 3}
+      propertyPath: m_TagString
+      value: Rock
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb8f09bc8e916f04db37f22c4042e373, type: 3}
 --- !u!23 &947979248097197796
@@ -83435,6 +83475,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WreckedShip
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439880147053623465, guid: 7283b6fd07ab27546beb7d77955a6039,
+        type: 3}
+      propertyPath: m_TagString
+      value: Rock
       objectReference: {fileID: 0}
     - target: {fileID: 2711204932514630330, guid: 7283b6fd07ab27546beb7d77955a6039,
         type: 3}
