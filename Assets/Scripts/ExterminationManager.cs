@@ -33,6 +33,13 @@ public class ExterminationManager : MonoBehaviour {
             {
                 GameManager.Instance.incExterminationHealth(exterminationHealthRecovery);
             }
+            else
+            {
+                if (mosquitosEngagedList.Count > overwhelmingMosquitoThreshold)
+                {
+                    GameManager.Instance.decExterminationHealth(mosquitosEngagedList.Count * mosquitoAttack);
+                }
+            }
             healthTimer = recoverytime;
         }
         healthTimer -= Time.deltaTime;
@@ -58,10 +65,7 @@ public class ExterminationManager : MonoBehaviour {
         if (!mosquitosEngagedList.Contains(MosquitoeNumber))
         {
             mosquitosEngagedList.Add(MosquitoeNumber);
-            if (mosquitosEngagedList.Count > overwhelmingMosquitoThreshold)
-            {
-                GameManager.Instance.decExterminationHealth(mosquitosEngagedList.Count*mosquitoAttack);
-            }
+            
         }
         GameManager.Instance.MosquitoesTriggered(MosquitoeNumber);
     }
