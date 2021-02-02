@@ -120,7 +120,7 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
     public void decExterminationHealth(int amount)
     {
         exterminationHealth = exterminationHealth - amount;
-        mosquitoHealthAnim.Play("GetBit");
+        mosquitoHealthAnim.Play("Get Bit");
         HealthUpdate(HealthType.Extermination);
         checkLoss();
     }

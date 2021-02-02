@@ -4,31 +4,34 @@ using UnityEngine;
 
 public class ZoomOut : MonoBehaviour
 {
-    private bool zoomedOut;
-
+    private int numObjects;
+    private bool zoomerOut;
     [SerializeField] Animator explorationCamera;
     // Start is called before the first frame update
 
     void Start()
     {
-        zoomedOut = false;
+        numObjects = 0;
     }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Monster") && !zoomedOut)
+        if (other.CompareTag("Monster"))
         {
-            zoomedOut = true;
+            numObjects += 1;
             explorationCamera.SetBool("Shark", true);
-            Debug.Log("Zoom Out");
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Monster") && zoomedOut)
+        if (other.CompareTag("Monster"))
         {
-            zoomedOut = false;
-            explorationCamera.SetBool("Shark", false);
-            Debug.Log("Zoom In");
+            numObjects -= 1;
+            if (numObjects == 0)
+            {
+                explorationCamera.SetBool("Shark", false);
+                Debug.Log("Zoom In");
+            }
         }
     }
 }
