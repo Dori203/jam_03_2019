@@ -1,0 +1,18 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SpawnShark : MonoBehaviour
+{
+    public float yOffset = 0f;
+    public bool randomRotationX = true;
+    public bool randomRotationY = true;
+    public bool randomRotationZ = true;
+    public float radius = 90f;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        transform.position = new Vector3(Random.insideUnitCircle.normalized.x*45f,0,Random.insideUnitCircle.normalized.y*45f);
+    }
+}

@@ -14,6 +14,8 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
     
     public void OnSceneChanged(Scene previousScene, Scene nextScene) { }
 
+    private bool victory = false;
+
     [SerializeField] private int exterminationScore = 0;
     [SerializeField] private int exterminationVictoryThreshold = 20; //TODO RANDOM NUMBER
 
@@ -146,19 +148,19 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
         bool isGameOver = false;
         Victory victoryType = Victory.None;
         //check each victory condition, return
-        if(exterminationScore >= exterminationVictoryThreshold)
+        if(exterminationScore >= exterminationVictoryThreshold && !victory)
         {
             Debug.Log("extermination victory");
             isGameOver = true;
             victoryType = Victory.Extermination;
         }
-        else if(explorationScore >= explorationVictoryThreshold)
+        else if(explorationScore >= explorationVictoryThreshold && !victory)
         {
             Debug.Log("exploration victory");
             isGameOver = true;
             victoryType = Victory.Exploration;
         }
-        else if(fishingScore >= fishingVictoryThreshold)
+        else if(fishingScore >= fishingVictoryThreshold && !victory)
         {
             Debug.Log("fishing victory");
             isGameOver = true;

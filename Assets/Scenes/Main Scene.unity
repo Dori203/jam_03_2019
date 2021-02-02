@@ -5431,6 +5431,7 @@ GameObject:
   - component: {fileID: 49894504}
   - component: {fileID: 49894503}
   - component: {fileID: 49894505}
+  - component: {fileID: 49894506}
   m_Layer: 17
   m_Name: Monster
   m_TagString: Monster
@@ -5541,6 +5542,23 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &49894506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49894499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cc366b59ce4f374ba14d970f038e3bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yOffset: 0
+  randomRotationX: 1
+  randomRotationY: 1
+  randomRotationZ: 1
+  radius: 45
 --- !u!1 &51464464
 GameObject:
   m_ObjectHideFlags: 0
@@ -18603,7 +18621,7 @@ MonoBehaviour:
   - {fileID: 1697702250773514736, guid: 5da41f1193f874642a4134fb962bef7a, type: 3}
   - {fileID: 1697702250773514736, guid: c91d0d15301e53b48b3e0dfc28be1c98, type: 3}
   - {fileID: 1697702250773514736, guid: db6f43da99881fe4d83cf9abb7b71106, type: 3}
-  numberOfObjects: 45
+  numberOfObjects: 33
   squareLength: 180
   rockMinScale: 1.25
   rockMaxScale: 1.25
