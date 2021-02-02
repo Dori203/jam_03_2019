@@ -42,11 +42,15 @@ public class MosquitoController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        if (other.tag == "MosquitoAttractor")
+        {
+            ExterminationManager.SharedInstance.MosquitoesEngaged(MosquitoeNumber);
+        }
         if (other.tag == "MosquitoLimit")
         {
             inRaft = true;
             sendMosquitoAway(other.transform);
-            ExterminationManager.SharedInstance.MosquitoesEngaged(MosquitoeNumber);
+            //ExterminationManager.SharedInstance.MosquitoesEngaged(MosquitoeNumber);
         }
         if (other.tag == "MosquitoBackLimit")
         {
