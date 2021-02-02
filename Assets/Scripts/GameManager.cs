@@ -43,6 +43,8 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
     [SerializeField] private Animator sharkHealthAnim;
 
     [SerializeField] private AudioSource explorationSuccess;
+    [SerializeField] private AudioSource victoryAudio;
+    [SerializeField] private AudioSource raftAudio;
 
     public enum Channels
     {
@@ -113,6 +115,7 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
     {
         explorationHealth = explorationHealth - amount;
         HealthUpdate(HealthType.Exploration);
+        raftAudio.Play();
         sharkHealthAnim.Play("Get Hit");
         raftHealthAnim.SetInteger("hp", explorationHealth);
         explorationBarAnim.SetInteger("hp", explorationHealth);
@@ -153,18 +156,21 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
             Debug.Log("extermination victory");
             isGameOver = true;
             victoryType = Victory.Extermination;
+            victoryAudio.Play();
         }
         else if(explorationScore >= explorationVictoryThreshold && !victory)
         {
             Debug.Log("exploration victory");
             isGameOver = true;
             victoryType = Victory.Exploration;
+            victoryAudio.Play();
         }
         else if(fishingScore >= fishingVictoryThreshold && !victory)
         {
             Debug.Log("fishing victory");
             isGameOver = true;
             victoryType = Victory.Fishing;
+            victoryAudio.Play();
         }
 
         if (isGameOver)
