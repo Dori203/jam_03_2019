@@ -29524,7 +29524,7 @@ MonoBehaviour:
   restDuration: 0.7
   PaddleDuration: 0.5
   backPos: 0.1
-  RotateMin: 0.01
+  RotateMin: -0.1
   RotateMax: 1
   RotateStep: 5
   Force: 1.5
