@@ -164,7 +164,9 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
         if (isGameOver)
         {
             VictoryMessage(victoryType);
+            /*
             Time.timeScale = 0;
+            */
         }
     }
 
