@@ -37,6 +37,8 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
 
     [SerializeField] private Animator raftHealthAnim;
     [SerializeField] private Animator explorationBarAnim;
+    [SerializeField] private Animator mosquitoHealthAnim;
+    [SerializeField] private Animator sharkHealthAnim;
 
     [SerializeField] private AudioSource explorationSuccess;
 
@@ -109,6 +111,7 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
     {
         explorationHealth = explorationHealth - amount;
         HealthUpdate(HealthType.Exploration);
+        sharkHealthAnim.Play("Get Hit");
         raftHealthAnim.SetInteger("hp", explorationHealth);
         explorationBarAnim.SetInteger("hp", explorationHealth);
         checkLoss();
@@ -117,6 +120,7 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
     public void decExterminationHealth(int amount)
     {
         exterminationHealth = exterminationHealth - amount;
+        mosquitoHealthAnim.Play("GetBit");
         HealthUpdate(HealthType.Extermination);
         checkLoss();
     }

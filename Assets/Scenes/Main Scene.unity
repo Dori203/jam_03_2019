@@ -5252,6 +5252,7 @@ GameObject:
   - component: {fileID: 33392224}
   - component: {fileID: 33392226}
   - component: {fileID: 33392225}
+  - component: {fileID: 33392227}
   m_Layer: 5
   m_Name: Dead
   m_TagString: Untagged
@@ -5275,7 +5276,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 91, y: -172.99991}
+  m_AnchoredPosition: {x: 90.99999, y: -172.99991}
   m_SizeDelta: {x: 31, y: 31}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &33392225
@@ -5316,6 +5317,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 33392223}
   m_CullTransparentMesh: 0
+--- !u!95 &33392227
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33392223}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4da05d0a291182b478b0303afbf00be0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &36838144
 GameObject:
   m_ObjectHideFlags: 0
@@ -34482,7 +34502,7 @@ MonoBehaviour:
     type: 3}
   aimAnimator: {fileID: 1185679682}
   overwhelmingMosquitoThreshold: 0
-  mosquitoAttack: 2
+  mosquitoAttack: 1
   exterminationHealthRecovery: 1
   recoverytime: 1
 --- !u!4 &1172142343
@@ -62269,6 +62289,7 @@ GameObject:
   - component: {fileID: 1700733201}
   - component: {fileID: 1700733203}
   - component: {fileID: 1700733202}
+  - component: {fileID: 1700733204}
   m_Layer: 5
   m_Name: ExterminationHealthBar (1)
   m_TagString: Untagged
@@ -62333,6 +62354,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1700733200}
   m_CullTransparentMesh: 0
+--- !u!95 &1700733204
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700733200}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ed92f2c97c565794289974d49ac34d81, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1707214775
 GameObject:
   m_ObjectHideFlags: 0
@@ -64705,6 +64745,8 @@ MonoBehaviour:
   fishingDeathThreshold: 0
   raftHealthAnim: {fileID: 866370233}
   explorationBarAnim: {fileID: 217055769}
+  mosquitoHealthAnim: {fileID: 1700733204}
+  sharkHealthAnim: {fileID: 217055769}
   explorationSuccess: {fileID: 462814227}
 --- !u!4 &1915084581
 Transform:
