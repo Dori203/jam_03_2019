@@ -13,6 +13,6 @@ public class SpawnShark : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = new Vector3(Random.insideUnitCircle.normalized.x*45f,0,Random.insideUnitCircle.normalized.y*45f);
+        transform.position = new Vector3(Random.insideUnitCircle.x, 0, Random.insideUnitCircle.y).normalized * radius;
     }
 }
