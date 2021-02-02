@@ -32626,6 +32626,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lighthouse
       objectReference: {fileID: 0}
+    - target: {fileID: 1815141672374460027, guid: 3ee1f22bab2a7434d8edf5e722c085a2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Rock
+      objectReference: {fileID: 0}
     - target: {fileID: 1959145417160966268, guid: 3ee1f22bab2a7434d8edf5e722c085a2,
         type: 3}
       propertyPath: m_Layer
@@ -82964,6 +82969,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arc
       objectReference: {fileID: 0}
+    - target: {fileID: 8771674409873133012, guid: cb8f09bc8e916f04db37f22c4042e373,
+        type: 3}
+      propertyPath: m_TagString
+      value: Rock
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb8f09bc8e916f04db37f22c4042e373, type: 3}
 --- !u!23 &947979248097197796
@@ -83465,6 +83475,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WreckedShip
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439880147053623465, guid: 7283b6fd07ab27546beb7d77955a6039,
+        type: 3}
+      propertyPath: m_TagString
+      value: Rock
       objectReference: {fileID: 0}
     - target: {fileID: 2711204932514630330, guid: 7283b6fd07ab27546beb7d77955a6039,
         type: 3}
