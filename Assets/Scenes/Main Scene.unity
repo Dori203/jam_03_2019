@@ -5558,7 +5558,7 @@ MonoBehaviour:
   randomRotationX: 1
   randomRotationY: 1
   randomRotationZ: 1
-  radius: 60
+  radius: 45
 --- !u!1 &51464464
 GameObject:
   m_ObjectHideFlags: 0
@@ -11302,7 +11302,7 @@ MonoBehaviour:
   xAnimator: {fileID: 883808730}
   catchParticle: {fileID: 2006113}
   pokeParticles: {fileID: 1260431373}
-  fishConsumeTime: 0.01
+  fishConsumeTime: 0.0075
   minPokes: 2
   maxPokes: 5
   fishBox: {fileID: 1884809310}
@@ -64833,8 +64833,8 @@ MonoBehaviour:
   explorationVictoryThreshold: 3
   fishingScore: 0
   fishingVictoryThreshold: 9
-  exterminationMaxHealth: 300
-  exterminationHealth: 300
+  exterminationMaxHealth: 350
+  exterminationHealth: 350
   exterminationDeathThreshold: 0
   explorationMaxHealth: 3
   explorationHealth: 3
