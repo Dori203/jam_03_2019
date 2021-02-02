@@ -7705,7 +7705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 866370230}
-  rockHitForce: 2
+  rockHitForce: 1
 --- !u!1 &171413785
 GameObject:
   m_ObjectHideFlags: 0
@@ -29900,7 +29900,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 866370230}
-  rockHitForce: 3
+  rockHitForce: 2
 --- !u!114 &866370237
 MonoBehaviour:
   m_ObjectHideFlags: 0
