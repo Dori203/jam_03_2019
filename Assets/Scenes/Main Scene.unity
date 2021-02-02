@@ -5558,7 +5558,7 @@ MonoBehaviour:
   randomRotationX: 1
   randomRotationY: 1
   randomRotationZ: 1
-  radius: 45
+  radius: 60
 --- !u!1 &51464464
 GameObject:
   m_ObjectHideFlags: 0
@@ -13222,7 +13222,7 @@ MonoBehaviour:
   - {fileID: 8216418684737746695, guid: 113f52e3bd0bf2943a526bc8223d1d48, type: 3}
   - {fileID: 8216418684737746695, guid: b06932ecd51c5d84f8ea0eb568cac4aa, type: 3}
   - {fileID: 8216418684737746695, guid: c8a2f7c16fe130d45a30fca68119dbed, type: 3}
-  numberOfObjects: 60
+  numberOfObjects: 50
   squareLength: 180
   rockMinScale: 2
   rockMaxScale: 5
@@ -32452,6 +32452,11 @@ PrefabInstance:
       propertyPath: InitialModule.startColor.maxGradient.key0.g
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1391099463880017343, guid: 3ee1f22bab2a7434d8edf5e722c085a2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 68c9cc33cef961b4b997ca5855548c8a, type: 2}
     - target: {fileID: 1815141672374460027, guid: 3ee1f22bab2a7434d8edf5e722c085a2,
         type: 3}
       propertyPath: m_Name
@@ -82611,6 +82616,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6883132487057545193, guid: cb8f09bc8e916f04db37f22c4042e373,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 68c9cc33cef961b4b997ca5855548c8a, type: 2}
     - target: {fileID: 8771674409873133012, guid: cb8f09bc8e916f04db37f22c4042e373,
         type: 3}
       propertyPath: m_Name
@@ -83037,6 +83047,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1058848637, guid: 7283b6fd07ab27546beb7d77955a6039, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 68c9cc33cef961b4b997ca5855548c8a, type: 2}
     - target: {fileID: 1058848638, guid: 7283b6fd07ab27546beb7d77955a6039, type: 3}
       propertyPath: looping
       value: 0
