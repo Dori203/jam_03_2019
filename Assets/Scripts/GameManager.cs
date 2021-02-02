@@ -105,9 +105,9 @@ public class GameManager : Singleton<GameManager>, IDestroyable {
     public void decExplorationHealth(int amount)
     {
         explorationHealth = explorationHealth - amount;
+        HealthUpdate(HealthType.Exploration);
         raftHealthAnim.SetInteger("hp", explorationHealth);
         explorationBarAnim.SetInteger("hp", explorationHealth);
-        HealthUpdate(HealthType.Exploration);
         checkLoss();
     }
 
