@@ -11,6 +11,8 @@ public class Hunt : MonoBehaviour
     [SerializeField] private float acceleration = 5f;
     [SerializeField] private float cooldownTime = 5f;
     [SerializeField] private float turningMagnitude = 50f;
+    [SerializeField] private float rockHitForce;
+
     [SerializeField] private Transform nullTarget;
     [SerializeField] private Transform raft;
     private Rigidbody rb;
@@ -54,6 +56,7 @@ public class Hunt : MonoBehaviour
         rb.AddForce(distance.normalized * acceleration);
         rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
     }
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -63,6 +66,12 @@ public class Hunt : MonoBehaviour
             ExplorationManager.SharedInstance.monsterHit();
             cooldown = true;
             startTimer();
+        }
+
+        if (other.gameObject.CompareTag("Rock"))
+        {
+            Debug.Log("hit a rock");
+            rb.AddForce(rockHitForce*(this.transform.position - other.transform.position), ForceMode.Impulse);
         }
     }
 

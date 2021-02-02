@@ -5457,6 +5457,7 @@ MonoBehaviour:
   acceleration: 4
   cooldownTime: 10
   turningMagnitude: 50
+  rockHitForce: 5
   nullTarget: {fileID: 673189699}
   raft: {fileID: 866370234}
   cooldown: 0
@@ -5474,7 +5475,6 @@ Transform:
   - {fileID: 673189699}
   - {fileID: 1928421334}
   - {fileID: 1347241503}
-  - {fileID: 2097369582}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -77034,51 +77034,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2092706855}
   m_CullTransparentMesh: 0
---- !u!1 &2097369581
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2097369582}
-  - component: {fileID: 2097369583}
-  m_Layer: 22
-  m_Name: MonsterBarrier
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2097369582
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2097369581}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 49894501}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &2097369583
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2097369581}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.72
-  m_Height: 2.28
-  m_Direction: 2
-  m_Center: {x: 0.07, y: -0.65, z: 0.06}
 --- !u!114 &2115839366
 MonoBehaviour:
   m_ObjectHideFlags: 0
