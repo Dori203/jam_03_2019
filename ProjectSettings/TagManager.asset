@@ -13,6 +13,7 @@ TagManager:
   - Monster
   - FishingArea
   - MosquitoBackLimit
+  - SharkReveal
   layers:
   - Default
   - TransparentFX

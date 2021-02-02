@@ -6,6 +6,7 @@ public class InterestPointController : MonoBehaviour
 {
     [SerializeField] private int type;
     [SerializeField] private ParticleSystem particles;
+    [SerializeField] private GameObject icon;
 
     void Start()
     {
@@ -17,6 +18,7 @@ public class InterestPointController : MonoBehaviour
         if (other.tag == "raftExplorationRadar")
         {
             ExplorationManager.SharedInstance.interestPointHit(type);
+            icon.SetActive(true);
             particles.Play();
         }
     }
