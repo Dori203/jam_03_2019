@@ -5435,6 +5435,8 @@ MonoBehaviour:
   acceleration: 4
   cooldownTime: 5
   turningMagnitude: 50
+  nullTarget: {fileID: 673189699}
+  raft: {fileID: 866370234}
   cooldown: 0
 --- !u!4 &49894501
 Transform:
@@ -5447,6 +5449,7 @@ Transform:
   m_LocalPosition: {x: 2.83, y: 0.55, z: -17.77}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
+  - {fileID: 673189699}
   - {fileID: 1928421334}
   - {fileID: 1347241503}
   m_Father: {fileID: 0}
@@ -5466,7 +5469,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 64
+  m_Constraints: 68
   m_CollisionDetection: 0
 --- !u!136 &49894503
 CapsuleCollider:
@@ -5476,7 +5479,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 49894499}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.72
   m_Height: 2.28
@@ -18547,6 +18550,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1052712943}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &673189698
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 673189699}
+  m_Layer: 17
+  m_Name: nulTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &673189699
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673189698}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 5.55}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 49894501}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &689339485
 GameObject:
@@ -56787,7 +56820,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 956812132d9cf144f8629c3c5366506e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 956812132d9cf144f8629c3c5366506e,
         type: 3}
@@ -56933,6 +56966,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 956812132d9cf144f8629c3c5366506e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -423364554984102874, guid: 956812132d9cf144f8629c3c5366506e,
         type: 3}
@@ -64963,7 +65001,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 956812132d9cf144f8629c3c5366506e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 956812132d9cf144f8629c3c5366506e,
         type: 3}
@@ -65109,6 +65147,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 956812132d9cf144f8629c3c5366506e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -423364554984102874, guid: 956812132d9cf144f8629c3c5366506e,
         type: 3}
