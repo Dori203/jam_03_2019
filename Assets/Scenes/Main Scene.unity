@@ -11277,9 +11277,9 @@ MonoBehaviour:
   fishCaughtList: 
   currentFishAreas: 
   minIdleTime: 5
-  maxIdleTime: 15
+  maxIdleTime: 18
   minPokeTime: 2
-  maxPokeTime: 3
+  maxPokeTime: 5
   rodAnimator: {fileID: 600174852}
   xAnimator: {fileID: 883808730}
   catchParticle: {fileID: 2006113}
@@ -18603,7 +18603,7 @@ MonoBehaviour:
   - {fileID: 1697702250773514736, guid: 5da41f1193f874642a4134fb962bef7a, type: 3}
   - {fileID: 1697702250773514736, guid: c91d0d15301e53b48b3e0dfc28be1c98, type: 3}
   - {fileID: 1697702250773514736, guid: db6f43da99881fe4d83cf9abb7b71106, type: 3}
-  numberOfObjects: 60
+  numberOfObjects: 45
   squareLength: 180
   rockMinScale: 1.25
   rockMaxScale: 1.25
