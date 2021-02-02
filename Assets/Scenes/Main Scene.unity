@@ -11432,8 +11432,8 @@ MonoBehaviour:
   catchParticle: {fileID: 2006113}
   pokeParticles: {fileID: 1260431373}
   fishConsumeTime: 0.008
-  minPokes: 2
-  maxPokes: 5
+  minPokes: 1
+  maxPokes: 1
   fishBox: {fileID: 1884809310}
   fishHealthDecrease: 1
   eatenSprite: {fileID: 21300000, guid: 7112da18a5012184b80d71b17d817077, type: 3}
@@ -18750,7 +18750,7 @@ MonoBehaviour:
   - {fileID: 1697702250773514736, guid: 5da41f1193f874642a4134fb962bef7a, type: 3}
   - {fileID: 1697702250773514736, guid: c91d0d15301e53b48b3e0dfc28be1c98, type: 3}
   - {fileID: 1697702250773514736, guid: db6f43da99881fe4d83cf9abb7b71106, type: 3}
-  numberOfObjects: 33
+  numberOfObjects: 40
   squareLength: 180
   rockMinScale: 1.25
   rockMaxScale: 1.25
@@ -41413,7 +41413,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1236692302
 RectTransform:
   m_ObjectHideFlags: 0
