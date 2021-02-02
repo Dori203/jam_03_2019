@@ -5,7 +5,9 @@ using UnityEngine;
 public class Hunt : MonoBehaviour
 {
     [SerializeField] private Transform target;
-    [SerializeField] private float maxSpeed = 5f;
+    [SerializeField] private float maxSpeed;
+    [SerializeField] private float maxSpeedPatrol = 5f;
+    [SerializeField] private float maxSpeedCooldown = 7f;
     [SerializeField] private float acceleration = 5f;
     [SerializeField] private float cooldownTime = 5f;
     [SerializeField] private float turningMagnitude = 50f;
@@ -22,25 +24,31 @@ public class Hunt : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         target = raft;
+        startTimer();
+        maxSpeed = maxSpeedPatrol;
     }
 
     private void FixedUpdate()
     {
         if (cooldown)
         {
+            maxSpeed = maxSpeedCooldown;
             target = nullTarget;
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                cooldown = false;
+            }
         }
         else
         {
+            maxSpeed = maxSpeedPatrol;
             target = raft;
         }
 
         Quaternion lookOnLook = Quaternion.LookRotation(target.transform.position - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, lookOnLook, Time.deltaTime);
 
-//        Quaternion rotation = new Quaternion();
-//        rotation.SetLookRotation(rb.velocity);
-//        transform.rotation = rotation;
         Vector3 distance = (new Vector3(target.position.x, 0, target.position.z) - transform.position);
         prevForce = distance.normalized * acceleration;
         rb.AddForce(distance.normalized * acceleration);
@@ -58,6 +66,16 @@ public class Hunt : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Raft") && !cooldown)
+        {
+            Debug.Log("hit player on trigger");
+            ExplorationManager.SharedInstance.monsterHit();
+            cooldown = true;
+            startTimer();
+        }
+    }
 
     private void startTimer()
     {
